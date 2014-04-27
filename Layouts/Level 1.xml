@@ -1195,7 +1195,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>240</x>
+                        <x>224</x>
                         <y>0</y>
                         <z>0</z>
                         <width>80</width>

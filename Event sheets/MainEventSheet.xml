@@ -227,5 +227,59 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="7779876524115456">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="4192027847972683" type="Pirana">
+                    <param id="0" name="Object">Character</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="2647832853420495" type="System">
+                    <param id="0" name="Variable">Lives</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="6578255190882777" type="Character">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1.0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4964672144902676">
+            <conditions>
+                <condition id="-18" name="On created" sid="6500751309997069" type="FallingPlatform" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="3344903587659254" type="FallingPlatform">
+                    <param id="0" name="Instance variable">InitialHeight</param>
+                    <param id="1" name="Value">FallingPlatform.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1623889844177804">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="2101690006679791" type="FallingPlatform">
+                    <param id="0" name="Object">Character</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="582722856675369" type="FallingPlatform">
+                    <param id="0" name="Instance variable">IsFalling</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="709550035812861">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="7564190204433354" type="FallingPlatform">
+                    <param id="0" name="Instance variable">IsFalling</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="4779147352431364" type="FallingPlatform">
+                    <param id="0" name="Y">FallingPlatform.Y + (FallingPlatform.FallingSpeed * dt)</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
