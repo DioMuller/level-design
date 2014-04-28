@@ -329,17 +329,11 @@
         </event-block>
         <event-block sid="4650485016975385">
             <conditions>
-                <condition id="0" name="On collision with another object" sid="4181893121635668" type="Character">
+                <condition id="1" name="Is overlapping another object" sid="4181893121635668" type="Character">
                     <param id="0" name="Object">Water</param>
                 </condition>
             </conditions>
             <actions>
-                <action id="-3" name="Create object" sid="3043794007877482" type="System">
-                    <param id="0" name="Object to create">WaterSplash</param>
-                    <param id="1" name="Layer">Character.LayerNumber</param>
-                    <param id="2" name="X">Character.X</param>
-                    <param id="3" name="Y">Character.Y</param>
-                </action>
                 <action behavior="Platform" id="5" name="Set gravity" sid="1754772432268247" type="Character">
                     <param id="0" name="Gravity">750</param>
                 </action>
@@ -351,6 +345,42 @@
                 </action>
                 <action behavior="Platform" id="1" name="Set max speed" sid="8139085256644033" type="Character">
                     <param id="0" name="Max Speed">100</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6778119257312695">
+            <conditions>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="2272755573269036" type="Character">
+                    <param id="0" name="Object">Water</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="5" name="Set gravity" sid="6564365286025644" type="Character">
+                    <param id="0" name="Gravity">1500</param>
+                </action>
+                <action behavior="Platform" id="2" name="Set acceleration" sid="6104869759197341" type="Character">
+                    <param id="0" name="Acceleration">750</param>
+                </action>
+                <action behavior="Platform" id="6" name="Set max fall speed" sid="9772983668504626" type="Character">
+                    <param id="0" name="Max fall speed">1000</param>
+                </action>
+                <action behavior="Platform" id="1" name="Set max speed" sid="4416074148782385" type="Character">
+                    <param id="0" name="Max Speed">330</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3792462846467112">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="521877447162143" type="Character">
+                    <param id="0" name="Object">Water</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="3043794007877482" type="System">
+                    <param id="0" name="Object to create">WaterSplash</param>
+                    <param id="1" name="Layer">Character.LayerNumber</param>
+                    <param id="2" name="X">Character.X</param>
+                    <param id="3" name="Y">Character.Y</param>
                 </action>
                 <action behavior="Platform" id="9" name="Set vector Y" sid="1837044959399497" type="Character">
                     <param id="0" name="Vector Y">10</param>
