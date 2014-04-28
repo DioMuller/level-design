@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
-    <name>Level 1</name>
+    <name>Level1</name>
     <sid>6206294899271034</sid>
     <event-sheet>MainEventSheet</event-sheet>
     <size>
@@ -197,6 +197,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <Destination>Level2</Destination>
+                    </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -1195,7 +1198,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>224</x>
+                        <x>336</x>
                         <y>0</y>
                         <z>0</z>
                         <width>80</width>

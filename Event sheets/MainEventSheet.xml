@@ -247,37 +247,113 @@
         </event-block>
         <event-block sid="4964672144902676">
             <conditions>
-                <condition id="-18" name="On created" sid="6500751309997069" type="FallingPlatform" />
+                <condition id="-18" name="On created" sid="6500751309997069" type="Falling" />
             </conditions>
             <actions>
-                <action id="-10" name="Set value" sid="3344903587659254" type="FallingPlatform">
+                <action id="-10" name="Set value" sid="704769548672388" type="Falling">
                     <param id="0" name="Instance variable">InitialHeight</param>
-                    <param id="1" name="Value">FallingPlatform.Y</param>
+                    <param id="1" name="Value">Falling.Y</param>
                 </action>
             </actions>
         </event-block>
         <event-block sid="1623889844177804">
             <conditions>
-                <condition id="0" name="On collision with another object" sid="2101690006679791" type="FallingPlatform">
+                <condition id="9" name="Is overlapping at offset" sid="2101690006679791" type="Falling">
                     <param id="0" name="Object">Character</param>
+                    <param id="1" name="Offset X">0</param>
+                    <param id="2" name="Offset Y">-5</param>
                 </condition>
             </conditions>
             <actions>
-                <action id="-13" name="Set boolean" sid="582722856675369" type="FallingPlatform">
+                <action id="-13" name="Set boolean" sid="577517289184927" type="Falling">
                     <param id="0" name="Instance variable">IsFalling</param>
                     <param id="1" name="Value">1</param>
                 </action>
             </actions>
         </event-block>
+        <event-block sid="7576307011231604">
+            <conditions>
+                <condition id="9" inverted="1" name="Is overlapping at offset" sid="8914176986325915" type="Falling">
+                    <param id="0" name="Object">Character</param>
+                    <param id="1" name="Offset X">0</param>
+                    <param id="2" name="Offset Y">-5</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="4181758789322036" type="Falling">
+                    <param id="0" name="Instance variable">IsFalling</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="709550035812861">
             <conditions>
-                <condition id="-8" name="Is boolean instance variable set" sid="7564190204433354" type="FallingPlatform">
+                <condition id="-8" name="Is boolean instance variable set" sid="7564190204433354" type="Falling">
                     <param id="0" name="Instance variable">IsFalling</param>
                 </condition>
             </conditions>
             <actions>
-                <action id="-2" name="Set Y" sid="4779147352431364" type="FallingPlatform">
-                    <param id="0" name="Y">FallingPlatform.Y + (FallingPlatform.FallingSpeed * dt)</param>
+                <action id="-2" name="Set Y" sid="878345384015365" type="Falling">
+                    <param id="0" name="Y">Falling.Y + (Falling.FallingSpeed * dt)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5450421064775046">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4849451348654218" type="Falling">
+                    <param id="0" name="Instance variable">IsFalling</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="796032717629458" type="Falling">
+                    <param id="0" name="Y">max(Falling.Y - (Falling.FallingSpeed * dt), Falling.InitialHeight)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7225904100174686">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="2888739808475061" type="Portal">
+                    <param id="0" name="Object">Character</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="3176581930134887" type="System">
+                    <param id="0" name="Layout">Portal.Destination</param>
+                </action>
+                <action behavior="Flash" id="0" name="Flash" sid="2104636648173998" type="Character">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1.0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4650485016975385">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="4181893121635668" type="Character">
+                    <param id="0" name="Object">Water</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="3043794007877482" type="System">
+                    <param id="0" name="Object to create">WaterSplash</param>
+                    <param id="1" name="Layer">Character.LayerNumber</param>
+                    <param id="2" name="X">Character.X</param>
+                    <param id="3" name="Y">Character.Y</param>
+                </action>
+                <action behavior="Platform" id="5" name="Set gravity" sid="1754772432268247" type="Character">
+                    <param id="0" name="Gravity">750</param>
+                </action>
+                <action behavior="Platform" id="2" name="Set acceleration" sid="7039979412229523" type="Character">
+                    <param id="0" name="Acceleration">375</param>
+                </action>
+                <action behavior="Platform" id="6" name="Set max fall speed" sid="7784652776234641" type="Character">
+                    <param id="0" name="Max fall speed">100</param>
+                </action>
+                <action behavior="Platform" id="1" name="Set max speed" sid="8139085256644033" type="Character">
+                    <param id="0" name="Max Speed">100</param>
+                </action>
+                <action behavior="Platform" id="9" name="Set vector Y" sid="1837044959399497" type="Character">
+                    <param id="0" name="Vector Y">10</param>
                 </action>
             </actions>
         </event-block>

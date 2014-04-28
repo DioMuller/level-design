@@ -12,6 +12,7 @@
     <used-plugins>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
@@ -29,7 +30,7 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>320</width>
+        <width>426</width>
         <height>240</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
@@ -219,6 +220,9 @@
         </object-type>
         <object-type name="Portal" sid="9522884111023632">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Destination" sid="5144916248656255" type="string" />
+            </instance-variables>
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1979052886360067" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
@@ -311,29 +315,46 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="FallingPlatform" sid="8088518266639779">
+        <object-type name="Falling" sid="8310439072339501">
             <plugin id="Sprite" />
             <instance-variables>
-                <instance-variable name="InitialHeight" sid="4638251989638801" type="number" />
-                <instance-variable name="FallingSpeed" sid="7649209126495901" type="number" />
-                <instance-variable name="IsFalling" sid="108282589692096" type="boolean" />
+                <instance-variable name="IsFalling" sid="689503804555751" type="boolean" />
+                <instance-variable name="InitialHeight" sid="4227337528168725" type="number" />
+                <instance-variable name="FallingSpeed" sid="9005196201737372" type="number" />
             </instance-variables>
             <behaviors>
-                <behavior-type name="Jumpthru" sid="2212459905827134">
+                <behavior-type name="Jumpthru" sid="6961616855997656">
                     <behavior id="jumpthru" />
                 </behavior-type>
             </behaviors>
             <animation-folder expanded="1">
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7998977375992805" speed="5">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="153644311299226" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Background3" sid="2192910594713053">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Water" sid="8901929391679157">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8303657355049527" speed="5">
+                    <frame duration="1" hotspotX="7.8125" hotspotY="7.8125" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="WaterSplash" sid="2244850610676173">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder expanded="1">
-        <layout>Level 1.xml</layout>
-        <layout>Level 2.xml</layout>
+        <layout>Level1.xml</layout>
+        <layout>Level2.xml</layout>
+        <layout>Level3.xml</layout>
     </layout-folder>
     <event-folder expanded="0">
         <event-sheet>MainEventSheet.xml</event-sheet>
