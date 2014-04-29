@@ -352,7 +352,7 @@
         <object-type name="Medusa" sid="8747995127958498">
             <plugin id="Sprite" />
             <instance-variables>
-                <instance-variable name="Direction" sid="187203836218365" type="number" />
+                <instance-variable name="Force" sid="1413001303617774" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="VerticalMovement" sid="9401927147998312">

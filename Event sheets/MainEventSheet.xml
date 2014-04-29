@@ -387,5 +387,20 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="8553387497357526">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="55285726915951" type="Medusa">
+                    <param id="0" name="Object">Character</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="8" name="Set vector X" sid="3609854829519735" type="Character">
+                    <param id="0" name="Vector X">Medusa.Force * (Medusa.X - Character.X)</param>
+                </action>
+                <action behavior="Platform" id="9" name="Set vector Y" sid="9350660766091539" type="Character">
+                    <param id="0" name="Vector Y">Medusa.Force * (Medusa.Y - Character.Y)</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
