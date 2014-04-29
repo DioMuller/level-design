@@ -3,404 +3,425 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>MainEventSheet</name>
     <events>
+        <event-group collapsed="1" description="" sid="9470032869442509" title="Includes" />
         <variable constant="0" name="Points" sid="1717354043619614" static="0" type="number">0</variable>
         <variable constant="0" name="Lives" sid="1341352457056163" static="0" type="number">3</variable>
-        <event-block sid="1799936707202827">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="9362523271814757" type="Keyboard">
-                    <param id="0" name="Key">37 (Left arrow)</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="7" name="Set mirrored" sid="826153754323916" type="Character">
-                    <param id="0" name="State">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="3720996374470273">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="5597068020566585" type="Keyboard">
-                    <param id="0" name="Key">39 (Right arrow)</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="7" name="Set mirrored" sid="9279779951088502" type="Character">
-                    <param id="0" name="State">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="8613773771960345">
-            <conditions>
-                <condition behavior="Platform" id="0" name="Is moving" sid="2426543017676923" type="Character" />
-            </conditions>
-            <actions>
-                <action id="4" name="Set animation" sid="1491334300635294" type="Character">
-                    <param id="0" name="Animation">&quot;Run&quot;</param>
-                    <param id="1" name="From">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="5671551634906107">
-            <conditions>
-                <condition behavior="Platform" id="7" name="On stopped" sid="9228789133231253" type="Character" />
-            </conditions>
-            <actions>
-                <action id="4" name="Set animation" sid="5531150756425252" type="Character">
-                    <param id="0" name="Animation">&quot;Default&quot;</param>
-                    <param id="1" name="From">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="5832301895747526">
-            <conditions>
-                <condition behavior="Platform" id="3" name="Is jumping" sid="6025160626941817" type="Character" />
-            </conditions>
-            <actions>
-                <action id="4" name="Set animation" sid="6553050681425633" type="Character">
-                    <param id="0" name="Animation">&quot;Jump&quot;</param>
-                    <param id="1" name="From">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="1143344726111191">
-            <conditions>
-                <condition id="-8" name="Is boolean instance variable set" sid="249179013708256" type="Enemy">
-                    <param id="0" name="Instance variable">WalkingRight</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Platform" id="7" name="Simulate control" sid="5742406841075695" type="Enemy">
-                    <param id="0" name="Control">1</param>
-                </action>
-                <action id="7" name="Set mirrored" sid="6431797462859409" type="Enemy">
-                    <param id="0" name="State">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="3182442504111269">
-            <conditions>
-                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8021971985429806" type="Enemy">
-                    <param id="0" name="Instance variable">WalkingRight</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Platform" id="7" name="Simulate control" sid="6961114324709902" type="Enemy">
-                    <param id="0" name="Control">0</param>
-                </action>
-                <action id="7" name="Set mirrored" sid="2201154458531099" type="Enemy">
-                    <param id="0" name="State">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="2811556289028026">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="4473003147242217" type="Enemy">
-                    <param id="0" name="Object">TurningPoint</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-14" name="Toggle boolean" sid="3785972373151967" type="Enemy">
-                    <param id="0" name="Instance variable">WalkingRight</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="4832866677519573">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="5176138473669752" type="Enemy">
-                    <param id="0" name="Object">Character</param>
-                </condition>
-            </conditions>
-            <actions />
+        <event-group collapsed="1" description="" sid="4420225986325045" title="Controls">
             <sub-events>
-                <event-block sid="2318917621878424">
+                <event-block sid="1799936707202827">
                     <conditions>
-                        <condition id="-2" name="Compare Y" sid="813947477520748" type="Character">
-                            <param id="0" name="Comparison">5</param>
-                            <param id="1" name="Y co-ordinate">Enemy.Y</param>
+                        <condition id="0" name="On key pressed" sid="9362523271814757" type="Keyboard">
+                            <param id="0" name="Key">37 (Left arrow)</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-11" name="Subtract from" sid="6952599471156949" type="System">
+                        <action id="7" name="Set mirrored" sid="826153754323916" type="Character">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3720996374470273">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="5597068020566585" type="Keyboard">
+                            <param id="0" name="Key">39 (Right arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="9279779951088502" type="Character">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="5951827381003355" title="System">
+            <sub-events>
+                <event-block sid="9151077073554799">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="9907416549551341" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Set width" sid="4134382207937642" type="LifeCount">
+                            <param id="0" name="Width">Lives * 32</param>
+                        </action>
+                        <action id="0" name="Set text" sid="5026813771997246" type="PointsDisplay">
+                            <param id="0" name="Text">Points</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3219064127857998">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="7630029180115803" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2490219797083113" type="System">
                             <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6449814603749131">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="5756665445530948" type="System">
+                            <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="5277340012874009" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="9565439309594142" title="Character">
+            <sub-events>
+                <event-block sid="6815286429588571">
+                    <conditions>
+                        <condition behavior="Platform" id="0" name="Is moving" sid="814436737433949" type="Character" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="2101929308235285" type="Character">
+                            <param id="0" name="Animation">&quot;Run&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7581211507988923">
+                    <conditions>
+                        <condition behavior="Platform" id="7" name="On stopped" sid="7128638994650313" type="Character" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="2663452786934544" type="Character">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9534023982998939">
+                    <conditions>
+                        <condition behavior="Platform" id="3" name="Is jumping" sid="4759342691261619" type="Character" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="178850613276461" type="Character">
+                            <param id="0" name="Animation">&quot;Jump&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2426943948405607">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1630448211888862" type="Character">
+                            <param id="0" name="Object">Portal</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="3888540481909756">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3887065663168924" type="Character">
+                            <param id="0" name="Object">Pit</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="835502305777401" type="System">
+                            <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9144085074338176">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="1006522576107125" type="Character">
+                            <param id="0" name="Object">Water</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="5" name="Set gravity" sid="7364247108062992" type="Character">
+                            <param id="0" name="Gravity">750</param>
+                        </action>
+                        <action behavior="Platform" id="2" name="Set acceleration" sid="3136020321336368" type="Character">
+                            <param id="0" name="Acceleration">375</param>
+                        </action>
+                        <action behavior="Platform" id="6" name="Set max fall speed" sid="9314735600423349" type="Character">
+                            <param id="0" name="Max fall speed">100</param>
+                        </action>
+                        <action behavior="Platform" id="1" name="Set max speed" sid="1868536637108009" type="Character">
+                            <param id="0" name="Max Speed">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2430818695893753">
+                    <conditions>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="6827898951912723" type="Character">
+                            <param id="0" name="Object">Water</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="5" name="Set gravity" sid="3556851525966973" type="Character">
+                            <param id="0" name="Gravity">1500</param>
+                        </action>
+                        <action behavior="Platform" id="2" name="Set acceleration" sid="9887767206519168" type="Character">
+                            <param id="0" name="Acceleration">750</param>
+                        </action>
+                        <action behavior="Platform" id="6" name="Set max fall speed" sid="8719313798192758" type="Character">
+                            <param id="0" name="Max fall speed">1000</param>
+                        </action>
+                        <action behavior="Platform" id="1" name="Set max speed" sid="8971643983868321" type="Character">
+                            <param id="0" name="Max Speed">330</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9929787188022821">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1584822454395669" type="Character">
+                            <param id="0" name="Object">Water</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="439146271097316" type="System">
+                            <param id="0" name="Object to create">WaterSplash</param>
+                            <param id="1" name="Layer">Character.LayerNumber</param>
+                            <param id="2" name="X">Character.X</param>
+                            <param id="3" name="Y">Character.Y</param>
+                        </action>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="7193667204411763" type="Character">
+                            <param id="0" name="Vector Y">10</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="6673499515639753" title="Level Elements">
+            <sub-events>
+                <event-block sid="1586997929485806">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="902280574284723" type="Falling" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="5794071211164037" type="Falling">
+                            <param id="0" name="Instance variable">InitialHeight</param>
+                            <param id="1" name="Value">Falling.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8756570573276197">
+                    <conditions>
+                        <condition id="9" name="Is overlapping at offset" sid="7234047499356672" type="Falling">
+                            <param id="0" name="Object">Character</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">-5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="2550521416753423" type="Falling">
+                            <param id="0" name="Instance variable">IsFalling</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action behavior="Flash" id="0" name="Flash" sid="3428788730405519" type="Character">
+                    </actions>
+                </event-block>
+                <event-block sid="6333179698612282">
+                    <conditions>
+                        <condition id="9" inverted="1" name="Is overlapping at offset" sid="2363431869028299" type="Falling">
+                            <param id="0" name="Object">Character</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">-5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="3267035518222556" type="Falling">
+                            <param id="0" name="Instance variable">IsFalling</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7498412243395185">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="5192345653835037" type="Falling">
+                            <param id="0" name="Instance variable">IsFalling</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="9157953755294523" type="Falling">
+                            <param id="0" name="Y">Falling.Y + (Falling.FallingSpeed * dt)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9580459385725193">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="3466712789021002" type="Falling">
+                            <param id="0" name="Instance variable">IsFalling</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="7534235827785341" type="Falling">
+                            <param id="0" name="Y">max(Falling.Y - (Falling.FallingSpeed * dt), Falling.InitialHeight)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1854922805785877">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5770829288427359" type="Portal">
+                            <param id="0" name="Object">Character</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-25" name="Go to layout (by name)" sid="2019618383333911" type="System">
+                            <param id="0" name="Layout">Portal.Destination</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="2730060177016416" type="Character">
                             <param id="0" name="&apos;On&apos; time">0.1</param>
                             <param id="1" name="&apos;Off&apos; time">0.1</param>
                             <param id="2" name="Duration">1.0</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="4313046956549022">
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="532897554287145" title="Enemies">
+            <sub-events>
+                <event-block sid="3907121732291461">
                     <conditions>
-                        <condition id="-2" name="Compare Y" sid="1673067293524924" type="Character">
-                            <param id="0" name="Comparison">2</param>
-                            <param id="1" name="Y co-ordinate">Enemy.Y</param>
+                        <condition id="-8" name="Is boolean instance variable set" sid="9152772374683061" type="Enemy">
+                            <param id="0" name="Instance variable">WalkingRight</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-12" name="Subtract from" sid="2374298577113388" type="Enemy">
+                        <action behavior="Platform" id="7" name="Simulate control" sid="3003816361127026" type="Enemy">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="5616898901959515" type="Enemy">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5338624659300823">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8864461089686288" type="Enemy">
+                            <param id="0" name="Instance variable">WalkingRight</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="5881166972697221" type="Enemy">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="2302392872032764" type="Enemy">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1398484414456118">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6219335441498947" type="Enemy">
+                            <param id="0" name="Object">TurningPoint</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-14" name="Toggle boolean" sid="7334929323018303" type="Enemy">
+                            <param id="0" name="Instance variable">WalkingRight</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6879276502417164">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1500274047969551" type="Enemy">
+                            <param id="0" name="Object">Character</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="245489415909379">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="5608866681322562" type="Character">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">Enemy.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="1902859159348329" type="System">
+                                    <param id="0" name="Variable">Lives</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action behavior="Flash" id="0" name="Flash" sid="1930503855306612" type="Character">
+                                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3290299578661797">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="7102694278170616" type="Character">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Y co-ordinate">Enemy.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="9108254916692919" type="Enemy">
+                                    <param id="0" name="Instance variable">Life</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="5507142061688863" type="Character">
+                                    <param id="0" name="Vector Y">-400</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="4328274887179484" type="System">
+                                    <param id="0" name="Variable">Points</param>
+                                    <param id="1" name="Value">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="8162148785062731">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="9664067294701482" type="Enemy">
                             <param id="0" name="Instance variable">Life</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="9431594552828231" type="Enemy" />
+                        <action id="-10" name="Add to" sid="8140402571833197" type="System">
+                            <param id="0" name="Variable">Points</param>
+                            <param id="1" name="Value">500</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7598077812002427">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="8316443363944212" type="Pirana">
+                            <param id="0" name="Object">Character</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="2463617883038434" type="System">
+                            <param id="0" name="Variable">Lives</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action behavior="Platform" id="9" name="Set vector Y" sid="2830989481390898" type="Character">
-                            <param id="0" name="Vector Y">-400</param>
+                        <action behavior="Flash" id="0" name="Flash" sid="5221126822176564" type="Character">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">1.0</param>
                         </action>
-                        <action id="-10" name="Add to" sid="4806477851157298" type="System">
-                            <param id="0" name="Variable">Points</param>
-                            <param id="1" name="Value">100</param>
+                    </actions>
+                </event-block>
+                <event-block sid="5071626845835088">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3524343297737648" type="Medusa">
+                            <param id="0" name="Object">Character</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="8" name="Set vector X" sid="9019871029503664" type="Character">
+                            <param id="0" name="Vector X">Medusa.Force * (Medusa.X - Character.X)</param>
+                        </action>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="1188358518376752" type="Character">
+                            <param id="0" name="Vector Y">Medusa.Force</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
-        </event-block>
-        <event-block sid="9151077073554799">
-            <conditions>
-                <condition id="-1" name="Every tick" sid="9907416549551341" type="System" />
-            </conditions>
-            <actions>
-                <action id="-5" name="Set width" sid="4134382207937642" type="LifeCount">
-                    <param id="0" name="Width">Lives * 32</param>
-                </action>
-                <action id="0" name="Set text" sid="5026813771997246" type="PointsDisplay">
-                    <param id="0" name="Text">Points</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="6495949293681646">
-            <conditions>
-                <condition id="-7" name="Compare instance variable" sid="4594469713547139" type="Enemy">
-                    <param id="0" name="Instance variable">Life</param>
-                    <param id="1" name="Comparison">3</param>
-                    <param id="2" name="Value">0</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="6452937326527738" type="Enemy" />
-                <action id="-10" name="Add to" sid="6435634793693555" type="System">
-                    <param id="0" name="Variable">Points</param>
-                    <param id="1" name="Value">500</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="6449814603749131">
-            <conditions>
-                <condition id="-14" name="Compare variable" sid="5756665445530948" type="System">
-                    <param id="0" name="Variable">Lives</param>
-                    <param id="1" name="Comparison">3</param>
-                    <param id="2" name="Value">0</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-26" name="Restart layout" sid="5277340012874009" type="System" />
-            </actions>
-        </event-block>
-        <event-block sid="1864361685198506">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="1216707932986565" type="Character">
-                    <param id="0" name="Object">Portal</param>
-                </condition>
-            </conditions>
-            <actions />
-        </event-block>
-        <event-block sid="6099407543934294">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="1962313596539967" type="Character">
-                    <param id="0" name="Object">Pit</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="4138643498698495" type="System">
-                    <param id="0" name="Variable">Lives</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="3219064127857998">
-            <conditions>
-                <condition id="-2" name="On start of layout" sid="7630029180115803" type="System" />
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="2490219797083113" type="System">
-                    <param id="0" name="Variable">Lives</param>
-                    <param id="1" name="Value">3</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="7779876524115456">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="4192027847972683" type="Pirana">
-                    <param id="0" name="Object">Character</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-11" name="Subtract from" sid="2647832853420495" type="System">
-                    <param id="0" name="Variable">Lives</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-                <action behavior="Flash" id="0" name="Flash" sid="6578255190882777" type="Character">
-                    <param id="0" name="&apos;On&apos; time">0.1</param>
-                    <param id="1" name="&apos;Off&apos; time">0.1</param>
-                    <param id="2" name="Duration">1.0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="4964672144902676">
-            <conditions>
-                <condition id="-18" name="On created" sid="6500751309997069" type="Falling" />
-            </conditions>
-            <actions>
-                <action id="-10" name="Set value" sid="704769548672388" type="Falling">
-                    <param id="0" name="Instance variable">InitialHeight</param>
-                    <param id="1" name="Value">Falling.Y</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="1623889844177804">
-            <conditions>
-                <condition id="9" name="Is overlapping at offset" sid="2101690006679791" type="Falling">
-                    <param id="0" name="Object">Character</param>
-                    <param id="1" name="Offset X">0</param>
-                    <param id="2" name="Offset Y">-5</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-13" name="Set boolean" sid="577517289184927" type="Falling">
-                    <param id="0" name="Instance variable">IsFalling</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="7576307011231604">
-            <conditions>
-                <condition id="9" inverted="1" name="Is overlapping at offset" sid="8914176986325915" type="Falling">
-                    <param id="0" name="Object">Character</param>
-                    <param id="1" name="Offset X">0</param>
-                    <param id="2" name="Offset Y">-5</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-13" name="Set boolean" sid="4181758789322036" type="Falling">
-                    <param id="0" name="Instance variable">IsFalling</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="709550035812861">
-            <conditions>
-                <condition id="-8" name="Is boolean instance variable set" sid="7564190204433354" type="Falling">
-                    <param id="0" name="Instance variable">IsFalling</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-2" name="Set Y" sid="878345384015365" type="Falling">
-                    <param id="0" name="Y">Falling.Y + (Falling.FallingSpeed * dt)</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="5450421064775046">
-            <conditions>
-                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4849451348654218" type="Falling">
-                    <param id="0" name="Instance variable">IsFalling</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-2" name="Set Y" sid="796032717629458" type="Falling">
-                    <param id="0" name="Y">max(Falling.Y - (Falling.FallingSpeed * dt), Falling.InitialHeight)</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="7225904100174686">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="2888739808475061" type="Portal">
-                    <param id="0" name="Object">Character</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-25" name="Go to layout (by name)" sid="3176581930134887" type="System">
-                    <param id="0" name="Layout">Portal.Destination</param>
-                </action>
-                <action behavior="Flash" id="0" name="Flash" sid="2104636648173998" type="Character">
-                    <param id="0" name="&apos;On&apos; time">0.1</param>
-                    <param id="1" name="&apos;Off&apos; time">0.1</param>
-                    <param id="2" name="Duration">1.0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="4650485016975385">
-            <conditions>
-                <condition id="1" name="Is overlapping another object" sid="4181893121635668" type="Character">
-                    <param id="0" name="Object">Water</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Platform" id="5" name="Set gravity" sid="1754772432268247" type="Character">
-                    <param id="0" name="Gravity">750</param>
-                </action>
-                <action behavior="Platform" id="2" name="Set acceleration" sid="7039979412229523" type="Character">
-                    <param id="0" name="Acceleration">375</param>
-                </action>
-                <action behavior="Platform" id="6" name="Set max fall speed" sid="7784652776234641" type="Character">
-                    <param id="0" name="Max fall speed">100</param>
-                </action>
-                <action behavior="Platform" id="1" name="Set max speed" sid="8139085256644033" type="Character">
-                    <param id="0" name="Max Speed">100</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="6778119257312695">
-            <conditions>
-                <condition id="1" inverted="1" name="Is overlapping another object" sid="2272755573269036" type="Character">
-                    <param id="0" name="Object">Water</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Platform" id="5" name="Set gravity" sid="6564365286025644" type="Character">
-                    <param id="0" name="Gravity">1500</param>
-                </action>
-                <action behavior="Platform" id="2" name="Set acceleration" sid="6104869759197341" type="Character">
-                    <param id="0" name="Acceleration">750</param>
-                </action>
-                <action behavior="Platform" id="6" name="Set max fall speed" sid="9772983668504626" type="Character">
-                    <param id="0" name="Max fall speed">1000</param>
-                </action>
-                <action behavior="Platform" id="1" name="Set max speed" sid="4416074148782385" type="Character">
-                    <param id="0" name="Max Speed">330</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="3792462846467112">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="521877447162143" type="Character">
-                    <param id="0" name="Object">Water</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-3" name="Create object" sid="3043794007877482" type="System">
-                    <param id="0" name="Object to create">WaterSplash</param>
-                    <param id="1" name="Layer">Character.LayerNumber</param>
-                    <param id="2" name="X">Character.X</param>
-                    <param id="3" name="Y">Character.Y</param>
-                </action>
-                <action behavior="Platform" id="9" name="Set vector Y" sid="1837044959399497" type="Character">
-                    <param id="0" name="Vector Y">10</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="8553387497357526">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="55285726915951" type="Medusa">
-                    <param id="0" name="Object">Character</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Platform" id="8" name="Set vector X" sid="3609854829519735" type="Character">
-                    <param id="0" name="Vector X">Medusa.Force * (Medusa.X - Character.X)</param>
-                </action>
-                <action behavior="Platform" id="9" name="Set vector Y" sid="9350660766091539" type="Character">
-                    <param id="0" name="Vector Y">Medusa.Force * (Medusa.Y - Character.Y)</param>
-                </action>
-            </actions>
-        </event-block>
+        </event-group>
     </events>
 </c2eventsheet>

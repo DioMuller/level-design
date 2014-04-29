@@ -375,7 +375,7 @@
         <layout>Level2.xml</layout>
         <layout>Level3.xml</layout>
     </layout-folder>
-    <event-folder expanded="0">
+    <event-folder expanded="1">
         <event-sheet>MainEventSheet.xml</event-sheet>
     </event-folder>
     <global-instances>
