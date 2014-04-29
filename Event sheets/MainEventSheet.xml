@@ -3,7 +3,6 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>MainEventSheet</name>
     <events>
-        <event-group collapsed="1" description="" sid="9470032869442509" title="Includes" />
         <variable constant="0" name="Points" sid="1717354043619614" static="0" type="number">0</variable>
         <variable constant="0" name="Lives" sid="1341352457056163" static="0" type="number">3</variable>
         <event-group collapsed="1" description="" sid="4420225986325045" title="Controls">
@@ -338,14 +337,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-11" name="Subtract from" sid="1902859159348329" type="System">
-                                    <param id="0" name="Variable">Lives</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                                <action behavior="Flash" id="0" name="Flash" sid="1930503855306612" type="Character">
-                                    <param id="0" name="&apos;On&apos; time">0.1</param>
-                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
-                                    <param id="2" name="Duration">1.0</param>
+                                <action id="0" name="Call function" sid="5195812136390324" type="Functions">
+                                    <param id="0" name="Name">&quot;HitPlayer&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
                         </event-block>
@@ -395,14 +389,9 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-11" name="Subtract from" sid="2463617883038434" type="System">
-                            <param id="0" name="Variable">Lives</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action behavior="Flash" id="0" name="Flash" sid="5221126822176564" type="Character">
-                            <param id="0" name="&apos;On&apos; time">0.1</param>
-                            <param id="1" name="&apos;Off&apos; time">0.1</param>
-                            <param id="2" name="Duration">1.0</param>
+                        <action id="0" name="Call function" sid="6632772280197915" type="Functions">
+                            <param id="0" name="Name">&quot;HitPlayer&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                     </actions>
                 </event-block>
@@ -418,6 +407,32 @@
                         </action>
                         <action behavior="Platform" id="9" name="Set vector Y" sid="1188358518376752" type="Character">
                             <param id="0" name="Vector Y">Medusa.Force</param>
+                        </action>
+                        <action id="0" name="Call function" sid="3201616611554091" type="Functions">
+                            <param id="0" name="Name">&quot;HitPlayer&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="383225706098883" title="Functions">
+            <sub-events>
+                <event-block sid="2425625833885185">
+                    <conditions>
+                        <condition id="0" name="On function" sid="1992647823822198" type="Functions">
+                            <param id="0" name="Name">&quot;HitPlayer&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="2463617883038434" type="System">
+                            <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="5221126822176564" type="Character">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">1.0</param>
                         </action>
                     </actions>
                 </event-block>

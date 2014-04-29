@@ -10,6 +10,7 @@
     <unique-id>31bntujh9thh4</unique-id>
     <saved-with-version>16800</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
         <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
@@ -368,6 +369,9 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Functions" sid="8918100426460902">
+            <plugin id="Function" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder expanded="1">
@@ -380,6 +384,7 @@
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="6" />
+        <global-instance type="Functions" uid="117" />
     </global-instances>
     <sounds-folder expanded="1" />
     <music-folder expanded="1" />
