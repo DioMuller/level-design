@@ -7,6 +7,60 @@
         <variable constant="0" name="Lives" sid="1341352457056163" static="0" type="number">3</variable>
         <event-group collapsed="1" description="" sid="4420225986325045" title="Controls">
             <sub-events>
+                <event-block sid="6889488348126219">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="990010102417555" type="Keyboard">
+                            <param id="0" name="Key">87 (W)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="1102437115651308" type="Character">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3377027262562445">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="6549525676516521" type="Keyboard">
+                            <param id="0" name="Key">65 (A)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="3677069502919149" type="Character">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="6535924567283438" type="Character">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9498607373660957">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="2654931614564852" type="Keyboard">
+                            <param id="0" name="Key">68 (D)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="3885205477377172" type="Character">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="2677481778305393" type="Character">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="756549526531952">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="8987028150084388" type="Keyboard">
+                            <param id="0" name="Key">32 (Space)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="8428314467900515" type="Character">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="1799936707202827">
                     <conditions>
                         <condition id="0" name="On key pressed" sid="9362523271814757" type="Keyboard">
@@ -281,49 +335,49 @@
             <sub-events>
                 <event-block sid="3907121732291461">
                     <conditions>
-                        <condition id="-8" name="Is boolean instance variable set" sid="9152772374683061" type="Enemy">
+                        <condition id="-8" name="Is boolean instance variable set" sid="9152772374683061" type="Soldier">
                             <param id="0" name="Instance variable">WalkingRight</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Platform" id="7" name="Simulate control" sid="3003816361127026" type="Enemy">
+                        <action behavior="Platform" id="7" name="Simulate control" sid="3003816361127026" type="Soldier">
                             <param id="0" name="Control">1</param>
                         </action>
-                        <action id="7" name="Set mirrored" sid="5616898901959515" type="Enemy">
+                        <action id="7" name="Set mirrored" sid="5616898901959515" type="Soldier">
                             <param id="0" name="State">1</param>
                         </action>
                     </actions>
                 </event-block>
                 <event-block sid="5338624659300823">
                     <conditions>
-                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8864461089686288" type="Enemy">
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8864461089686288" type="Soldier">
                             <param id="0" name="Instance variable">WalkingRight</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Platform" id="7" name="Simulate control" sid="5881166972697221" type="Enemy">
+                        <action behavior="Platform" id="7" name="Simulate control" sid="5881166972697221" type="Soldier">
                             <param id="0" name="Control">0</param>
                         </action>
-                        <action id="7" name="Set mirrored" sid="2302392872032764" type="Enemy">
+                        <action id="7" name="Set mirrored" sid="2302392872032764" type="Soldier">
                             <param id="0" name="State">0</param>
                         </action>
                     </actions>
                 </event-block>
                 <event-block sid="1398484414456118">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="6219335441498947" type="Enemy">
+                        <condition id="0" name="On collision with another object" sid="6219335441498947" type="Soldier">
                             <param id="0" name="Object">TurningPoint</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-14" name="Toggle boolean" sid="7334929323018303" type="Enemy">
+                        <action id="-14" name="Toggle boolean" sid="7334929323018303" type="Soldier">
                             <param id="0" name="Instance variable">WalkingRight</param>
                         </action>
                     </actions>
                 </event-block>
                 <event-block sid="6879276502417164">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="1500274047969551" type="Enemy">
+                        <condition id="0" name="On collision with another object" sid="1500274047969551" type="Soldier">
                             <param id="0" name="Object">Character</param>
                         </condition>
                     </conditions>
@@ -333,7 +387,7 @@
                             <conditions>
                                 <condition id="-2" name="Compare Y" sid="5608866681322562" type="Character">
                                     <param id="0" name="Comparison">5</param>
-                                    <param id="1" name="Y co-ordinate">Enemy.Y</param>
+                                    <param id="1" name="Y co-ordinate">Soldier.Y</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -347,11 +401,11 @@
                             <conditions>
                                 <condition id="-2" name="Compare Y" sid="7102694278170616" type="Character">
                                     <param id="0" name="Comparison">2</param>
-                                    <param id="1" name="Y co-ordinate">Enemy.Y</param>
+                                    <param id="1" name="Y co-ordinate">Soldier.Y</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-12" name="Subtract from" sid="9108254916692919" type="Enemy">
+                                <action id="-12" name="Subtract from" sid="9108254916692919" type="Soldier">
                                     <param id="0" name="Instance variable">Life</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
@@ -368,14 +422,14 @@
                 </event-block>
                 <event-block sid="8162148785062731">
                     <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="9664067294701482" type="Enemy">
+                        <condition id="-7" name="Compare instance variable" sid="9664067294701482" type="Soldier">
                             <param id="0" name="Instance variable">Life</param>
                             <param id="1" name="Comparison">3</param>
                             <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="9431594552828231" type="Enemy" />
+                        <action id="-9" name="Destroy" sid="9431594552828231" type="Soldier" />
                         <action id="-10" name="Add to" sid="8140402571833197" type="System">
                             <param id="0" name="Variable">Points</param>
                             <param id="1" name="Value">500</param>
