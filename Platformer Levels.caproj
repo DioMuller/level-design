@@ -73,7 +73,7 @@
                 <plugin id="Text" />
             </object-type>
         </object-folder>
-        <object-folder expanded="0" name="Level Elements">
+        <object-folder expanded="1" name="Level Elements">
             <object-type name="Bridge" sid="5999452197324102">
                 <plugin id="TiledBg" />
                 <behaviors>
@@ -141,7 +141,7 @@
                 <plugin id="Sprite" />
                 <animation-folder expanded="1">
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8303657355049527" speed="5">
-                        <frame duration="1" hotspotX="7.8125" hotspotY="7.8125" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -149,8 +149,25 @@
                 <plugin id="Particles" />
                 <texture />
             </object-type>
+            <object-type name="Ice" sid="7328147474132423">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="IsMelting" sid="398410081716185" type="boolean" />
+                    <instance-variable name="TimeToMelt" sid="3768341073039362" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Solid" sid="3721713389720801">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5648507622433334" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
-        <object-folder expanded="0" name="Enemies">
+        <object-folder expanded="1" name="Enemies">
             <object-type name="Soldier" sid="5764272845603996">
                 <plugin id="Sprite" />
                 <instance-variables>
@@ -306,7 +323,7 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-folder expanded="0" name="Limiters">
+        <object-folder expanded="1" name="Limiters">
             <object-type name="Limit" sid="1152166477806146">
                 <plugin id="Sprite" />
                 <behaviors>
@@ -335,6 +352,14 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder expanded="0" name="System">
+            <object-type name="Keyboard" sid="8776706155899669">
+                <plugin id="Keyboard" />
+            </object-type>
+            <object-type name="Functions" sid="8918100426460902">
+                <plugin id="Function" />
             </object-type>
         </object-folder>
         <object-type name="Character" sid="7483147430338791">
@@ -376,11 +401,14 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Keyboard" sid="8776706155899669">
-            <plugin id="Keyboard" />
-        </object-type>
-        <object-type name="Functions" sid="8918100426460902">
-            <plugin id="Function" />
+        <object-type name="Spikes" sid="2983609296933563">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Solid" sid="8247985522438129">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture />
         </object-type>
     </object-folder>
     <families />

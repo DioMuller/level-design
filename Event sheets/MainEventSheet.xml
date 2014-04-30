@@ -191,7 +191,7 @@
                     </conditions>
                     <actions>
                         <action behavior="Platform" id="5" name="Set gravity" sid="7364247108062992" type="Character">
-                            <param id="0" name="Gravity">750</param>
+                            <param id="0" name="Gravity">3000</param>
                         </action>
                         <action behavior="Platform" id="2" name="Set acceleration" sid="3136020321336368" type="Character">
                             <param id="0" name="Acceleration">375</param>
@@ -245,7 +245,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="" sid="6673499515639753" title="Level Elements">
+        <event-group description="" sid="6673499515639753" title="Level Elements">
             <sub-events>
                 <event-block sid="1586997929485806">
                     <conditions>
@@ -322,11 +322,48 @@
                         <action id="-25" name="Go to layout (by name)" sid="2019618383333911" type="System">
                             <param id="0" name="Layout">Portal.Destination</param>
                         </action>
-                        <action behavior="Flash" id="0" name="Flash" sid="2730060177016416" type="Character">
-                            <param id="0" name="&apos;On&apos; time">0.1</param>
-                            <param id="1" name="&apos;Off&apos; time">0.1</param>
-                            <param id="2" name="Duration">1.0</param>
+                    </actions>
+                </event-block>
+                <event-block sid="9199108682454736">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5606229027170502" type="Ice">
+                            <param id="0" name="Object">Character</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="6261572708189001" type="Ice">
+                            <param id="0" name="Instance variable">IsMelting</param>
+                            <param id="1" name="Value">1</param>
                         </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9315375799995926">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="8559655226697016" type="Ice">
+                            <param id="0" name="Instance variable">IsMelting</param>
+                        </condition>
+                        <condition id="-1" name="Every tick" sid="2980060452602952" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="7499394625149256" type="Ice">
+                            <param id="0" name="Instance variable">TimeToMelt</param>
+                            <param id="1" name="Value">dt * 1000</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="8411204483618433" type="Ice">
+                            <param id="0" name="Opacity">100 * (Ice.TimeToMelt / 1000 )</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8922973365491541">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="8434688391721488" type="Ice">
+                            <param id="0" name="Instance variable">TimeToMelt</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="1885760872769932" type="Ice" />
                     </actions>
                 </event-block>
             </sub-events>
@@ -455,18 +492,47 @@
                             <param id="0" name="Object">Character</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action behavior="Platform" id="8" name="Set vector X" sid="9019871029503664" type="Character">
-                            <param id="0" name="Vector X">Medusa.Force * (Medusa.X - Character.X)</param>
-                        </action>
-                        <action behavior="Platform" id="9" name="Set vector Y" sid="1188358518376752" type="Character">
-                            <param id="0" name="Vector Y">Medusa.Force</param>
-                        </action>
-                        <action id="0" name="Call function" sid="3201616611554091" type="Functions">
-                            <param id="0" name="Name">&quot;HitPlayer&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9089515490355629">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="894353091472922" type="Character">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">Medusa.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="8" name="Set vector X" sid="9019871029503664" type="Character">
+                                    <param id="0" name="Vector X">Medusa.Force * (Medusa.X - Character.X)</param>
+                                </action>
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="1188358518376752" type="Character">
+                                    <param id="0" name="Vector Y">Medusa.Force</param>
+                                </action>
+                                <action id="0" name="Call function" sid="3201616611554091" type="Functions">
+                                    <param id="0" name="Name">&quot;HitPlayer&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5194644598512566">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="3230477816334743" type="Character">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Y co-ordinate">Medusa.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="2492352207567753" type="Character">
+                                    <param id="0" name="Vector Y">-400</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="4892819332601227" type="System">
+                                    <param id="0" name="Variable">Points</param>
+                                    <param id="1" name="Value">100</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="2251303655979027" type="Medusa" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
