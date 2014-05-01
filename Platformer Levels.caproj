@@ -189,6 +189,15 @@
                 <plugin id="NinePatch" />
                 <texture />
             </object-type>
+            <object-type name="Checkpoint" sid="8032282077325823">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3680776416955425" speed="10">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder expanded="1" name="Enemies">
             <object-type name="Soldier" sid="5764272845603996">

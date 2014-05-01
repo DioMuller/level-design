@@ -3,9 +3,11 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>MainEventSheet</name>
     <events>
+        <variable constant="0" name="StartingY" sid="3809158311036839" static="0" type="number">0</variable>
+        <variable constant="0" name="StartingX" sid="9373159724769693" static="0" type="number">0</variable>
         <variable constant="0" name="Points" sid="1717354043619614" static="0" type="number">0</variable>
         <variable constant="0" name="Lives" sid="1341352457056163" static="0" type="number">3</variable>
-        <event-group description="" sid="4420225986325045" title="Controls">
+        <event-group collapsed="1" description="" sid="4420225986325045" title="Controls">
             <sub-events>
                 <event-block any="1" sid="6889488348126219">
                     <conditions>
@@ -114,9 +116,17 @@
                         <condition id="-2" name="On start of layout" sid="7630029180115803" type="System" />
                     </conditions>
                     <actions>
-                        <action id="-9" name="Set value" sid="2490219797083113" type="System">
-                            <param id="0" name="Variable">Lives</param>
-                            <param id="1" name="Value">3</param>
+                        <action id="-9" name="Set value" sid="6360620869444348" type="System">
+                            <param id="0" name="Variable">StartingX</param>
+                            <param id="1" name="Value">Character.X</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="10120881577217" type="System">
+                            <param id="0" name="Variable">StartingY</param>
+                            <param id="1" name="Value">Character.Y</param>
+                        </action>
+                        <action id="0" name="Call function" sid="2103073770903165" type="Functions">
+                            <param id="0" name="Name">&quot;RestartAtCheckpoint&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                     </actions>
                 </event-block>
@@ -129,7 +139,10 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-26" name="Restart layout" sid="5277340012874009" type="System" />
+                        <action id="0" name="Call function" sid="5500393330785949" type="Functions">
+                            <param id="0" name="Name">&quot;RestartAtCheckpoint&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -270,6 +283,23 @@
         </event-group>
         <event-group collapsed="1" description="" sid="6673499515639753" title="Level Elements">
             <sub-events>
+                <event-block sid="3455822299776532">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="9084004366306788" type="Checkpoint">
+                            <param id="0" name="Object">Character</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="4293325838966331" type="System">
+                            <param id="0" name="Variable">StartingX</param>
+                            <param id="1" name="Value">Checkpoint.X</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="3304028763300581" type="System">
+                            <param id="0" name="Variable">StartingY</param>
+                            <param id="1" name="Value">Checkpoint.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="1356247400944795">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="9126918954731086" type="System">
@@ -697,6 +727,23 @@
                         </action>
                         <action behavior="Bullet" id="0" name="Set speed" sid="2655561644411212" type="Bullet">
                             <param id="0" name="Speed">Functions.Param(2)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6722899764709275">
+                    <conditions>
+                        <condition id="0" name="On function" sid="7574308915347929" type="Functions">
+                            <param id="0" name="Name">&quot;RestartAtCheckpoint&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="5420780433228275" type="Character">
+                            <param id="0" name="X">StartingX</param>
+                            <param id="1" name="Y">StartingY</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9724577439321295" type="System">
+                            <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Value">3</param>
                         </action>
                     </actions>
                 </event-block>
