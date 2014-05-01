@@ -263,6 +263,27 @@
         </event-group>
         <event-group collapsed="1" description="" sid="6673499515639753" title="Level Elements">
             <sub-events>
+                <event-block sid="1356247400944795">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="9126918954731086" type="System">
+                            <param id="0" name="Interval (seconds)">2.0</param>
+                        </condition>
+                        <condition id="-11" name="For Each" sid="6661866467243765" type="System">
+                            <param id="0" name="Object">Pipe</param>
+                        </condition>
+                        <condition id="-3" name="Is on-screen" sid="1284341341271637" type="Pipe" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="4303928503504892" type="Functions">
+                            <param id="0" name="Name">&quot;SpawnBullet&quot;</param>
+                            <param id="1" name="Parameter {n}">Pipe.X {###}Pipe.Y + (Pipe.Height / 2){###}-60</param>
+                        </action>
+                        <action id="0" name="Call function" sid="6644605912438723" type="Functions">
+                            <param id="0" name="Name">&quot;SpawnBullet&quot;</param>
+                            <param id="1" name="Parameter {n}">Pipe.X + Pipe.Width{###}Pipe.Y + (Pipe.Height/2){###}60</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="1586997929485806">
                     <conditions>
                         <condition id="-18" name="On created" sid="902280574284723" type="Falling" />
@@ -396,8 +417,27 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="" sid="532897554287145" title="Enemies">
+        <event-group description="" sid="532897554287145" title="Enemies">
             <sub-events>
+                <event-block sid="6403517749705746">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="8486528101917322" type="BadBlock">
+                            <param id="0" name="Object">Character</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="7533859516955519" type="Functions">
+                            <param id="0" name="Name">&quot;HitPlayer&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action behavior="Platform" id="8" name="Set vector X" sid="6709175895937301" type="Character">
+                            <param id="0" name="Vector X">-15</param>
+                        </action>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="3649103874459335" type="Character">
+                            <param id="0" name="Vector Y">-10</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="3907121732291461">
                     <conditions>
                         <condition id="-8" name="Is boolean instance variable set" sid="9152772374683061" type="Soldier">
@@ -514,6 +554,57 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="2617820557149394">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="353729866526586" type="Bullet">
+                            <param id="0" name="Object">Character</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="2731267533359569" type="Bullet" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="9727206635854466">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="7636426130066347" type="Character">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">Bullet.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="2255755109171161" type="Functions">
+                                    <param id="0" name="Name">&quot;HitPlayer&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6556426620207596">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="3827062194852468" type="Character">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Y co-ordinate">Bullet.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="5734660720613022" type="Character">
+                                    <param id="0" name="Vector Y">-400</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="2171871322587067" type="System">
+                                    <param id="0" name="Variable">Points</param>
+                                    <param id="1" name="Value">150</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="9289696422529024">
+                    <conditions>
+                        <condition id="-3" inverted="1" name="Is on-screen" sid="4434648633202718" type="Bullet" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="1790089359942026" type="Bullet" />
+                    </actions>
+                </event-block>
                 <event-block sid="5071626845835088">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="3524343297737648" type="Medusa">
@@ -555,7 +646,7 @@
                                 </action>
                                 <action id="-10" name="Add to" sid="4892819332601227" type="System">
                                     <param id="0" name="Variable">Points</param>
-                                    <param id="1" name="Value">100</param>
+                                    <param id="1" name="Value">250</param>
                                 </action>
                                 <action id="-9" name="Destroy" sid="2251303655979027" type="Medusa" />
                             </actions>
@@ -564,7 +655,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="383225706098883" title="Functions">
+        <event-group collapsed="1" description="" sid="383225706098883" title="Functions">
             <sub-events>
                 <event-block sid="2425625833885185">
                     <conditions>
@@ -584,26 +675,25 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="9237639584974432">
+                    <conditions>
+                        <condition id="0" name="On function" sid="4787364597026937" type="Functions">
+                            <param id="0" name="Name">&quot;SpawnBullet&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="2304161346662967" type="System">
+                            <param id="0" name="Object to create">Bullet</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">Functions.Param(0)</param>
+                            <param id="3" name="Y">Functions.Param(1)</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="2655561644411212" type="Bullet">
+                            <param id="0" name="Speed">Functions.Param(2)</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
-        <event-block sid="6403517749705746">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="8486528101917322" type="BadBlock">
-                    <param id="0" name="Object">Character</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Call function" sid="7533859516955519" type="Functions">
-                    <param id="0" name="Name">&quot;HitPlayer&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
-                </action>
-                <action behavior="Platform" id="8" name="Set vector X" sid="6709175895937301" type="Character">
-                    <param id="0" name="Vector X">-15</param>
-                </action>
-                <action behavior="Platform" id="9" name="Set vector Y" sid="3649103874459335" type="Character">
-                    <param id="0" name="Vector Y">-10</param>
-                </action>
-            </actions>
-        </event-block>
     </events>
 </c2eventsheet>
