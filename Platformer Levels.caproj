@@ -476,9 +476,11 @@
     </object-folder>
     <families />
     <layout-folder expanded="1">
-        <layout>Level1.xml</layout>
-        <layout>Level2.xml</layout>
-        <layout>Level3.xml</layout>
+        <layout-folder expanded="0" name="Levels">
+            <layout>Level1.xml</layout>
+            <layout>Level2.xml</layout>
+            <layout>Level3.xml</layout>
+        </layout-folder>
     </layout-folder>
     <event-folder expanded="1">
         <event-sheet>MainEventSheet.xml</event-sheet>

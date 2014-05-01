@@ -127,8 +127,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>432</x>
-                        <y>1120</y>
+                        <x>64</x>
+                        <y>96</y>
                         <z>0</z>
                         <width>21</width>
                         <height>24</height>
@@ -195,10 +195,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>256</x>
-                        <y>192</y>
+                        <y>112</y>
                         <z>0</z>
-                        <width>144</width>
-                        <height>48</height>
+                        <width>240</width>
+                        <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -219,7 +219,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>304</x>
-                        <y>160</y>
+                        <y>80</y>
                         <z>0</z>
                         <width>32</width>
                         <height>64</height>
@@ -409,59 +409,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Medusa" uid="104">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <Force>100</Force>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="VerticalMovement">
-                            <properties>
-                                <active-on-start>Yes</active-on-start>
-                                <movement>Vertical</movement>
-                                <wave>Sine</wave>
-                                <period>6</period>
-                                <period-random>0</period-random>
-                                <period-offset>0</period-offset>
-                                <period-offset-random>0</period-offset-random>
-                                <magnitude>-15</magnitude>
-                                <magnitude-random>0</magnitude-random>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="HorizontalMovement">
-                            <properties>
-                                <active-on-start>Yes</active-on-start>
-                                <movement>Horizontal</movement>
-                                <wave>Sine</wave>
-                                <period>4</period>
-                                <period-random>0</period-random>
-                                <period-offset>0</period-offset>
-                                <period-offset-random>0</period-offset-random>
-                                <magnitude>50</magnitude>
-                                <magnitude-random>0</magnitude-random>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>80</x>
-                        <y>176</y>
-                        <z>0</z>
-                        <width>16</width>
-                        <height>14</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="Ground" uid="106">
                     <properties>
                         <left-margin>16</left-margin>
@@ -563,59 +510,6 @@
                         <z>0</z>
                         <width>48</width>
                         <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Medusa" uid="114">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <Force>100</Force>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="VerticalMovement">
-                            <properties>
-                                <active-on-start>Yes</active-on-start>
-                                <movement>Vertical</movement>
-                                <wave>Sine</wave>
-                                <period>6</period>
-                                <period-random>0</period-random>
-                                <period-offset>0</period-offset>
-                                <period-offset-random>0</period-offset-random>
-                                <magnitude>15</magnitude>
-                                <magnitude-random>0</magnitude-random>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="HorizontalMovement">
-                            <properties>
-                                <active-on-start>Yes</active-on-start>
-                                <movement>Horizontal</movement>
-                                <wave>Sine</wave>
-                                <period>4</period>
-                                <period-random>0</period-random>
-                                <period-offset>0</period-offset>
-                                <period-offset-random>0</period-offset-random>
-                                <magnitude>-50</magnitude>
-                                <magnitude-random>0</magnitude-random>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>80</x>
-                        <y>288</y>
-                        <z>0</z>
-                        <width>16</width>
-                        <height>14</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -771,7 +665,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -804,7 +698,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -837,7 +731,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -870,7 +764,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -903,7 +797,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -936,7 +830,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -969,7 +863,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1002,7 +896,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1035,7 +929,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1068,7 +962,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1101,7 +995,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1134,7 +1028,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1167,7 +1061,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1200,7 +1094,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1233,7 +1127,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1266,7 +1160,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1299,7 +1193,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1332,7 +1226,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1365,7 +1259,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1398,7 +1292,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1431,7 +1325,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1464,7 +1358,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1497,7 +1391,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1530,7 +1424,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1563,7 +1457,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1596,7 +1490,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1629,7 +1523,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1662,7 +1556,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1695,7 +1589,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1728,7 +1622,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1761,7 +1655,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1794,7 +1688,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1827,7 +1721,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1860,7 +1754,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1893,7 +1787,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1926,7 +1820,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1959,7 +1853,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1992,7 +1886,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2025,7 +1919,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2058,7 +1952,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2091,7 +1985,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2124,7 +2018,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2157,7 +2051,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2340,7 +2234,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2373,7 +2267,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2406,7 +2300,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2439,7 +2333,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2472,7 +2366,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2589,7 +2483,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2622,7 +2516,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2655,7 +2549,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2688,7 +2582,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -2721,7 +2615,7 @@
                     </properties>
                     <instance-variables>
                         <IsMelting>false</IsMelting>
-                        <TimeToMelt>1000</TimeToMelt>
+                        <TimeToMelt>500</TimeToMelt>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -3091,32 +2985,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Pipe" uid="200">
-                    <properties>
-                        <left-margin>16</left-margin>
-                        <right-margin>16</right-margin>
-                        <top-margin>16</top-margin>
-                        <bottom-margin>16</bottom-margin>
-                        <edges>Stretch</edges>
-                        <fill>Stretch</fill>
-                        <initial-visibility>Visible</initial-visibility>
-                        <hotspot>Top-left</hotspot>
-                        <seams>Overlap</seams>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>176</x>
-                        <y>928</y>
-                        <z>0</z>
-                        <width>48</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="Pipe" uid="201">
                     <properties>
                         <left-margin>16</left-margin>
@@ -3136,84 +3004,6 @@
                         <y>384</y>
                         <z>0</z>
                         <width>80</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Pipe" uid="203">
-                    <properties>
-                        <left-margin>16</left-margin>
-                        <right-margin>16</right-margin>
-                        <top-margin>16</top-margin>
-                        <bottom-margin>16</bottom-margin>
-                        <edges>Stretch</edges>
-                        <fill>Stretch</fill>
-                        <initial-visibility>Visible</initial-visibility>
-                        <hotspot>Top-left</hotspot>
-                        <seams>Overlap</seams>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>176</x>
-                        <y>608</y>
-                        <z>0</z>
-                        <width>48</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Pipe" uid="204">
-                    <properties>
-                        <left-margin>16</left-margin>
-                        <right-margin>16</right-margin>
-                        <top-margin>16</top-margin>
-                        <bottom-margin>16</bottom-margin>
-                        <edges>Stretch</edges>
-                        <fill>Stretch</fill>
-                        <initial-visibility>Visible</initial-visibility>
-                        <hotspot>Top-left</hotspot>
-                        <seams>Overlap</seams>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>176</x>
-                        <y>800</y>
-                        <z>0</z>
-                        <width>48</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Pipe" uid="205">
-                    <properties>
-                        <left-margin>16</left-margin>
-                        <right-margin>16</right-margin>
-                        <top-margin>16</top-margin>
-                        <bottom-margin>16</bottom-margin>
-                        <edges>Stretch</edges>
-                        <fill>Stretch</fill>
-                        <initial-visibility>Visible</initial-visibility>
-                        <hotspot>Top-left</hotspot>
-                        <seams>Overlap</seams>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>176</x>
-                        <y>1040</y>
-                        <z>0</z>
-                        <width>48</width>
                         <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -4033,40 +3823,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Falling" uid="233">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <IsFalling>false</IsFalling>
-                        <InitialHeight>0</InitialHeight>
-                        <FallingSpeed>30</FallingSpeed>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Solid">
-                            <properties>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>368</x>
-                        <y>912</y>
-                        <z>0</z>
-                        <width>32</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="Ground" uid="236">
                     <properties>
                         <left-margin>16</left-margin>
@@ -4097,74 +3853,6 @@
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Falling" uid="237">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <IsFalling>false</IsFalling>
-                        <InitialHeight>0</InitialHeight>
-                        <FallingSpeed>30</FallingSpeed>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Solid">
-                            <properties>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>368</x>
-                        <y>784</y>
-                        <z>0</z>
-                        <width>32</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Falling" uid="238">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <IsFalling>false</IsFalling>
-                        <InitialHeight>0</InitialHeight>
-                        <FallingSpeed>30</FallingSpeed>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Solid">
-                            <properties>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>400</x>
-                        <y>784</y>
-                        <z>0</z>
-                        <width>32</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
@@ -4230,7 +3918,7 @@
                                 <active-on-start>Yes</active-on-start>
                                 <movement>Horizontal</movement>
                                 <wave>Sine</wave>
-                                <period>8</period>
+                                <period>6</period>
                                 <period-random>0</period-random>
                                 <period-offset>0</period-offset>
                                 <period-offset-random>0</period-offset-random>
@@ -4644,6 +4332,285 @@
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>1</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Pipe" uid="200">
+                    <properties>
+                        <left-margin>16</left-margin>
+                        <right-margin>16</right-margin>
+                        <top-margin>16</top-margin>
+                        <bottom-margin>16</bottom-margin>
+                        <edges>Stretch</edges>
+                        <fill>Stretch</fill>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                        <seams>Overlap</seams>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>176</x>
+                        <y>272</y>
+                        <z>0</z>
+                        <width>80</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Pipe" uid="114">
+                    <properties>
+                        <left-margin>16</left-margin>
+                        <right-margin>16</right-margin>
+                        <top-margin>16</top-margin>
+                        <bottom-margin>16</bottom-margin>
+                        <edges>Stretch</edges>
+                        <fill>Stretch</fill>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                        <seams>Overlap</seams>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>176</x>
+                        <y>176</y>
+                        <z>0</z>
+                        <width>80</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Ground" uid="104">
+                    <properties>
+                        <left-margin>16</left-margin>
+                        <right-margin>16</right-margin>
+                        <top-margin>16</top-margin>
+                        <bottom-margin>16</bottom-margin>
+                        <edges>Tile</edges>
+                        <fill>Tile</fill>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                        <seams>Overlap</seams>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>304</x>
+                        <y>304</y>
+                        <z>0</z>
+                        <width>224</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Ground" uid="203">
+                    <properties>
+                        <left-margin>16</left-margin>
+                        <right-margin>16</right-margin>
+                        <top-margin>16</top-margin>
+                        <bottom-margin>16</bottom-margin>
+                        <edges>Tile</edges>
+                        <fill>Tile</fill>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                        <seams>Overlap</seams>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>304</x>
+                        <y>336</y>
+                        <z>0</z>
+                        <width>96</width>
+                        <height>48</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Ground" uid="204">
+                    <properties>
+                        <left-margin>16</left-margin>
+                        <right-margin>16</right-margin>
+                        <top-margin>16</top-margin>
+                        <bottom-margin>16</bottom-margin>
+                        <edges>Tile</edges>
+                        <fill>Tile</fill>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                        <seams>Overlap</seams>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>448</x>
+                        <y>336</y>
+                        <z>0</z>
+                        <width>80</width>
+                        <height>48</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="BadBlock" uid="205">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>Yes</active-on-start>
+                                <movement>Vertical</movement>
+                                <wave>Sine</wave>
+                                <period>10</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>25</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>426</x>
+                        <y>394</y>
+                        <z>0</z>
+                        <width>64</width>
+                        <height>48</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.59375</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Coil" uid="252">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>272</x>
+                        <y>448</y>
+                        <z>0</z>
+                        <width>16</width>
+                        <height>16</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>1</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Coil" uid="253">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>512</x>
+                        <y>304</y>
+                        <z>0</z>
+                        <width>16</width>
+                        <height>16</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>1</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Platform" uid="233">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>Yes</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>6</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>60</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>416</x>
+                        <y>768</y>
+                        <z>0</z>
+                        <width>48</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
