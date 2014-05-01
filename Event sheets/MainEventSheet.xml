@@ -243,9 +243,25 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="1880384681487897">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="358285851096795" type="Character">
+                            <param id="0" name="Object">Spikes</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="2202461502445545" type="Functions">
+                            <param id="0" name="Name">&quot;HitPlayer&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="1826358602174973" type="Character">
+                            <param id="0" name="Vector Y">-400</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="6673499515639753" title="Level Elements">
+        <event-group collapsed="1" description="" sid="6673499515639753" title="Level Elements">
             <sub-events>
                 <event-block sid="1586997929485806">
                     <conditions>
@@ -364,6 +380,18 @@
                     </conditions>
                     <actions>
                         <action id="-9" name="Destroy" sid="1885760872769932" type="Ice" />
+                    </actions>
+                </event-block>
+                <event-block sid="836296190698506">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6687016061352901" type="Coil">
+                            <param id="0" name="Object">Character</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="6887440754367063" type="Character">
+                            <param id="0" name="Vector Y">-800</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -536,7 +564,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="" sid="383225706098883" title="Functions">
+        <event-group description="" sid="383225706098883" title="Functions">
             <sub-events>
                 <event-block sid="2425625833885185">
                     <conditions>
@@ -558,5 +586,24 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block sid="6403517749705746">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="8486528101917322" type="BadBlock">
+                    <param id="0" name="Object">Character</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="7533859516955519" type="Functions">
+                    <param id="0" name="Name">&quot;HitPlayer&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action behavior="Platform" id="8" name="Set vector X" sid="6709175895937301" type="Character">
+                    <param id="0" name="Vector X">-15</param>
+                </action>
+                <action behavior="Platform" id="9" name="Set vector Y" sid="3649103874459335" type="Character">
+                    <param id="0" name="Vector Y">-10</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
