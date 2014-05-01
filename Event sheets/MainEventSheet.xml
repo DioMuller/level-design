@@ -5,12 +5,19 @@
     <events>
         <variable constant="0" name="Points" sid="1717354043619614" static="0" type="number">0</variable>
         <variable constant="0" name="Lives" sid="1341352457056163" static="0" type="number">3</variable>
-        <event-group collapsed="1" description="" sid="4420225986325045" title="Controls">
+        <event-group description="" sid="4420225986325045" title="Controls">
             <sub-events>
-                <event-block sid="6889488348126219">
+                <event-block any="1" sid="6889488348126219">
                     <conditions>
                         <condition id="2" name="Key is down" sid="990010102417555" type="Keyboard">
                             <param id="0" name="Key">87 (W)</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="8987028150084388" type="Keyboard">
+                            <param id="0" name="Key">32 (Space)</param>
+                        </condition>
+                        <condition id="6" name="On button pressed" sid="1780893899568566" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">0</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -19,10 +26,16 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="3377027262562445">
+                <event-block any="1" sid="3377027262562445">
                     <conditions>
                         <condition id="2" name="Key is down" sid="6549525676516521" type="Keyboard">
                             <param id="0" name="Key">65 (A)</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="9330915597538202" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">0</param>
+                            <param id="2" name="Comparison">2</param>
+                            <param id="3" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -34,10 +47,16 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="9498607373660957">
+                <event-block any="1" sid="9498607373660957">
                     <conditions>
                         <condition id="2" name="Key is down" sid="2654931614564852" type="Keyboard">
                             <param id="0" name="Key">68 (D)</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="8243020299633874" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">0</param>
+                            <param id="2" name="Comparison">4</param>
+                            <param id="3" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -46,18 +65,6 @@
                         </action>
                         <action id="7" name="Set mirrored" sid="2677481778305393" type="Character">
                             <param id="0" name="State">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="756549526531952">
-                    <conditions>
-                        <condition id="2" name="Key is down" sid="8987028150084388" type="Keyboard">
-                            <param id="0" name="Key">32 (Space)</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="Platform" id="7" name="Simulate control" sid="8428314467900515" type="Character">
-                            <param id="0" name="Control">2</param>
                         </action>
                     </actions>
                 </event-block>
@@ -417,7 +424,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="532897554287145" title="Enemies">
+        <event-group collapsed="1" description="" sid="532897554287145" title="Enemies">
             <sub-events>
                 <event-block sid="6403517749705746">
                     <conditions>
