@@ -281,7 +281,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="" sid="6673499515639753" title="Level Elements">
+        <event-group description="" sid="6673499515639753" title="Level Elements">
             <sub-events>
                 <event-block sid="3455822299776532">
                     <conditions>
@@ -313,11 +313,11 @@
                     <actions>
                         <action id="0" name="Call function" sid="4303928503504892" type="Functions">
                             <param id="0" name="Name">&quot;SpawnBullet&quot;</param>
-                            <param id="1" name="Parameter {n}">Pipe.X {###}Pipe.Y + (Pipe.Height / 2){###}-60</param>
+                            <param id="1" name="Parameter {n}">Pipe.X{###}Pipe.Y + (Pipe.Height / 2){###}-60</param>
                         </action>
-                        <action id="0" name="Call function" sid="6644605912438723" type="Functions">
+                        <action id="0" name="Call function" sid="1765829298841244" type="Functions">
                             <param id="0" name="Name">&quot;SpawnBullet&quot;</param>
-                            <param id="1" name="Parameter {n}">Pipe.X + Pipe.Width{###}Pipe.Y + (Pipe.Height/2){###}60</param>
+                            <param id="1" name="Parameter {n}">Pipe.X + Pipe.Width{###}Pipe.Y + (Pipe.Height / 2){###}60</param>
                         </action>
                     </actions>
                 </event-block>
