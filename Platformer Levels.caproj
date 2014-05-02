@@ -10,6 +10,7 @@
     <unique-id>31bntujh9thh4</unique-id>
     <saved-with-version>16800</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
@@ -215,7 +216,7 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-folder expanded="1" name="Enemies">
+        <object-folder expanded="0" name="Enemies">
             <object-type name="Soldier" sid="5764272845603996">
                 <plugin id="Sprite" />
                 <instance-variables>
@@ -439,7 +440,7 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-folder expanded="0" name="System">
+        <object-folder expanded="1" name="System">
             <object-type name="Keyboard" sid="8776706155899669">
                 <plugin id="Keyboard" />
             </object-type>
@@ -489,6 +490,67 @@
                 </animation-folder>
             </object-type>
         </object-folder>
+        <object-folder expanded="1" name="Title Screen">
+            <object-type name="Aladdin" sid="5532235785975104">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4804411352721545" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="BackgroundTitle" sid="1293475484027782">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4949011759740196" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Jafar" sid="4409956780603059">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="447734562200857" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Megaman" sid="6074848095770761">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7207163116129133" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.505747" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Title" sid="7765691506937466">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7575188714903868" speed="5">
+                        <frame duration="1" hotspotX="0.502674" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Versus" sid="8825981433650335">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9597183725165143" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-type name="SMW" sid="6033095970160746">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9510399363507005" speed="5">
+                    <frame duration="1" hotspotX="0.875" hotspotY="1.68966" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="StartGame" sid="3125480094873777">
+            <plugin id="Button" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder expanded="1">
@@ -497,9 +559,11 @@
             <layout>Level2.xml</layout>
             <layout>Level3.xml</layout>
         </layout-folder>
+        <layout>Titlescreen.xml</layout>
     </layout-folder>
     <event-folder expanded="1">
         <event-sheet>MainEventSheet.xml</event-sheet>
+        <event-sheet>TitleSheet.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="6" />

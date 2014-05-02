@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>TitleSheet</name>
+    <events>
+        <event-block any="1" sid="4624721973967521">
+            <conditions>
+                <condition id="0" name="On clicked" sid="537249331736496" type="StartGame" />
+                <condition id="1" name="On any key pressed" sid="9455101189679781" type="Keyboard" />
+                <condition id="8" name="On any button pressed" sid="5156572550961263" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="9894064874434019" type="System">
+                    <param id="0" name="Layout">Level1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
