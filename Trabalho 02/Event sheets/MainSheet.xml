@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>MainSheet</name>
+    <events>
+        <variable constant="0" name="Coins" sid="3753486829846043" static="0" type="number">0</variable>
+        <event-group collapsed="1" description="" sid="172985227229948" title="Functions">
+            <sub-events>
+                <event-block sid="4458401379427667">
+                    <conditions>
+                        <condition id="0" name="On function" sid="4173320351815238" type="Functions">
+                            <param id="0" name="Name">&quot;MarioHit&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="4826388969372352" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="677525881807999" title="Enemies">
+            <sub-events>
+                <event-block any="1" sid="6739548377914482">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1159641366972148" type="Turtle">
+                            <param id="0" name="Object">Pipe</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="6934567180033156" type="Turtle">
+                            <param id="0" name="Object">StairBlock</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-14" name="Toggle boolean" sid="1666250707796148" type="Turtle">
+                            <param id="0" name="Instance variable">IsInverted</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1398772356666253">
+                    <conditions>
+                        <condition id="-3" name="Is on-screen" sid="8590042419098941" type="Turtle" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4944134189723164">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="4815021660716044" type="Turtle">
+                                    <param id="0" name="Instance variable">IsInverted</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="6988204421458946" type="Turtle">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6274193569297383">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="5807524054996989" type="Turtle">
+                                    <param id="0" name="Instance variable">IsInverted</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="3653307990694514" type="Turtle">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="8659291674047028">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2736501067814792" type="Turtle">
+                            <param id="0" name="Object">Mario</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="5251600461827979">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="8663663696886778" type="Mario">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Y co-ordinate">Turtle.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="5096214725954857" type="Turtle" />
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="5071250528337875" type="Mario">
+                                    <param id="0" name="Vector Y">-350</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3145123705486309">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="7507308527115458" type="Mario">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Y co-ordinate">Turtle.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="7391169099519885" type="Functions">
+                                    <param id="0" name="Name">&quot;MarioHit&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3444290509970685">
+                    <conditions>
+                        <condition id="-3" name="Is on-screen" sid="9277926176316113" type="Goomba" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3264635900456715">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="3142934481906189" type="Goomba">
+                                    <param id="0" name="Instance variable">IsInverted</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="8844961855315476" type="Goomba">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6127707113375145">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="272365268995494" type="Goomba">
+                                    <param id="0" name="Instance variable">IsInverted</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="591662503497966" type="Goomba">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="9917106993176491">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3706570786768914" type="Goomba">
+                            <param id="0" name="Object">Pipe</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="6905850902770874" type="Goomba">
+                            <param id="0" name="Object">StairBlock</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-14" name="Toggle boolean" sid="6186869259956798" type="Goomba">
+                            <param id="0" name="Instance variable">IsInverted</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8920092645382926">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1146657497649964" type="Goomba">
+                            <param id="0" name="Object">Mario</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3026248020238643">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="7103207147619422" type="Mario">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Y co-ordinate">Goomba.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="5163674407081448" type="Goomba" />
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="6062775168028839" type="Mario">
+                                    <param id="0" name="Vector Y">-350</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="988469991258013">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="4266628109714772" type="Mario">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Y co-ordinate">Goomba.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="6635666393589248" type="Functions">
+                                    <param id="0" name="Name">&quot;MarioHit&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="2602835522899244" title="Level">
+            <sub-events>
+                <event-block sid="8031657167848527">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1668401545492362" type="Block">
+                            <param id="0" name="Object">Mario</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2559539186315582">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="8032927122983898" type="Mario">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Y co-ordinate">Block.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="1058386696240006" type="Block">
+                                    <param id="0" name="Y">Block.InitialHeight - 5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5188561521113027">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="7384799034985973" type="Block" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="1332393119813783" type="Block">
+                            <param id="0" name="Instance variable">InitialHeight</param>
+                            <param id="1" name="Value">Block.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5841851656550431">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="9213310250106037" type="Block">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="Y co-ordinate">Block.InitialHeight</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="4154951305379343" type="Block">
+                            <param id="0" name="Y">Block.Y + 0.5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5276855932185006">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="494877570033168" type="Goomba">
+                            <param id="0" name="Object">Block</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="7624930143331234" type="Block">
+                            <param id="0" name="Comparison">1</param>
+                            <param id="1" name="Y co-ordinate">Block.InitialHeight</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="6762688171181282" type="Goomba" />
+                    </actions>
+                </event-block>
+                <event-block sid="9477235388074165">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6951394599805464" type="Death">
+                            <param id="0" name="Object">Mario</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="9412675270074053" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="2111761710956311">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="2887702483293942" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="8528344981096648" type="Coins">
+                    <param id="0" name="Text">Coins</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7492264410129395">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="7177520977805657" type="InterrogationBlock">
+                    <param id="0" name="Object">Mario</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="2963525781671962" type="InterrogationBlock">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="Y co-ordinate">Mario.Y</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="7353691917640898" type="InterrogationBlock">
+                    <param id="0" name="Instance variable">CoinCount</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="5907135313737078" type="System">
+                    <param id="0" name="Variable">Coins</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="4737834900006819" type="InterrogationBlock">
+                    <param id="0" name="Instance variable">CoinCount</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2017515290120014">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="5415770948436408" type="InterrogationBlock">
+                    <param id="0" name="Instance variable">CoinCount</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="1673939937482652" type="InterrogationBlock">
+                    <param id="0" name="Animation">&quot;Used&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
