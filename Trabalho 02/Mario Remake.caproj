@@ -47,7 +47,7 @@
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
-    <object-folder expanded="0">
+    <object-folder expanded="1">
         <object-type name="Background" sid="2379623673334681">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
@@ -179,6 +179,27 @@
         </object-type>
         <object-type name="Gamepad" sid="5962792815736855">
             <plugin id="gamepad" />
+        </object-type>
+        <object-type name="Coin" sid="3948835486633768">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9987662555691385" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Teleport" sid="9870562954188858">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="ToX" sid="231419451721776" type="number" />
+                <instance-variable name="ToY" sid="4568110728228219" type="number" />
+                <instance-variable name="IsInstant" sid="7170419440945099" type="boolean" />
+            </instance-variables>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9938106079606503" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families>

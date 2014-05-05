@@ -91,6 +91,20 @@
         </event-group>
         <event-group collapsed="1" description="" sid="2602835522899244" title="Level">
             <sub-events>
+                <event-block sid="9825073702172425">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6654792585787767" type="Coin">
+                            <param id="0" name="Object">Mario</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="5479173815898702" type="Coin" />
+                        <action id="-10" name="Add to" sid="5137009733974222" type="System">
+                            <param id="0" name="Variable">Coins</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="2017515290120014">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="5415770948436408" type="InterrogationBlock">
@@ -205,7 +219,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="677525881807999" title="Enemies">
+        <event-group collapsed="1" description="" sid="677525881807999" title="Enemies">
             <sub-events>
                 <event-block sid="3444290509970685">
                     <conditions>
@@ -308,5 +322,56 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block sid="5139708748830653">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2470099914135341" type="Teleport">
+                    <param id="0" name="Instance variable">IsInstant</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="8793742511908245" type="Teleport">
+                    <param id="0" name="Object">Mario</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block any="1" sid="7660492449793074">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="209695877017418" type="Keyboard">
+                            <param id="0" name="Key">40 (Down arrow)</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="6827823877414533" type="Keyboard">
+                            <param id="0" name="Key">83 (S)</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="5852706547006304" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">5</param>
+                            <param id="3" name="Value">0.5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="9951870658026549" type="Mario">
+                            <param id="0" name="X">Teleport.ToX</param>
+                            <param id="1" name="Y">Teleport.ToY</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2089053159180136">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="6681162564907739" type="Teleport">
+                    <param id="0" name="Instance variable">IsInstant</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="5888702010717477" type="Teleport">
+                    <param id="0" name="Object">Mario</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="205825648608342" type="Mario">
+                    <param id="0" name="X">Teleport.ToX</param>
+                    <param id="1" name="Y">Teleport.ToY</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
