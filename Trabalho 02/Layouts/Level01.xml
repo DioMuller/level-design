@@ -91,6 +91,11 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="BoundToLayout">
+                            <properties>
+                                <bound-by>Edge</bound-by>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1879,7 +1884,7 @@
                 </instance>
                 <instance type="Death" uid="57">
                     <properties>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
@@ -1887,8 +1892,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>3408</x>
-                        <y>272</y>
+                        <x>3412.958496094</x>
+                        <y>252.991394043</y>
                         <z>0</z>
                         <width>3392</width>
                         <height>16</height>
@@ -2558,7 +2563,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -2597,7 +2602,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -2636,7 +2641,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -2675,7 +2680,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -2714,7 +2719,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -2753,7 +2758,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -2792,7 +2797,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -2831,7 +2836,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -2870,7 +2875,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -2909,7 +2914,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -2948,7 +2953,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -2987,7 +2992,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -3026,7 +3031,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -3065,7 +3070,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>
@@ -3104,7 +3109,7 @@
                         <IsInverted>false</IsInverted>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Platform">
+                        <behavior-instance type="EnemyControl">
                             <properties>
                                 <max-speed>30</max-speed>
                                 <acceleration>1500</acceleration>

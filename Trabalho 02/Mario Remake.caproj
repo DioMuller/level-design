@@ -11,13 +11,16 @@
     <saved-with-version>16800</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
@@ -62,10 +65,20 @@
                 <behavior-type name="ScrollTo" sid="7993993800236938">
                     <behavior id="scrollto" />
                 </behavior-type>
+                <behavior-type name="BoundToLayout" sid="3866501385045844">
+                    <behavior id="bound" />
+                </behavior-type>
             </behaviors>
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="348190248072568" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1">
+                        <collision-poly>
+                            <point x="0.25" y="0" />
+                            <point x="0.75" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -141,14 +154,6 @@
         </object-type>
         <object-type name="Goomba" sid="3970231431811151">
             <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable name="IsInverted" sid="4164410654420988" type="boolean" />
-            </instance-variables>
-            <behaviors>
-                <behavior-type name="Platform" sid="3093163274277944">
-                    <behavior id="Platform" />
-                </behavior-type>
-            </behaviors>
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1917929378723929" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
@@ -157,14 +162,6 @@
         </object-type>
         <object-type name="Turtle" sid="9444052020409377">
             <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable name="IsInverted" sid="1329101534436589" type="boolean" />
-            </instance-variables>
-            <behaviors>
-                <behavior-type name="Platform" sid="9076714613185781">
-                    <behavior id="Platform" />
-                </behavior-type>
-            </behaviors>
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3857129178347304" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
@@ -177,20 +174,47 @@
         <object-type name="Coins" sid="649733644881684">
             <plugin id="Text" />
         </object-type>
+        <object-type name="Keyboard" sid="31343211378709">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Gamepad" sid="5962792815736855">
+            <plugin id="gamepad" />
+        </object-type>
     </object-folder>
-    <families />
-    <layout-folder expanded="1">
+    <families>
+        <family name="Enemies" plugin-id="Sprite" sid="3867333858924134">
+            <members>
+                <member>Goomba</member>
+                <member>Turtle</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="IsInverted" sid="102183489184853" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="EnemyControl" sid="4311741111396985">
+                    <behavior id="Platform" />
+                </behavior-type>
+            </behaviors>
+        </family>
+    </families>
+    <layout-folder expanded="0">
         <layout>Level01.xml</layout>
     </layout-folder>
-    <event-folder expanded="1">
+    <event-folder expanded="0">
         <event-sheet>MainSheet.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Functions" uid="82" />
+        <global-instance type="Keyboard" uid="99" />
+        <global-instance type="Gamepad" uid="100">
+            <properties>
+                <analog-deadzone>25</analog-deadzone>
+            </properties>
+        </global-instance>
     </global-instances>
     <sounds-folder expanded="1" />
     <music-folder expanded="1" />
-    <files-folder expanded="1">
+    <files-folder expanded="0">
         <file-folder expanded="0" name="Icons">
             <file name="icon-16.png" />
             <file name="icon-32.png" />
