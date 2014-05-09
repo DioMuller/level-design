@@ -111,6 +111,7 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="CoinCount" sid="9855774317178197" type="number" />
+                <instance-variable name="Item" sid="2670729655992664" type="string" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Solid" sid="1941214240296658">
@@ -197,6 +198,17 @@
             </instance-variables>
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9938106079606503" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Flag" sid="4223035161328742">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="NextLevel" sid="3190878418438358" type="string" />
+            </instance-variables>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4721099607252568" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
