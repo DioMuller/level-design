@@ -20,6 +20,7 @@
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
@@ -157,7 +158,7 @@
             <plugin id="Sprite" />
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1917929378723929" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0" hotspotY="1" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -165,7 +166,7 @@
             <plugin id="Sprite" />
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3857129178347304" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="5" hotspotY="0.708333" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -213,10 +214,45 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="InvisibleWall" sid="6021513315236934">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4385043858149743" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PiranaPlant" sid="5348480358841777">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Sine" sid="3856137787206331">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6937881184306824" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="FlyingTurtle" sid="2759544934383414">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Sine" sid="9424203520206351">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7970513221490001" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="3867333858924134">
             <members>
+                <member>FlyingTurtle</member>
                 <member>Goomba</member>
                 <member>Turtle</member>
             </members>
@@ -229,9 +265,17 @@
                 </behavior-type>
             </behaviors>
         </family>
+        <family name="EnemyWalls" plugin-id="Sprite" sid="5177356446457351">
+            <members>
+                <member>Block</member>
+                <member>InterrogationBlock</member>
+                <member>InvisibleWall</member>
+            </members>
+        </family>
     </families>
-    <layout-folder expanded="0">
+    <layout-folder expanded="1">
         <layout>Level01.xml</layout>
+        <layout>Level0J.xml</layout>
     </layout-folder>
     <event-folder expanded="0">
         <event-sheet>MainSheet.xml</event-sheet>

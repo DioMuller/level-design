@@ -89,7 +89,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="2602835522899244" title="Level">
+        <event-group collapsed="1" description="" sid="2602835522899244" title="Level">
             <sub-events>
                 <event-block sid="6004227820783674">
                     <conditions>
@@ -282,8 +282,21 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="" sid="677525881807999" title="Enemies">
+        <event-group description="" sid="677525881807999" title="Enemies">
             <sub-events>
+                <event-block sid="1610738740404971">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2562909826295161" type="PiranaPlant">
+                            <param id="0" name="Object">Mario</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="7957876271807175" type="Functions">
+                            <param id="0" name="Name">&quot;MarioHit&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="3444290509970685">
                     <conditions>
                         <condition id="-3" name="Is on-screen" sid="9277926176316113" type="Enemies" />
@@ -331,7 +344,23 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="8920092645382926">
+                <event-block sid="4455549330708877">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2577250858102092" type="Enemies">
+                            <param id="0" name="Object">EnemyWalls</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="8791027809453392" type="Enemies">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Y co-ordinate">EnemyWalls.Y</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-14" name="Toggle boolean" sid="5135644611115827" type="Enemies">
+                            <param id="0" name="Instance variable">IsInverted</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block collapsed="1" sid="8920092645382926">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="1146657497649964" type="Enemies">
                             <param id="0" name="Object">Mario</param>
