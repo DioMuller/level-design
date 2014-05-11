@@ -49,7 +49,7 @@
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder expanded="1">
-        <object-type name="Background" sid="2379623673334681">
+        <object-type name="BackgroundLevel1" sid="2379623673334681">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1236778191933714" speed="5">
@@ -112,7 +112,9 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="CoinCount" sid="9855774317178197" type="number" />
-                <instance-variable name="Item" sid="2670729655992664" type="string" />
+                <instance-variable name="HasItem" sid="9470356662177296" type="boolean" />
+                <instance-variable name="HasLife" sid="5165996458767303" type="boolean" />
+                <instance-variable name="HasStar" sid="3179700766132525" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Solid" sid="1941214240296658">
@@ -186,7 +188,7 @@
             <plugin id="Sprite" />
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9987662555691385" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0" hotspotY="1" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -248,12 +250,40 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="BackgroundLevel2" sid="8694398412573475">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8845329453501971" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Lakitu" sid="2175752417886538">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Active" sid="1017076058355592" type="boolean" />
+            </instance-variables>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6131179172857281" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SpikeTurtle" sid="43466756758774">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6785663027054263" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="3867333858924134">
             <members>
                 <member>FlyingTurtle</member>
                 <member>Goomba</member>
+                <member>SpikeTurtle</member>
                 <member>Turtle</member>
             </members>
             <instance-variables>
@@ -275,6 +305,7 @@
     </families>
     <layout-folder expanded="1">
         <layout>Level01.xml</layout>
+        <layout>Level02.xml</layout>
         <layout>Level0J.xml</layout>
     </layout-folder>
     <event-folder expanded="0">

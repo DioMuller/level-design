@@ -175,6 +175,15 @@
                             <param id="1" name="Comparison">3</param>
                             <param id="2" name="Value">0</param>
                         </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8815446566288192" type="InterrogationBlock">
+                            <param id="0" name="Instance variable">HasItem</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="9454312277651967" type="InterrogationBlock">
+                            <param id="0" name="Instance variable">HasLife</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="5545904432763972" type="InterrogationBlock">
+                            <param id="0" name="Instance variable">HasStar</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="4" name="Set animation" sid="478510173282879" type="InterrogationBlock">
@@ -284,6 +293,63 @@
         </event-group>
         <event-group description="" sid="677525881807999" title="Enemies">
             <sub-events>
+                <event-block sid="456892626395824">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="9779119601698393" type="Lakitu">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">Mario.X + 60</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="7287470965694634" type="Lakitu">
+                            <param id="0" name="Instance variable">Active</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4094570132429114">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="1893775226014988" type="Lakitu">
+                            <param id="0" name="Instance variable">Active</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="2643560234819276" type="Lakitu">
+                            <param id="0" name="X">Mario.X + 60</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2889468864994553">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="2330180683442506" type="Lakitu">
+                            <param id="0" name="Instance variable">Active</param>
+                        </condition>
+                        <condition id="-6" name="Every X seconds" sid="5192977174146308" type="System">
+                            <param id="0" name="Interval (seconds)">3.0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="4253979999514717" type="System">
+                            <param id="0" name="Object to create">SpikeTurtle</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">Lakitu.X </param>
+                            <param id="3" name="Y">Lakitu.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7339484747849558">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3894658152908469" type="SpikeTurtle">
+                            <param id="0" name="Object">Mario</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="7811822921548934" type="Functions">
+                            <param id="0" name="Name">&quot;MarioHit&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="1610738740404971">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="2562909826295161" type="PiranaPlant">
