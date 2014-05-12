@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>MainSheet</name>
     <events>
+        <variable constant="0" name="IsBig" sid="2477734085841574" static="0" type="number">0</variable>
         <variable constant="0" name="Coins" sid="3753486829846043" static="0" type="number">0</variable>
         <event-group collapsed="1" description="" sid="8002264227793299" title="System">
             <sub-events>
@@ -16,6 +17,23 @@
                             <param id="1" name="Value">0</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="9289308884566058">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="411262760729166" type="System">
+                                    <param id="0" name="Variable">IsBig</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="4803806412791184" type="Mario">
+                                    <param id="0" name="Instance variable">IsBig</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="2111761710956311">
                     <conditions>
@@ -89,7 +107,45 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="" sid="2602835522899244" title="Level">
+        <event-group description="" sid="1464574734281509" title="Character">
+            <sub-events>
+                <event-block sid="4798358651446167">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="1028347876127832" type="Mario">
+                            <param id="0" name="Instance variable">IsBig</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="5701102958588539" type="System">
+                            <param id="0" name="Variable">IsBig</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="7127955470895919" type="Mario">
+                            <param id="0" name="Animation">&quot;Big&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8351637171604063">
+                    <conditions>
+                        <condition breakpoint="1" id="-8" inverted="1" name="Is boolean instance variable set" sid="998955912989523" type="Mario">
+                            <param id="0" name="Instance variable">IsBig</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6024266437025539" type="System">
+                            <param id="0" name="Variable">IsBig</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="3470356196964411" type="Mario">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="2602835522899244" title="Level">
             <sub-events>
                 <event-block sid="6004227820783674">
                     <conditions>
@@ -238,6 +294,18 @@
                                     <param id="0" name="Y">Block.InitialHeight - 5</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="8377592163485925">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="6110938137215183" type="Mario">
+                                            <param id="0" name="Instance variable">IsBig</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="6872139561271985" type="Block" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -291,7 +359,33 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="677525881807999" title="Enemies">
+        <event-block sid="1207185638854597">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="1584870529951069" type="InterrogationBlock">
+                    <param id="0" name="Object">Mario</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="4320324043248009" type="InterrogationBlock">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="Y co-ordinate">Mario.Y</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="1997308699312588" type="InterrogationBlock">
+                    <param id="0" name="Instance variable">HasItem</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="2054214912021219" type="InterrogationBlock">
+                    <param id="0" name="Instance variable">HasItem</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="4470508898581617" type="System">
+                    <param id="0" name="Object to create">Mushroom</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">InterrogationBlock.X</param>
+                    <param id="3" name="Y">InterrogationBlock.Y - 16</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group collapsed="1" description="" sid="677525881807999" title="Enemies">
             <sub-events>
                 <event-block sid="456892626395824">
                     <conditions>
@@ -426,43 +520,36 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block collapsed="1" sid="8920092645382926">
+                <event-block sid="8920092645382926">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="1146657497649964" type="Enemies">
                             <param id="0" name="Object">Mario</param>
                         </condition>
                     </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="3026248020238643">
-                            <conditions>
-                                <condition id="-2" name="Compare Y" sid="7103207147619422" type="Mario">
-                                    <param id="0" name="Comparison">3</param>
-                                    <param id="1" name="Y co-ordinate">Enemies.Y</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Destroy" sid="5163674407081448" type="Enemies" />
-                                <action behavior="Platform" id="9" name="Set vector Y" sid="6062775168028839" type="Mario">
-                                    <param id="0" name="Vector Y">-350</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="988469991258013">
-                            <conditions>
-                                <condition id="-2" name="Compare Y" sid="4266628109714772" type="Mario">
-                                    <param id="0" name="Comparison">4</param>
-                                    <param id="1" name="Y co-ordinate">Enemies.Y</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Call function" sid="6635666393589248" type="Functions">
-                                    <param id="0" name="Name">&quot;MarioHit&quot;</param>
-                                    <param id="1" name="Parameter {n}"></param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
+                    <actions>
+                        <action id="0" name="Call function" sid="6635666393589248" type="Functions">
+                            <param id="0" name="Name">&quot;MarioHit&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9200889319021693">
+                    <conditions>
+                        <condition id="9" name="Is overlapping at offset" sid="5191007649571021" type="Enemies">
+                            <param id="0" name="Object">Mario</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">-Enemies.Height </param>
+                        </condition>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="2839565501806534" type="Enemies">
+                            <param id="0" name="Object">Mario</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="3492229854267153" type="Enemies" />
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="8589919347490879" type="Mario">
+                            <param id="0" name="Vector Y">-350</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
@@ -474,8 +561,112 @@
                             <param id="0" name="Name">&quot;MarioHit&quot;</param>
                         </condition>
                     </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8053912879870767">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8315442102278414" type="Mario">
+                                    <param id="0" name="Instance variable">IsBig</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-26" name="Restart layout" sid="4826388969372352" type="System" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="8248977109200504">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="9006964934503718" type="Mario">
+                                    <param id="0" name="Instance variable">IsBig</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="7552991481238519" type="Mario">
+                                    <param id="0" name="Instance variable">IsBig</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="8901939901138569" title="Items">
+            <sub-events>
+                <event-block collapsed="1" sid="1953488804012808">
+                    <conditions>
+                        <condition id="-3" name="Is on-screen" sid="5847388438968932" type="Item" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="458705988960886">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="6334215485381107" type="Item">
+                                    <param id="0" name="Instance variable">IsInverted</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="4691171239915927" type="Item">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6943440232770672">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4268742234733687" type="Item">
+                                    <param id="0" name="Instance variable">IsInverted</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="8487698842307231" type="Item">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="7363620140414288">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4981323598786474" type="Item">
+                            <param id="0" name="Object">Pipe</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="8143080278136223" type="Item">
+                            <param id="0" name="Object">StairBlock</param>
+                        </condition>
+                    </conditions>
                     <actions>
-                        <action id="-26" name="Restart layout" sid="4826388969372352" type="System" />
+                        <action id="-14" name="Toggle boolean" sid="3414310940174812" type="Item">
+                            <param id="0" name="Instance variable">IsInverted</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8967742650892414">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="7662929351885665" type="Item">
+                            <param id="0" name="Object">EnemyWalls</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="7195617410150566" type="Item">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Y co-ordinate">EnemyWalls.Y</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-14" name="Toggle boolean" sid="5667375771090592" type="Item">
+                            <param id="0" name="Instance variable">IsInverted</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3797795871464318">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1258120745278675" type="Mushroom">
+                            <param id="0" name="Object">Mario</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="6003470289791098" type="Mario">
+                            <param id="0" name="Instance variable">IsBig</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="791864066583467" type="Mushroom" />
                     </actions>
                 </event-block>
             </sub-events>

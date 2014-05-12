@@ -50,6 +50,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <IsBig>false</IsBig>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">
                             <properties>
@@ -270,8 +273,8 @@
                                 <acceleration>1500</acceleration>
                                 <deceleration>1500</deceleration>
                                 <jump-strength>650</jump-strength>
-                                <gravity>50</gravity>
-                                <max-fall-speed>200</max-fall-speed>
+                                <gravity>1500</gravity>
+                                <max-fall-speed>1500</max-fall-speed>
                                 <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -439,8 +442,8 @@
                                 <acceleration>1500</acceleration>
                                 <deceleration>1500</deceleration>
                                 <jump-strength>650</jump-strength>
-                                <gravity>50</gravity>
-                                <max-fall-speed>200</max-fall-speed>
+                                <gravity>1500</gravity>
+                                <max-fall-speed>1500</max-fall-speed>
                                 <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -694,8 +697,8 @@
                                 <acceleration>1500</acceleration>
                                 <deceleration>1500</deceleration>
                                 <jump-strength>650</jump-strength>
-                                <gravity>50</gravity>
-                                <max-fall-speed>200</max-fall-speed>
+                                <gravity>1500</gravity>
+                                <max-fall-speed>1500</max-fall-speed>
                                 <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -1044,8 +1047,8 @@
                                 <acceleration>1500</acceleration>
                                 <deceleration>1500</deceleration>
                                 <jump-strength>650</jump-strength>
-                                <gravity>50</gravity>
-                                <max-fall-speed>200</max-fall-speed>
+                                <gravity>1500</gravity>
+                                <max-fall-speed>1500</max-fall-speed>
                                 <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -1796,8 +1799,8 @@
                                 <acceleration>0</acceleration>
                                 <deceleration>1500</deceleration>
                                 <jump-strength>650</jump-strength>
-                                <gravity>50</gravity>
-                                <max-fall-speed>200</max-fall-speed>
+                                <gravity>0</gravity>
+                                <max-fall-speed>1500</max-fall-speed>
                                 <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -1848,8 +1851,8 @@
                                 <acceleration>0</acceleration>
                                 <deceleration>1500</deceleration>
                                 <jump-strength>650</jump-strength>
-                                <gravity>50</gravity>
-                                <max-fall-speed>200</max-fall-speed>
+                                <gravity>0</gravity>
+                                <max-fall-speed>1500</max-fall-speed>
                                 <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
                             </properties>

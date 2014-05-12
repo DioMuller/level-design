@@ -59,6 +59,9 @@
         </object-type>
         <object-type name="Mario" sid="5194118998756609">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="IsBig" sid="3791990622195621" type="boolean" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="4649540727354174">
                     <behavior id="Platform" />
@@ -80,6 +83,9 @@
                             <point x="0" y="1" />
                         </collision-poly>
                     </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Big" pingpong="0" repeatcount="1" repeatto="0" sid="1399505973499158" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -277,13 +283,20 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Mushroom" sid="4146985378039141">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8241570274138527" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="3867333858924134">
             <members>
                 <member>FlyingTurtle</member>
                 <member>Goomba</member>
-                <member>SpikeTurtle</member>
                 <member>Turtle</member>
             </members>
             <instance-variables>
@@ -301,6 +314,20 @@
                 <member>InterrogationBlock</member>
                 <member>InvisibleWall</member>
             </members>
+        </family>
+        <family name="Item" plugin-id="Sprite" sid="2834452239592279">
+            <members>
+                <member>Mushroom</member>
+                <member>SpikeTurtle</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="IsInverted" sid="6090829891256792" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Platform" sid="177769426626037">
+                    <behavior id="Platform" />
+                </behavior-type>
+            </behaviors>
         </family>
     </families>
     <layout-folder expanded="1">
