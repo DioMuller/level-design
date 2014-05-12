@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>TitleSheet</name>
+    <events>
+        <event-block any="1" sid="4681080320190737">
+            <conditions>
+                <condition id="1" name="On any key pressed" sid="2596521471995059" type="Keyboard" />
+                <condition id="8" name="On any button pressed" sid="9387944255567452" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="3983472688408048" type="System">
+                    <param id="0" name="Variable">Lives</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="-9" name="Set value" sid="8903834880738707" type="System">
+                    <param id="0" name="Variable">Coins</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="7412704049995547" type="System">
+                    <param id="0" name="Variable">IsBig</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="1090420310007821" type="System">
+                    <param id="0" name="Variable">Score</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="921028201956171" type="System">
+                    <param id="0" name="Layout">Level01</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

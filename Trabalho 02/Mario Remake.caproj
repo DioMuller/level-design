@@ -61,6 +61,8 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="IsBig" sid="3791990622195621" type="boolean" />
+                <instance-variable name="IsFire" sid="8170348672971004" type="boolean" />
+                <instance-variable name="IsRunning" sid="8690173189977599" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="4649540727354174">
@@ -86,6 +88,9 @@
                 </animation>
                 <animation framecount="1" loop="0" name="Big" pingpong="0" repeatcount="1" repeatto="0" sid="1399505973499158" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+                <animation framecount="1" loop="0" name="Fire" pingpong="0" repeatcount="1" repeatto="0" sid="1898141055316191" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -291,6 +296,41 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="TitleBG" sid="4290923225189982">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5248228592529815" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Text" sid="7797867351452954">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="FireFlower" sid="8556747963830038">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3150133371423634" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Life" sid="3725736775281055">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3614081857823123" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Fireball" sid="3250682488027014">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6062653599840238" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="3867333858924134">
@@ -334,9 +374,11 @@
         <layout>Level01.xml</layout>
         <layout>Level02.xml</layout>
         <layout>Level0J.xml</layout>
+        <layout>Title.xml</layout>
     </layout-folder>
-    <event-folder expanded="0">
+    <event-folder expanded="1">
         <event-sheet>MainSheet.xml</event-sheet>
+        <event-sheet>TitleSheet.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Functions" uid="82" />

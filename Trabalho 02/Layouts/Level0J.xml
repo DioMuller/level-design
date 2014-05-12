@@ -52,6 +52,8 @@
                     </properties>
                     <instance-variables>
                         <IsBig>false</IsBig>
+                        <IsFire>false</IsFire>
+                        <IsRunning>false</IsRunning>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">
