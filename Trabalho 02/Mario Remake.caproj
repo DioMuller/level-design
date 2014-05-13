@@ -63,6 +63,7 @@
                 <instance-variable name="IsBig" sid="3791990622195621" type="boolean" />
                 <instance-variable name="IsFire" sid="8170348672971004" type="boolean" />
                 <instance-variable name="IsRunning" sid="8690173189977599" type="boolean" />
+                <instance-variable name="IsInverted" sid="9228098248809353" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="4649540727354174">
@@ -325,6 +326,11 @@
         </object-type>
         <object-type name="Fireball" sid="3250682488027014">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Platform" sid="8516300269932565">
+                    <behavior id="Platform" />
+                </behavior-type>
+            </behaviors>
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6062653599840238" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
