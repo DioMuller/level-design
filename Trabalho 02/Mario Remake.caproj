@@ -22,6 +22,7 @@
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
@@ -327,7 +328,10 @@
         <object-type name="Fireball" sid="3250682488027014">
             <plugin id="Sprite" />
             <behaviors>
-                <behavior-type name="Platform" sid="8516300269932565">
+                <behavior-type name="DestroyOutsideLayout" sid="5897460210294861">
+                    <behavior id="destroy" />
+                </behavior-type>
+                <behavior-type name="Platform" sid="7014759328769395">
                     <behavior id="Platform" />
                 </behavior-type>
             </behaviors>
