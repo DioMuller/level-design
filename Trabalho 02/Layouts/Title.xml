@@ -49,33 +49,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Text" uid="287">
-                    <properties>
-                        <text>SUPER MARIO</text>
-                        <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-48,700,0</font>
-                        <color>255,255,204</color>
-                        <horizontal-alignment>Left</horizontal-alignment>
-                        <vertical-alignment>Top</vertical-alignment>
-                        <hotspot>Top-left</hotspot>
-                        <wrapping>Word</wrapping>
-                        <line-height>0</line-height>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>67.180389404</x>
-                        <y>28.336830139</y>
-                        <z>0</z>
-                        <width>278.650878906</width>
-                        <height>168.410064697</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
             </instances>
             <effects />
         </layer>
