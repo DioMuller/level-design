@@ -16,6 +16,7 @@
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
@@ -382,6 +383,12 @@
                 <plugin id="Audio" />
             </object-type>
         </object-folder>
+        <object-type name="TitleText" sid="3936417819560387">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="PressKeyMessage" sid="716130517784998">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="3867333858924134">
