@@ -3,11 +3,13 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>MainSheet</name>
     <events>
+        <variable constant="0" name="MarioDied" sid="3490193761226474" static="0" type="number">0</variable>
         <variable constant="0" name="Score" sid="3181719294524804" static="0" type="number">0</variable>
         <variable constant="0" name="Lives" sid="9395669408357953" static="0" type="number">5</variable>
         <variable constant="0" name="IsBig" sid="2477734085841574" static="0" type="number">0</variable>
         <variable constant="0" name="ScoreMultiplier" sid="169879816689802" static="0" type="number">1</variable>
         <variable constant="0" name="Coins" sid="3753486829846043" static="0" type="number">0</variable>
+        <variable constant="0" name="NextLevel" sid="2937756744783156" static="0" type="text"></variable>
         <event-group collapsed="1" description="" sid="8002264227793299" title="System">
             <sub-events>
                 <event-block sid="8989179801232033">
@@ -32,6 +34,12 @@
                         <action id="-9" name="Set value" sid="7488333832797522" type="System">
                             <param id="0" name="Variable">Coins</param>
                             <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="4760837420556869" type="Audio">
+                            <param id="0" name="Audio file">Mario Theme</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -166,6 +174,12 @@
                                     <param id="2" name="X">Mario.X</param>
                                     <param id="3" name="Y">Mario.Y</param>
                                 </action>
+                                <action id="0" name="Play" sid="5507858222967275" type="Audio">
+                                    <param id="0" name="Audio file">fireball</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
@@ -185,6 +199,70 @@
                             <param id="0" name="Instance variable">IsRunning</param>
                             <param id="1" name="Value">0</param>
                         </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4126417380631987">
+                    <conditions>
+                        <condition id="0" name="On ended" sid="1804704217048343" type="Audio">
+                            <param id="0" name="Tag">&quot;Death&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="5506134827365493" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="7700533943698043">
+                    <conditions>
+                        <condition id="0" name="On ended" sid="3225715365936388" type="Audio">
+                            <param id="0" name="Tag">&quot;Flag&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="7275424862076435" type="Audio">
+                            <param id="0" name="Audio file">Stage Clear</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;ClearMusic&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7200241733695332">
+                    <conditions>
+                        <condition id="0" name="On ended" sid="6469492958577737" type="Audio">
+                            <param id="0" name="Tag">&quot;ClearMusic&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-25" name="Go to layout (by name)" sid="6324355924442477" type="System">
+                            <param id="0" name="Layout">NextLevel</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6386746123814001">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1343310565585383" type="System">
+                            <param id="0" name="Variable">MarioDied</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="8536552797748465" type="System">
+                            <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="33" name="Stop all" sid="5333538564541426" type="Audio" />
+                        <action id="0" name="Play" sid="6235113279165293" type="Audio">
+                            <param id="0" name="Audio file">Lose a Life</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;Death&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7208250766131718" type="System">
+                            <param id="0" name="Variable">MarioDied</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="3736711962484984" type="Mario" />
                     </actions>
                 </event-block>
             </sub-events>
@@ -337,6 +415,44 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="5928872187362165">
+                    <conditions>
+                        <condition behavior="Platform" id="5" name="On jump" sid="1264479027570554" type="Mario" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2428629326733993">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="1715411495844466" type="Mario">
+                                    <param id="0" name="Instance variable">IsBig</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="5976329996727921" type="Audio">
+                                    <param id="0" name="Audio file">jump_small</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2686080116401407">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8843580095083237" type="Mario">
+                                    <param id="0" name="Instance variable">IsBig</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="6015443077842537" type="Audio">
+                                    <param id="0" name="Audio file">jump_big</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group collapsed="1" description="" sid="2602835522899244" title="Level">
@@ -358,6 +474,12 @@
                         <action id="-13" name="Set boolean" sid="2054214912021219" type="InterrogationBlock">
                             <param id="0" name="Instance variable">HasItem</param>
                             <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="8443850819730935" type="Audio">
+                            <param id="0" name="Audio file">powerup_appears</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -417,6 +539,12 @@
                             <param id="2" name="X">InterrogationBlock.X</param>
                             <param id="3" name="Y">InterrogationBlock.Y - 16</param>
                         </action>
+                        <action id="0" name="Play" sid="9257344837847188" type="Audio">
+                            <param id="0" name="Audio file">powerup_appears</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="6004227820783674">
@@ -426,8 +554,13 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-25" name="Go to layout (by name)" sid="7187907798254621" type="System">
-                            <param id="0" name="Layout">Flag.NextLevel</param>
+                        <action id="-9" name="Set value" sid="8843391215900109" type="System">
+                            <param id="0" name="Variable">NextLevel</param>
+                            <param id="1" name="Value">Flag.NextLevel</param>
+                        </action>
+                        <action id="0" name="Call function" sid="628637680322807" type="Functions">
+                            <param id="0" name="Name">&quot;EndLevel&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                     </actions>
                 </event-block>
@@ -444,6 +577,19 @@
                         <action id="-3" name="Set position" sid="205825648608342" type="Mario">
                             <param id="0" name="X">Teleport.ToX</param>
                             <param id="1" name="Y">Teleport.ToY</param>
+                        </action>
+                        <action id="33" name="Stop all" sid="9597450238511805" type="Audio" />
+                        <action id="0" name="Play" sid="9748498106628186" type="Audio">
+                            <param id="0" name="Audio file">Mario Theme</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="9428376615821772" type="Audio">
+                            <param id="0" name="Audio file">pipe</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -478,6 +624,19 @@
                                     <param id="0" name="X">Teleport.ToX</param>
                                     <param id="1" name="Y">Teleport.ToY</param>
                                 </action>
+                                <action id="33" name="Stop all" sid="5111582420079745" type="Audio" />
+                                <action id="0" name="Play" sid="3550705688951634" type="Audio">
+                                    <param id="0" name="Audio file">Underworld</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="0" name="Play" sid="1941683339988875" type="Audio">
+                                    <param id="0" name="Audio file">pipe</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
@@ -493,6 +652,12 @@
                         <action id="-10" name="Add to" sid="5137009733974222" type="System">
                             <param id="0" name="Variable">Coins</param>
                             <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="3018977566136114" type="Audio">
+                            <param id="0" name="Audio file">coin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -544,6 +709,12 @@
                             <param id="0" name="Instance variable">CoinCount</param>
                             <param id="1" name="Value">1</param>
                         </action>
+                        <action id="0" name="Play" sid="6622410553621412" type="Audio">
+                            <param id="0" name="Audio file">coin</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="8031657167848527">
@@ -565,6 +736,12 @@
                                 <action id="-2" name="Set Y" sid="1058386696240006" type="Block">
                                     <param id="0" name="Y">Block.InitialHeight - 5</param>
                                 </action>
+                                <action id="0" name="Play" sid="4257300756945047" type="Audio">
+                                    <param id="0" name="Audio file">bump</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
                             </actions>
                             <sub-events>
                                 <event-block sid="8377592163485925">
@@ -575,6 +752,12 @@
                                     </conditions>
                                     <actions>
                                         <action id="-9" name="Destroy" sid="6872139561271985" type="Block" />
+                                        <action id="0" name="Play" sid="2260258692055185" type="Audio">
+                                            <param id="0" name="Audio file">breakblock</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
@@ -617,6 +800,12 @@
                     </conditions>
                     <actions>
                         <action id="-9" name="Destroy" sid="6762688171181282" type="Enemies" />
+                        <action id="0" name="Play" sid="1694000226303865" type="Audio">
+                            <param id="0" name="Audio file">stomp</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="9477235388074165">
@@ -626,11 +815,10 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-11" name="Subtract from" sid="3377594739979744" type="System">
-                            <param id="0" name="Variable">Lives</param>
+                        <action id="-9" name="Set value" sid="7705027565044884" type="System">
+                            <param id="0" name="Variable">MarioDied</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="-26" name="Restart layout" sid="9412675270074053" type="System" />
                     </actions>
                 </event-block>
             </sub-events>
@@ -867,6 +1055,12 @@
                             <param id="1" name="Value">1</param>
                         </action>
                         <action id="-9" name="Destroy" sid="791864066583467" type="Mushroom" />
+                        <action id="0" name="Play" sid="9688967507789896" type="Audio">
+                            <param id="0" name="Audio file">powerup</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="5472135262861517">
@@ -881,6 +1075,12 @@
                             <param id="1" name="Value">1</param>
                         </action>
                         <action id="-9" name="Destroy" sid="7822428642964127" type="Life" />
+                        <action id="0" name="Play" sid="477029533243531" type="Audio">
+                            <param id="0" name="Audio file">1up</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="5995089118070516">
@@ -895,6 +1095,12 @@
                             <param id="1" name="Value">1</param>
                         </action>
                         <action id="-9" name="Destroy" sid="8246694143111405" type="FireFlower" />
+                        <action id="0" name="Play" sid="1293736725893664" type="Audio">
+                            <param id="0" name="Audio file">powerup</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -1071,6 +1277,12 @@
                             <param id="0" name="Variable">ScoreMultiplier</param>
                             <param id="1" name="Value">ScoreMultiplier * 2</param>
                         </action>
+                        <action id="0" name="Play" sid="2962886162314674" type="Audio">
+                            <param id="0" name="Audio file">stomp</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -1100,6 +1312,12 @@
                                     <param id="0" name="Instance variable">IsBig</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
+                                <action id="0" name="Play" sid="1802330091966335" type="Audio">
+                                    <param id="0" name="Audio file">powerup</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="8248977109200504">
@@ -1114,6 +1332,12 @@
                                     <param id="0" name="Instance variable">IsBig</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
+                                <action id="0" name="Play" sid="1662518396017865" type="Audio">
+                                    <param id="0" name="Audio file">powerup</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="8053912879870767">
@@ -1124,14 +1348,30 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-26" name="Restart layout" sid="4826388969372352" type="System" />
-                                <action id="-11" name="Subtract from" sid="2371753745121605" type="System">
-                                    <param id="0" name="Variable">Lives</param>
+                                <action id="-9" name="Set value" sid="400573715579201" type="System">
+                                    <param id="0" name="Variable">MarioDied</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
                         </event-block>
                     </sub-events>
+                </event-block>
+                <event-block sid="4917982134106934">
+                    <conditions>
+                        <condition id="0" name="On function" sid="1505710077005826" type="Functions">
+                            <param id="0" name="Name">&quot;EndLevel&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="33" name="Stop all" sid="3120102908998626" type="Audio" />
+                        <action id="0" name="Play" sid="5453359914417742" type="Audio">
+                            <param id="0" name="Audio file">flagpole</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;Flag&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="5815109734227489" type="Mario" />
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
