@@ -4,10 +4,17 @@
     <name>MainSheet</name>
     <events>
         <include>Enemies</include>
+        <comment>Number of Bombs the Player has</comment>
+        <variable constant="0" name="Bombs" sid="4912718610940361" static="0" type="number">3</variable>
+        <comment>Number of Lives the Player has</comment>
+        <variable constant="0" name="Lives" sid="1566409325247134" static="0" type="number">3</variable>
+        <comment>Current score</comment>
         <variable constant="0" name="Score" sid="7776303994093549" static="0" type="number">0</variable>
+        <comment>Best score the player ever got</comment>
         <variable constant="0" name="HighScore" sid="9165856195509204" static="0" type="number">0</variable>
         <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
             <sub-events>
+                <comment>Loads High Score from the Local Storage, or initializes the storage if there is no high score saved, yet.</comment>
                 <event-block sid="8522581107844852">
                     <conditions>
                         <condition id="-2" name="On start of layout" sid="4711130117641328" type="System" />
@@ -44,6 +51,7 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <comment>If the player beats the High Score, save new High Score on Local Storage.</comment>
                 <event-block sid="2907300660749194">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="2295580168123089" type="System">
@@ -67,6 +75,7 @@
         </event-group>
         <event-group collapsed="1" description="Control events and alternative control methods." sid="3330454796225328" title="Controls">
             <sub-events>
+                <comment>Shoots if the shooting conditions are met:&#x0D;&#x0A;* Player must not be on Pacifist Mode&#x0D;&#x0A;* Player can only shoot every 0.1 seconds&#x0D;&#x0A;* Player must do one shooting action.&#x0D;&#x0A;&#x0D;&#x0A;The shooting actions are:&#x0D;&#x0A;* Using the Gamepad Right Stick in one direction;&#x0D;&#x0A;* Pressing the Left mouse button.&#x0D;&#x0A;&#x0D;&#x0A;The player angle is decided by:&#x0D;&#x0A;* Right analog stick position, if the player is using the gamepad.&#x0D;&#x0A;* Mouse position, if the mouse button is pressed.</comment>
                 <event-block sid="3648900360033787">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="1613179322179721" type="System">
@@ -94,13 +103,12 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Spawn another object" sid="6440968139750573" type="Aim">
-                                    <param id="0" name="Object">Shot</param>
-                                    <param id="1" name="Layer">&quot;Game&quot;</param>
-                                    <param id="2" name="Image point">&quot;Shot&quot;</param>
-                                </action>
                                 <action id="-8" name="Set angle" sid="7310875148327481" type="Aim">
                                     <param id="0" name="Angle">angle(0,0,Gamepad.Axis(0,2),Gamepad.Axis(0,3))</param>
+                                </action>
+                                <action id="0" name="Call function" sid="2063939482112092" type="Function">
+                                    <param id="0" name="Name">&quot;Shoot&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
                         </event-block>
@@ -111,24 +119,28 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Spawn another object" sid="8189562400590397" type="Aim">
-                                    <param id="0" name="Object">Shot</param>
-                                    <param id="1" name="Layer">&quot;Game&quot;</param>
-                                    <param id="2" name="Image point">&quot;Shot&quot;</param>
-                                </action>
                                 <action id="-21" name="Rotate toward position" sid="2429578859204713" type="Aim">
-                                    <param id="0" name="Degrees">15</param>
+                                    <param id="0" name="Degrees">90</param>
                                     <param id="1" name="X">Mouse.X</param>
                                     <param id="2" name="Y">Mouse.Y</param>
+                                </action>
+                                <action id="0" name="Call function" sid="7058982876277009" type="Function">
+                                    <param id="0" name="Name">&quot;Shoot&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
                         </event-block>
                     </sub-events>
                 </event-block>
-                <event-block sid="4153319097398034">
+                <comment>Adds alternative inputs for the Go Left Player command.</comment>
+                <event-block any="1" sid="4153319097398034">
                     <conditions>
                         <condition id="2" name="Key is down" sid="109727347838234" type="Keyboard">
                             <param id="0" name="Key">65 (A)</param>
+                        </condition>
+                        <condition id="3" name="Is button down" sid="7909347587000405" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">14</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -137,10 +149,15 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="6913005958806872">
+                <comment>Adds alternative inputs for the Go Up Player command.</comment>
+                <event-block any="1" sid="6913005958806872">
                     <conditions>
                         <condition id="2" name="Key is down" sid="5070079005170258" type="Keyboard">
                             <param id="0" name="Key">87 (W)</param>
+                        </condition>
+                        <condition id="3" name="Is button down" sid="7127532229012265" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">12</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -149,10 +166,15 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="7919422407731026">
+                <comment>Adds alternative inputs for the Go Right Player command.</comment>
+                <event-block any="1" sid="7919422407731026">
                     <conditions>
                         <condition id="2" name="Key is down" sid="115364120627172" type="Keyboard">
                             <param id="0" name="Key">68 (D)</param>
+                        </condition>
+                        <condition id="3" name="Is button down" sid="9303632595013867" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">15</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -161,10 +183,15 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="6819042436499002">
+                <comment>Adds alternative inputs for the Go Down Player command.</comment>
+                <event-block any="1" sid="6819042436499002">
                     <conditions>
                         <condition id="2" name="Key is down" sid="7070558477849608" type="Keyboard">
                             <param id="0" name="Key">83 (S)</param>
+                        </condition>
+                        <condition id="3" name="Is button down" sid="572850491177475" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">13</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -173,6 +200,7 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>Translates Gamepad left stick axis input into ship movement.</comment>
                 <event-block any="1" sid="8021165857804725">
                     <conditions>
                         <condition id="5" name="Compare axis" sid="6791167457399515" type="Gamepad">
@@ -204,6 +232,7 @@
         </event-group>
         <event-group collapsed="1" description="Player and player effects/helpers (shot, flame jet) events." sid="7784473911862342" title="Player">
             <sub-events>
+                <comment>Brings all the player components (Player ship, aim triangle and particle jet) together, every tick.</comment>
                 <event-block sid="3792432436643906">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="1295872421626848" type="System" />
@@ -229,6 +258,7 @@
         </event-group>
         <event-group collapsed="1" description="Level and Enemy effects." sid="6354348894684341" title="Game Effects">
             <sub-events>
+                <comment>Changes the grid color, rotating between all colors, at the interval of 0.1 Hue per tick.</comment>
                 <event-block sid="8559464293558853">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="293857517644524" type="System" />
@@ -247,8 +277,9 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Music and Sound Effects." sid="7276145793056033" title="Sound">
+        <event-group description="Music and Sound Effects." sid="7276145793056033" title="Sound">
             <sub-events>
+                <comment>Plays the level music when the layout is loaded.</comment>
                 <event-block sid="3102609030466335">
                     <conditions>
                         <condition id="-2" name="On start of layout" sid="9728584041528688" type="System" />
@@ -266,6 +297,7 @@
         </event-group>
         <event-group collapsed="1" description="HUD and GUI events." sid="2110095843469122" title="GUI">
             <sub-events>
+                <comment>Update the score and high score every frame.</comment>
                 <event-block sid="8890957871182892">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="4847067047121477" type="System" />
@@ -276,6 +308,31 @@
                         </action>
                         <action id="0" name="Set text" sid="2685271033859384" type="HUDHighScore">
                             <param id="0" name="Text">HighScore</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Functions and Procedures to be called from other events." sid="6066041066856819" title="Functions">
+            <sub-events>
+                <comment>Shoot (No Parameters): Fires the shot equiped on the player and plays the shot sound.</comment>
+                <event-block sid="8992517613130209">
+                    <conditions>
+                        <condition id="0" name="On function" sid="8610884636300198" type="Function">
+                            <param id="0" name="Name">&quot;Shoot&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="5604447913778866" type="Aim">
+                            <param id="0" name="Object">Shot</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">&quot;Shot&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="8129339100384679" type="Audio">
+                            <param id="0" name="Audio file">Fire_normal</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                 </event-block>
