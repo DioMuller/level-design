@@ -2,5 +2,45 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>MainSheet</name>
-    <events />
+    <events>
+        <event-block sid="3792432436643906">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="1295872421626848" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set position to another object" sid="16469151885197" type="PlayerJet">
+                    <param id="0" name="Object">Player</param>
+                    <param id="1" name="Image point (optional)">&quot;Jet&quot;</param>
+                </action>
+                <action id="-8" name="Set angle" sid="3001133632973321" type="PlayerJet">
+                    <param id="0" name="Angle">Player.Angle</param>
+                </action>
+                <action id="18" name="Set timeout" sid="4269293498403787" type="PlayerJet">
+                    <param id="0" name="Timeout">Player.8Direction.Speed / 100</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="2500803107788558">
+            <conditions>
+                <condition id="0" name="On click" sid="6933552897139729" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="6" name="On button pressed" sid="9346837256191949" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Button">0</param>
+                </condition>
+                <condition id="0" name="On key pressed" sid="7565382556863544" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="356638142808575" type="Player">
+                    <param id="0" name="Object">Shot</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="Image point">&quot;Shot&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
 </c2eventsheet>

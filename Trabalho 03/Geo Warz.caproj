@@ -10,10 +10,24 @@
     <unique-id>rq3nq2ohp1bi</unique-id>
     <saved-with-version>16800</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
-    <used-behaviors />
-    <used-effects />
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+    </used-behaviors>
+    <used-effects>
+        <effect author="Scirra" id="glowhorizontal">Glow Horizontal</effect>
+        <effect author="Scirra" id="glowvertical">Glow Vertical</effect>
+    </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
@@ -36,10 +50,80 @@
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
-    <object-folder expanded="1">
+    <object-folder expanded="0">
         <object-type name="Grid" sid="2955226284749137">
             <plugin id="NinePatch" />
             <texture />
+        </object-type>
+        <object-type name="Player" sid="6309762137083568">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="8Direction" sid="3749676667781933">
+                    <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="BoundToLayout" sid="5849162712683958">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="ScrollTo" sid="7327885826073243">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7666057237478658" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="Jet" x="0.234375" y="0.515625" />
+                        <image-point name="Shot" x="0.734375" y="0.53125" />
+                        <collision-poly>
+                            <point x="0.3125" y="0.6875" />
+                            <point x="0.234375" y="0.5" />
+                            <point x="0.328125" y="0.328125" />
+                            <point x="0.5" y="0.25" />
+                            <point x="0.671875" y="0.328125" />
+                            <point x="0.484375" y="0.5" />
+                            <point x="0.6875" y="0.6875" />
+                            <point x="0.5" y="0.765625" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PlayerJet" sid="5487649382986022">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="Shot" sid="3330467953065783">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="4259900069228798">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="1191868189055548">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6606809805819922" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.59375" y="0.378906" />
+                            <point x="0.910156" y="0.488281" />
+                            <point x="0.585938" y="0.597656" />
+                            <point x="0.21875" y="0.574219" />
+                            <point x="0.484375" y="0.492188" />
+                            <point x="0.226563" y="0.402344" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Gamepad" sid="6168997809937932">
+            <plugin id="gamepad" />
+        </object-type>
+        <object-type name="Keyboard" sid="6274326004700801">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Mouse" sid="836054035964062">
+            <plugin id="Mouse" />
         </object-type>
     </object-folder>
     <families />
@@ -49,7 +133,15 @@
     <event-folder expanded="1">
         <event-sheet>MainSheet.xml</event-sheet>
     </event-folder>
-    <global-instances />
+    <global-instances>
+        <global-instance type="Gamepad" uid="4">
+            <properties>
+                <analog-deadzone>25</analog-deadzone>
+            </properties>
+        </global-instance>
+        <global-instance type="Keyboard" uid="5" />
+        <global-instance type="Mouse" uid="6" />
+    </global-instances>
     <sounds-folder expanded="1" />
     <music-folder expanded="1" />
     <files-folder expanded="1">
