@@ -8,6 +8,42 @@
         <variable constant="0" name="HighScore" sid="9165856195509204" static="0" type="number">0</variable>
         <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
             <sub-events>
+                <event-block sid="8522581107844852">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="4711130117641328" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2161698010031804">
+                            <conditions>
+                                <condition id="3" inverted="1" name="Local key exists" sid="6956392931867551" type="HighScore">
+                                    <param id="0" name="Key">&quot;Retro_HighScore&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="6412227235545479" type="HighScore">
+                                    <param id="0" name="Key">&quot;Retro_HighScore&quot;</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="7651252801444569" type="System">
+                                    <param id="0" name="Variable">HighScore</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5094689981041095">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="6452294515714676" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="5264166514681317" type="System">
+                                    <param id="0" name="Variable">HighScore</param>
+                                    <param id="1" name="Value">HighScore.LocalValue(&quot;Retro_HighScore&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="2907300660749194">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="2295580168123089" type="System">
@@ -20,6 +56,10 @@
                         <action id="-9" name="Set value" sid="3180499667121838" type="System">
                             <param id="0" name="Variable">HighScore</param>
                             <param id="1" name="Value">Score</param>
+                        </action>
+                        <action id="0" name="Set local value" sid="3368243722514145" type="HighScore">
+                            <param id="0" name="Key">&quot;Retro_HighScore&quot;</param>
+                            <param id="1" name="Value">HighScore</param>
                         </action>
                     </actions>
                 </event-block>
