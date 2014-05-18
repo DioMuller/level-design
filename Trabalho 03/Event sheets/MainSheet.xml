@@ -3,44 +3,128 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>MainSheet</name>
     <events>
-        <event-block sid="3792432436643906">
-            <conditions>
-                <condition id="-1" name="Every tick" sid="1295872421626848" type="System" />
-            </conditions>
-            <actions>
-                <action id="-4" name="Set position to another object" sid="16469151885197" type="PlayerJet">
-                    <param id="0" name="Object">Player</param>
-                    <param id="1" name="Image point (optional)">&quot;Jet&quot;</param>
-                </action>
-                <action id="-8" name="Set angle" sid="3001133632973321" type="PlayerJet">
-                    <param id="0" name="Angle">Player.Angle</param>
-                </action>
-                <action id="18" name="Set timeout" sid="4269293498403787" type="PlayerJet">
-                    <param id="0" name="Timeout">Player.8Direction.Speed / 100</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block any="1" sid="2500803107788558">
-            <conditions>
-                <condition id="0" name="On click" sid="6933552897139729" type="Mouse">
-                    <param id="0" name="Mouse button">0</param>
-                    <param id="1" name="Click type">0</param>
-                </condition>
-                <condition id="6" name="On button pressed" sid="9346837256191949" type="Gamepad">
-                    <param id="0" name="Gamepad">0</param>
-                    <param id="1" name="Button">0</param>
-                </condition>
-                <condition id="0" name="On key pressed" sid="7565382556863544" type="Keyboard">
-                    <param id="0" name="Key">32 (Space)</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Spawn another object" sid="356638142808575" type="Player">
-                    <param id="0" name="Object">Shot</param>
-                    <param id="1" name="Layer">&quot;Game&quot;</param>
-                    <param id="2" name="Image point">&quot;Shot&quot;</param>
-                </action>
-            </actions>
-        </event-block>
+        <variable constant="0" name="Points" sid="7776303994093549" static="0" type="number">0</variable>
+        <event-group description="" sid="7784473911862342" title="System">
+            <sub-events>
+                <event-block sid="3792432436643906">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="1295872421626848" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="16469151885197" type="PlayerJet">
+                            <param id="0" name="Object">Player</param>
+                            <param id="1" name="Image point (optional)">&quot;Jet&quot;</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="3001133632973321" type="PlayerJet">
+                            <param id="0" name="Angle">Player.Angle</param>
+                        </action>
+                        <action id="18" name="Set timeout" sid="4269293498403787" type="PlayerJet">
+                            <param id="0" name="Timeout">Player.8Direction.Speed / 100</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="6754523306952185" type="Grid">
+                            <param id="0" name="Instance variable">CurrentHue</param>
+                            <param id="1" name="Value">Grid.HueChange</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="3748536483725981" type="Grid">
+                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">(Grid.CurrentHue % 200 )- 100</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="3330454796225328" title="Controls">
+            <sub-events>
+                <event-block sid="2500803107788558">
+                    <conditions>
+                        <condition id="2" name="Mouse button is down" sid="6933552897139729" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                        </condition>
+                        <condition id="-6" name="Every X seconds" sid="8360144190189742" type="System">
+                            <param id="0" name="Interval (seconds)">0.1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="356638142808575" type="Player">
+                            <param id="0" name="Object">Shot</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">&quot;Shot&quot;</param>
+                        </action>
+                        <action id="-22" name="Set angle toward position" sid="9368454470705831" type="Player">
+                            <param id="0" name="X">Mouse.X</param>
+                            <param id="1" name="Y">Mouse.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4153319097398034">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="109727347838234" type="Keyboard">
+                            <param id="0" name="Key">65 (A)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="5277577865855005" type="Player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6913005958806872">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="5070079005170258" type="Keyboard">
+                            <param id="0" name="Key">87 (W)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="7140119692077333" type="Player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7919422407731026">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="115364120627172" type="Keyboard">
+                            <param id="0" name="Key">68 (D)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="6905513545534846" type="Player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6819042436499002">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="7070558477849608" type="Keyboard">
+                            <param id="0" name="Key">83 (S)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="6263216966952288" type="Player">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="" sid="1003957552524565" title="Enemies">
+            <sub-events>
+                <event-block sid="1324042804530485">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="65211085489515" type="Shot">
+                            <param id="0" name="Object">Enemies</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="8857017718631074" type="Enemies" />
+                        <action id="-9" name="Destroy" sid="5917800424048954" type="Shot" />
+                        <action id="-10" name="Add to" sid="3289113976859652" type="System">
+                            <param id="0" name="Variable">Points</param>
+                            <param id="1" name="Value">Enemies.Points</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>
