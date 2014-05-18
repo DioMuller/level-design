@@ -3,24 +3,27 @@
     <name>Geo Warz</name>
     <description></description>
     <version>1.0.0.0</version>
-    <author></author>
+    <author>Diogo Muller</author>
     <author-email></author-email>
     <author-website>http://</author-website>
-    <app-id>com.mycompany.myapp</app-id>
+    <app-id>com.diogomuller.GeoWarz</app-id>
     <unique-id>rq3nq2ohp1bi</unique-id>
     <saved-with-version>16800</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
         <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
     </used-behaviors>
@@ -33,40 +36,30 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>854</width>
-        <height>480</height>
+        <width>1280</width>
+        <height>720</height>
     </window-size>
-    <pixel-rounding>0</pixel-rounding>
+    <pixel-rounding>1</pixel-rounding>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
         <prop name="Enable WebGL">On</prop>
-        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen in browser">Letterbox integer scale</prop>
         <prop name="Fullscreen scaling">High quality</prop>
         <prop name="Loader style">Progress bar &amp; logo</prop>
-        <prop name="Orientations">Any</prop>
+        <prop name="Orientations">Portrait</prop>
         <prop name="Pause on unfocus">No</prop>
         <prop name="Physics engine">Box2D web</prop>
         <prop name="Preview browser">(default)</prop>
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
-    <object-folder expanded="0">
-        <object-type name="Grid" sid="2955226284749137">
-            <plugin id="NinePatch" />
-            <instance-variables>
-                <instance-variable name="HueChange" sid="7455814516188262" type="number" />
-                <instance-variable name="CurrentHue" sid="4374671161354875" type="number" />
-            </instance-variables>
-            <effects>
-                <effect-type name="AdjustHSL">
-                    <effect id="hsladjust" />
-                </effect-type>
-            </effects>
-            <texture />
-        </object-type>
+    <object-folder expanded="1">
         <object-type name="Player" sid="6309762137083568">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Is the player playing in pacifist mode?" name="IsPacifist" sid="2072623888986588" type="boolean" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="3749676667781933">
                     <behavior id="EightDir" />
@@ -160,6 +153,25 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Borders" sid="4190192270691769">
+            <plugin id="NinePatch" />
+            <texture />
+        </object-type>
+        <object-type name="Grid" sid="4538899562766838">
+            <plugin id="TiledBg" />
+            <instance-variables>
+                <instance-variable comment="Grid current hue, for color changing effect." name="CurrentHue" sid="5269804212256781" type="number" />
+            </instance-variables>
+            <effects>
+                <effect-type name="AdjustHSL">
+                    <effect id="hsladjust" />
+                </effect-type>
+            </effects>
+            <texture />
+        </object-type>
+        <object-type name="Audio" sid="1133423947091556">
+            <plugin id="Audio" />
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="6804908276319551">
@@ -170,6 +182,11 @@
                 <instance-variable name="Points" sid="8503472715576321" type="number" />
                 <instance-variable name="Speed" sid="1687963466349023" type="number" />
             </instance-variables>
+            <behaviors>
+                <behavior-type name="CustomMovement" sid="228211215158494">
+                    <behavior id="custom" />
+                </behavior-type>
+            </behaviors>
         </family>
     </families>
     <layout-folder expanded="1">
@@ -177,6 +194,7 @@
     </layout-folder>
     <event-folder expanded="1">
         <event-sheet>MainSheet.xml</event-sheet>
+        <event-sheet>Enemies.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Gamepad" uid="4">
@@ -186,9 +204,26 @@
         </global-instance>
         <global-instance type="Keyboard" uid="5" />
         <global-instance type="Mouse" uid="6" />
+        <global-instance type="Audio" uid="10">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+                <speed-of-sound>5000</speed-of-sound>
+                <doppler-factor>1</doppler-factor>
+            </properties>
+        </global-instance>
     </global-instances>
     <sounds-folder expanded="1" />
-    <music-folder expanded="1" />
+    <music-folder expanded="1">
+        <file name="Theme.ogg" />
+    </music-folder>
     <files-folder expanded="1">
         <file-folder expanded="0" name="Icons">
             <file name="icon-16.png" />

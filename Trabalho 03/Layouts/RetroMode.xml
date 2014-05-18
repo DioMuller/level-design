@@ -4,8 +4,8 @@
     <sid>6083166731777095</sid>
     <event-sheet>MainSheet</event-sheet>
     <size>
-        <width>1750</width>
-        <height>1000</height>
+        <width>1960</width>
+        <height>1350</height>
     </size>
     <margins>
         <horizontal>500</horizontal>
@@ -27,26 +27,18 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="Grid" uid="0">
+                <instance type="Grid" uid="9">
                     <properties>
-                        <left-margin>50</left-margin>
-                        <right-margin>50</right-margin>
-                        <top-margin>50</top-margin>
-                        <bottom-margin>50</bottom-margin>
-                        <edges>Tile</edges>
-                        <fill>Tile</fill>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
-                        <seams>Overlap</seams>
                     </properties>
                     <instance-variables>
-                        <HueChange>0.1</HueChange>
                         <CurrentHue>0</CurrentHue>
                     </instance-variables>
                     <effect-instances>
                         <effect-instance type="AdjustHSL">
                             <parameters>
-                                <hue>-1</hue>
+                                <hue>0</hue>
                                 <luminosity>1</luminosity>
                                 <saturation>1</saturation>
                             </parameters>
@@ -58,8 +50,35 @@
                         <x>0</x>
                         <y>0</y>
                         <z>0</z>
-                        <width>1750</width>
-                        <height>1000</height>
+                        <width>1960</width>
+                        <height>1350</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Borders" uid="0">
+                    <properties>
+                        <left-margin>10</left-margin>
+                        <right-margin>10</right-margin>
+                        <top-margin>10</top-margin>
+                        <bottom-margin>10</bottom-margin>
+                        <edges>Tile</edges>
+                        <fill>Transparent</fill>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                        <seams>Overlap</seams>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0</x>
+                        <y>0</y>
+                        <z>0</z>
+                        <width>1960</width>
+                        <height>1350</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -90,6 +109,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <IsPacifist>false</IsPacifist>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
                             <properties>
@@ -213,6 +235,15 @@
                         <Points>25</Points>
                         <Speed>10</Speed>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="CustomMovement">
+                            <properties>
+                                <stepping-mode>None</stepping-mode>
+                                <pixels-per-step>5</pixels-per-step>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
