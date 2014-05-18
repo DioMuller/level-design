@@ -15,7 +15,7 @@
                         <action id="-9" name="Destroy" sid="8857017718631074" type="Enemies" />
                         <action id="-9" name="Destroy" sid="5917800424048954" type="Shot" />
                         <action id="-10" name="Add to" sid="3289113976859652" type="System">
-                            <param id="0" name="Variable">Points</param>
+                            <param id="0" name="Variable">Score</param>
                             <param id="1" name="Value">Enemies.Points</param>
                         </action>
                     </actions>
@@ -23,7 +23,35 @@
             </sub-events>
         </event-group>
         <comment>Enemy specific behaviors.&#x0D;&#x0A;Enemy descriptions thanks to IGN: http://www.ign.com/wikis/geometry-wars-retro-evolved/Enemies</comment>
-        <event-group description="These lowly enemies are slow and have the IQ of cauliflower. Pinwheels are the first enemy that you&apos;ll encounter in the game and will become less and less common as your score goes up. Being hit by one kills you just the same as anything else, but they won&apos;t target you like the rest of the enemies in this game. Each Pinwheel will simply bounce off of the edges and continue along its path until you shoot it out. These fellows shouldn&apos;t be too much of a problem, even for beginners. Once things start getting hectic, you should ignore them unless they&apos;re in your path and just hope to kill them with stray fire." sid="1281524749217722" title="Pinwheel" />
+        <event-group collapsed="1" description="These lowly enemies are slow and have the IQ of cauliflower. Pinwheels are the first enemy that you&apos;ll encounter in the game and will become less and less common as your score goes up. Being hit by one kills you just the same as anything else, but they won&apos;t target you like the rest of the enemies in this game. Each Pinwheel will simply bounce off of the edges and continue along its path until you shoot it out. These fellows shouldn&apos;t be too much of a problem, even for beginners. Once things start getting hectic, you should ignore them unless they&apos;re in your path and just hope to kill them with stray fire." sid="1281524749217722" title="Pinwheel">
+            <sub-events>
+                <event-block sid="6238479924495257">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="6315811995940015" type="Pinwheel" />
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="1196713285175822" type="Pinwheel">
+                            <param id="0" name="Angle">random(360)</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="9073098163901563" type="Pinwheel">
+                            <param id="0" name="Speed">Pinwheel.Speed</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5599956382427977">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3210207717611708" type="Pinwheel">
+                            <param id="0" name="Object">Borders</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="2935654389432808" type="Pinwheel">
+                            <param id="0" name="Angle">(Pinwheel.Angle + 90 + random(90))%360</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="Diamonds are the second enemy that will appear in the game. They move slowly compared to every other shape sent at you, but they do have slight homing capabilities. For this reason, you should be on the lookout for strays that somehow break away from the main pack. Be sure you take into account that they will move towards you as you decide where to move next. Since they&apos;re so slow, moving in a wide circle around the edges will round them up into a nice clump that can be blasted for lots of points." sid="1766662238130936" title="Diamonds" />
         <event-group description="Green Squares have better homing than Diamonds, plus they&apos;re faster. To make matters worse, they also will dance away from shots that you fire at them. This means that you&apos;ll have to hit them with a direct shot in order to wipe them out. Anything that is close, but not straight at them, will be dodged." sid="712206038977135" title="Green Squares" />
         <event-group description="The Pink Boxes may very well become your first nemesis. They&apos;ll come directly at you quickly and with good targeting. Once you shoot them, they explode into three smaller Pink Boxes. The bonus to this is that you can rack up huge points. The negative part is that the smaller Pink Boxes have an odd spiral movement that can easily get in your way." sid="7087803793196519" title="Pink Boxes" />

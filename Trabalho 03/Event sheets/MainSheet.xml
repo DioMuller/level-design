@@ -4,33 +4,28 @@
     <name>MainSheet</name>
     <events>
         <include>Enemies</include>
-        <variable constant="0" name="Points" sid="7776303994093549" static="0" type="number">0</variable>
-        <event-group collapsed="1" description="Player and player effects/helpers (shot, flame jet) events." sid="7784473911862342" title="Player">
+        <variable constant="0" name="Score" sid="7776303994093549" static="0" type="number">0</variable>
+        <variable constant="0" name="HighScore" sid="9165856195509204" static="0" type="number">0</variable>
+        <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
             <sub-events>
-                <event-block sid="3792432436643906">
+                <event-block sid="2907300660749194">
                     <conditions>
-                        <condition id="-1" name="Every tick" sid="1295872421626848" type="System" />
+                        <condition id="-14" name="Compare variable" sid="2295580168123089" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">HighScore</param>
+                        </condition>
                     </conditions>
                     <actions>
-                        <action id="-4" name="Set position to another object" sid="16469151885197" type="PlayerJet">
-                            <param id="0" name="Object">Player</param>
-                            <param id="1" name="Image point (optional)">&quot;Jet&quot;</param>
-                        </action>
-                        <action id="-8" name="Set angle" sid="3001133632973321" type="PlayerJet">
-                            <param id="0" name="Angle">Player.Angle</param>
-                        </action>
-                        <action id="18" name="Set timeout" sid="4269293498403787" type="PlayerJet">
-                            <param id="0" name="Timeout">Player.8Direction.Speed / 100</param>
-                        </action>
-                        <action id="-4" name="Set position to another object" sid="1994850344601244" type="Triangle">
-                            <param id="0" name="Object">Player</param>
-                            <param id="1" name="Image point (optional)">0</param>
+                        <action id="-9" name="Set value" sid="3180499667121838" type="System">
+                            <param id="0" name="Variable">HighScore</param>
+                            <param id="1" name="Value">Score</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Control events and alternative control methods." sid="3330454796225328" title="Controls">
+        <event-group collapsed="1" description="Control events and alternative control methods." sid="3330454796225328" title="Controls">
             <sub-events>
                 <event-block sid="3648900360033787">
                     <conditions>
@@ -59,12 +54,12 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Spawn another object" sid="6440968139750573" type="Triangle">
+                                <action id="0" name="Spawn another object" sid="6440968139750573" type="Aim">
                                     <param id="0" name="Object">Shot</param>
                                     <param id="1" name="Layer">&quot;Game&quot;</param>
                                     <param id="2" name="Image point">&quot;Shot&quot;</param>
                                 </action>
-                                <action id="-8" name="Set angle" sid="7310875148327481" type="Triangle">
+                                <action id="-8" name="Set angle" sid="7310875148327481" type="Aim">
                                     <param id="0" name="Angle">angle(0,0,Gamepad.Axis(0,2),Gamepad.Axis(0,3))</param>
                                 </action>
                             </actions>
@@ -76,12 +71,12 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Spawn another object" sid="8189562400590397" type="Triangle">
+                                <action id="0" name="Spawn another object" sid="8189562400590397" type="Aim">
                                     <param id="0" name="Object">Shot</param>
                                     <param id="1" name="Layer">&quot;Game&quot;</param>
                                     <param id="2" name="Image point">&quot;Shot&quot;</param>
                                 </action>
-                                <action id="-21" name="Rotate toward position" sid="2429578859204713" type="Triangle">
+                                <action id="-21" name="Rotate toward position" sid="2429578859204713" type="Aim">
                                     <param id="0" name="Degrees">15</param>
                                     <param id="1" name="X">Mouse.X</param>
                                     <param id="2" name="Y">Mouse.Y</param>
@@ -167,6 +162,31 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group collapsed="1" description="Player and player effects/helpers (shot, flame jet) events." sid="7784473911862342" title="Player">
+            <sub-events>
+                <event-block sid="3792432436643906">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="1295872421626848" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="16469151885197" type="PlayerJet">
+                            <param id="0" name="Object">Player</param>
+                            <param id="1" name="Image point (optional)">&quot;Jet&quot;</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="3001133632973321" type="PlayerJet">
+                            <param id="0" name="Angle">Player.Angle</param>
+                        </action>
+                        <action id="18" name="Set timeout" sid="4269293498403787" type="PlayerJet">
+                            <param id="0" name="Timeout">Player.8Direction.Speed / 100</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="1994850344601244" type="Aim">
+                            <param id="0" name="Object">Player</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group collapsed="1" description="Level and Enemy effects." sid="6354348894684341" title="Game Effects">
             <sub-events>
                 <event-block sid="8559464293558853">
@@ -199,6 +219,23 @@
                             <param id="2" name="Loop">1</param>
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;MainTheme&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="HUD and GUI events." sid="2110095843469122" title="GUI">
+            <sub-events>
+                <event-block sid="8890957871182892">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="4847067047121477" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="9850297362375251" type="HUDScore">
+                            <param id="0" name="Text">Score</param>
+                        </action>
+                        <action id="0" name="Set text" sid="2685271033859384" type="HUDHighScore">
+                            <param id="0" name="Text">HighScore</param>
                         </action>
                     </actions>
                 </event-block>
