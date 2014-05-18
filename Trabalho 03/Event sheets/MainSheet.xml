@@ -4,7 +4,7 @@
     <name>MainSheet</name>
     <events>
         <variable constant="0" name="Points" sid="7776303994093549" static="0" type="number">0</variable>
-        <event-group description="" sid="7784473911862342" title="System">
+        <event-group collapsed="1" description="" sid="7784473911862342" title="System">
             <sub-events>
                 <event-block sid="3792432436643906">
                     <conditions>
@@ -30,11 +30,15 @@
                             <param id="1" name="Parameter index">0</param>
                             <param id="2" name="Value">(Grid.CurrentHue % 200 )- 100</param>
                         </action>
+                        <action id="-4" name="Set position to another object" sid="1994850344601244" type="Triangle">
+                            <param id="0" name="Object">Player</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="" sid="3330454796225328" title="Controls">
+        <event-group description="" sid="3330454796225328" title="Controls">
             <sub-events>
                 <event-block sid="2500803107788558">
                     <conditions>
@@ -46,12 +50,12 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Spawn another object" sid="356638142808575" type="Player">
+                        <action id="0" name="Spawn another object" sid="356638142808575" type="Triangle">
                             <param id="0" name="Object">Shot</param>
                             <param id="1" name="Layer">&quot;Game&quot;</param>
                             <param id="2" name="Image point">&quot;Shot&quot;</param>
                         </action>
-                        <action id="-22" name="Set angle toward position" sid="9368454470705831" type="Player">
+                        <action id="-22" name="Set angle toward position" sid="9368454470705831" type="Triangle">
                             <param id="0" name="X">Mouse.X</param>
                             <param id="1" name="Y">Mouse.Y</param>
                         </action>

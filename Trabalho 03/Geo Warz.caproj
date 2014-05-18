@@ -150,6 +150,16 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Triangle" sid="7243700054936474">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="117664914565907" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="Shot" x="1" y="0.5" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="6804908276319551">
