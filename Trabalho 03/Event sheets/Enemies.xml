@@ -3,7 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Enemies</name>
     <events>
-        <event-group collapsed="1" description="Enemies generic events." sid="9210692629209011" title="General">
+        <event-group description="Enemies generic events." sid="9210692629209011" title="General">
             <sub-events>
                 <comment>If a shot hits an enemy, it dies.</comment>
                 <event-block sid="1324042804530485">
@@ -13,7 +13,18 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="0" name="Spawn another object" sid="2303553385002889" type="Enemies">
+                            <param id="0" name="Object">Particles</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
                         <action id="-9" name="Destroy" sid="8857017718631074" type="Enemies" />
+                        <action id="0" name="Play" sid="4277406857856527" type="Audio">
+                            <param id="0" name="Audio file">Enemy_explode</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                         <action id="-9" name="Destroy" sid="5917800424048954" type="Shot" />
                         <action id="-10" name="Add to" sid="3289113976859652" type="System">
                             <param id="0" name="Variable">Score</param>
@@ -30,8 +41,8 @@
                     </conditions>
                     <actions>
                         <action id="-9" name="Destroy" sid="3930960246154772" type="Player" />
-                        <action id="0" name="Play" sid="4277406857856527" type="Audio">
-                            <param id="0" name="Audio file">Game_over</param>
+                        <action id="0" name="Play" sid="3543997085166587" type="Audio">
+                            <param id="0" name="Audio file">Ship_explode</param>
                             <param id="2" name="Loop">0</param>
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;&quot;</param>

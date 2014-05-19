@@ -57,7 +57,7 @@
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder expanded="1">
-        <object-folder expanded="1" name="System">
+        <object-folder expanded="0" name="System">
             <object-type name="Audio" sid="1133423947091556">
                 <plugin id="Audio" />
             </object-type>
@@ -173,7 +173,7 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-folder expanded="0" name="Level">
+        <object-folder expanded="1" name="Level">
             <object-type name="Borders" sid="5597463576348463">
                 <plugin id="TiledBg" />
                 <behaviors>
@@ -194,6 +194,27 @@
                     </effect-type>
                 </effects>
                 <texture />
+            </object-type>
+            <object-type name="SpawnPoint" sid="3612800661034519">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1849878293427174" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="Spawn 1" x="0.195313" y="0.179688" />
+                            <image-point name="Spawn 2" x="0.171875" y="0.851563" />
+                            <image-point name="Spawn 3" x="0.828125" y="0.84375" />
+                            <image-point name="Spawn 4" x="0.828125" y="0.15625" />
+                            <image-point name="Spawn 5" x="0.515625" y="0.125" />
+                            <image-point name="Spawn 6" x="0.148438" y="0.507813" />
+                            <image-point name="Spawn 7" x="0.84375" y="0.484375" />
+                            <image-point name="Spawn 8" x="0.515625" y="0.875" />
+                            <image-point name="Spawn 9" x="0.414063" y="0.65625" />
+                            <image-point name="Spawn 10" x="0.398438" y="0.320313" />
+                            <image-point name="Spawn 11" x="0.65625" y="0.289063" />
+                            <image-point name="Spawn 12" x="0.726563" y="0.679688" />
+                        </frame>
+                    </animation>
+                </animation-folder>
             </object-type>
         </object-folder>
         <object-folder expanded="0" name="Enemies">
@@ -227,6 +248,18 @@
                 </animation-folder>
             </object-type>
         </object-folder>
+        <object-type name="PlayerSpawnPoint" sid="5340687197214373">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3189357858289239" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Particles" sid="8816149740713208">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="6804908276319551">
@@ -240,7 +273,7 @@
         </family>
     </families>
     <layout-folder expanded="1">
-        <layout>RetroMode.xml</layout>
+        <layout>Game.xml</layout>
     </layout-folder>
     <event-folder expanded="1">
         <event-sheet>MainSheet.xml</event-sheet>
@@ -272,7 +305,7 @@
         <global-instance type="HighScore" uid="38" />
         <global-instance type="Function" uid="39" />
     </global-instances>
-    <sounds-folder expanded="1">
+    <sounds-folder expanded="0">
         <file name="bullet_hitwall.ogg" />
         <file name="Enemy_explode.ogg" />
         <file name="Enemy_red_hit.ogg" />

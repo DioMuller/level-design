@@ -4,14 +4,14 @@
     <name>MainSheet</name>
     <events>
         <include>Enemies</include>
-        <comment>Number of Bombs the Player has</comment>
-        <variable constant="0" name="Bombs" sid="4912718610940361" static="0" type="number">3</variable>
-        <comment>Number of Lives the Player has</comment>
-        <variable constant="0" name="Lives" sid="1566409325247134" static="0" type="number">3</variable>
-        <comment>Current score</comment>
-        <variable constant="0" name="Score" sid="7776303994093549" static="0" type="number">0</variable>
-        <comment>Best score the player ever got</comment>
-        <variable constant="0" name="HighScore" sid="9165856195509204" static="0" type="number">0</variable>
+        <comment>Player Variables</comment>
+        <variable comment="Number of Bombs the Player has." constant="0" name="Bombs" sid="4912718610940361" static="0" type="number">3</variable>
+        <variable comment="Number of Lives the Player has." constant="0" name="Lives" sid="1566409325247134" static="0" type="number">3</variable>
+        <comment>Scoring Variables</comment>
+        <variable comment="Current score." constant="0" name="Score" sid="7776303994093549" static="0" type="number">0</variable>
+        <variable comment="Current High Score." constant="0" name="HighScore" sid="9165856195509204" static="0" type="number">0</variable>
+        <comment>Level Variables</comment>
+        <variable comment="Time interval between spawns." constant="0" name="SpawnTimer" sid="96232069473158" static="0" type="number">5</variable>
         <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
             <sub-events>
                 <comment>Loads High Score from the Local Storage, or initializes the storage if there is no high score saved, yet.</comment>
@@ -256,6 +256,75 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group collapsed="1" description="Enemy spawning, player death and other similar events." sid="5994465010774309" title="Level">
+            <sub-events>
+                <comment>Spawn Enemies each spawn cycle.</comment>
+                <event-block sid="7871617777748265">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="7116042062554417" type="System">
+                            <param id="0" name="Interval (seconds)">SpawnTimer</param>
+                        </condition>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="764143415205943" type="SpawnPoint">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="3733880722695129" type="SpawnPoint">
+                            <param id="0" name="Object">Enemies</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">random(13)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Respawns player after death, if it still has lives.</comment>
+                <event-block sid="3058728122704352">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="9273997221098837" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="7352903656447587" type="Enemies" />
+                        <action id="-16" name="Wait" sid="6011890765304827" type="System">
+                            <param id="0" name="Seconds">3.0</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="3620388899085157" type="System">
+                            <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="5377401285353125">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5543190273417278" type="System">
+                                    <param id="0" name="Variable">Lives</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="3430405357128397" type="PlayerSpawnPoint">
+                                    <param id="0" name="Object">Player</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8917536494176876">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6898569335943563" type="System">
+                                    <param id="0" name="Variable">Lives</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-21" name="Reset global variables" sid="677070618506399" type="System" />
+                                <action id="-26" name="Restart layout" sid="7420968790236553" type="System" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group collapsed="1" description="Level and Enemy effects." sid="6354348894684341" title="Game Effects">
             <sub-events>
                 <comment>Changes the grid color, rotating between all colors, at the interval of 0.1 Hue per tick.</comment>
@@ -277,7 +346,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Music and Sound Effects." sid="7276145793056033" title="Sound">
+        <event-group collapsed="1" description="Music and Sound Effects." sid="7276145793056033" title="Sound">
             <sub-events>
                 <comment>Plays the level music when the layout is loaded.</comment>
                 <event-block sid="3102609030466335">
@@ -328,11 +397,14 @@
                             <param id="1" name="Layer">&quot;Game&quot;</param>
                             <param id="2" name="Image point">&quot;Shot&quot;</param>
                         </action>
+                        <action id="6" name="Stop" sid="8535028045057579" type="Audio">
+                            <param id="0" name="Tag">&quot;Shot&quot;</param>
+                        </action>
                         <action id="0" name="Play" sid="8129339100384679" type="Audio">
                             <param id="0" name="Audio file">Fire_normal</param>
                             <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">0</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                            <param id="3" name="Volume">-2</param>
+                            <param id="1" name="Tag (optional)">&quot;Shot&quot;</param>
                         </action>
                     </actions>
                 </event-block>
