@@ -15,7 +15,7 @@
         <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
             <sub-events>
                 <comment>Loads High Score from the Local Storage, or initializes the storage if there is no high score saved, yet.</comment>
-                <event-block sid="8522581107844852">
+                <event-block collapsed="1" sid="8522581107844852">
                     <conditions>
                         <condition id="-2" name="On start of layout" sid="4711130117641328" type="System" />
                     </conditions>
@@ -70,6 +70,21 @@
                             <param id="1" name="Value">HighScore</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="6899674098192083">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="3538470793584989" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="6301518975847685" type="Audio">
+                                    <param id="0" name="Audio file">Hi_Score_achieved</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
@@ -267,6 +282,11 @@
                         <condition id="1" inverted="1" name="Is overlapping another object" sid="764143415205943" type="SpawnPoint">
                             <param id="0" name="Object">Player</param>
                         </condition>
+                        <condition id="-14" name="Compare variable" sid="3703824857933553" type="System">
+                            <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Spawn another object" sid="3733880722695129" type="SpawnPoint">
@@ -325,7 +345,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Level and Enemy effects." sid="6354348894684341" title="Game Effects">
+        <event-group description="Level and Enemy effects." sid="6354348894684341" title="Game Effects">
             <sub-events>
                 <comment>Changes the grid color, rotating between all colors, at the interval of 0.1 Hue per tick.</comment>
                 <event-block sid="8559464293558853">
@@ -341,6 +361,34 @@
                             <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
                             <param id="1" name="Parameter index">0</param>
                             <param id="2" name="Value">(Grid.CurrentHue % 200) - 100</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>When an explosive is destroyed, shows explosion.</comment>
+                <event-block sid="9201752350886456">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="3635184989725699" type="Explosive" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="4370693981716775" type="Explosive">
+                            <param id="0" name="Object">EnemyExplosion</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="7222420814318746" type="EnemyExplosion">
+                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">Explosive.ExplosionH</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="506274948611444" type="EnemyExplosion">
+                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">Explosive.ExplosionS</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="6083662946076538" type="EnemyExplosion">
+                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">Explosive.ExplosionI</param>
                         </action>
                     </actions>
                 </event-block>
@@ -382,7 +430,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Functions and Procedures to be called from other events." sid="6066041066856819" title="Functions">
+        <event-group collapsed="1" description="Functions and Procedures to be called from other events." sid="6066041066856819" title="Functions">
             <sub-events>
                 <comment>Shoot (No Parameters): Fires the shot equiped on the player and plays the shot sound.</comment>
                 <event-block sid="8992517613130209">
@@ -403,7 +451,7 @@
                         <action id="0" name="Play" sid="8129339100384679" type="Audio">
                             <param id="0" name="Audio file">Fire_normal</param>
                             <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-2</param>
+                            <param id="3" name="Volume">-5</param>
                             <param id="1" name="Tag (optional)">&quot;Shot&quot;</param>
                         </action>
                     </actions>

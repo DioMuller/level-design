@@ -52,7 +52,7 @@
         <prop name="Orientations">Portrait</prop>
         <prop name="Pause on unfocus">No</prop>
         <prop name="Physics engine">Box2D web</prop>
-        <prop name="Preview browser">(default)</prop>
+        <prop name="Preview browser">Node-Webkit</prop>
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
@@ -173,7 +173,7 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-folder expanded="1" name="Level">
+        <object-folder expanded="0" name="Level">
             <object-type name="Borders" sid="5597463576348463">
                 <plugin id="TiledBg" />
                 <behaviors>
@@ -216,6 +216,18 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="PlayerSpawnPoint" sid="5340687197214373">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3189357858289239" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Background" sid="4011098505481366">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder expanded="0" name="Enemies">
             <object-type name="Pinwheel" sid="3532969755416103">
@@ -248,18 +260,17 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-type name="PlayerSpawnPoint" sid="5340687197214373">
-            <plugin id="Sprite" />
-            <animation-folder expanded="1">
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3189357858289239" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Particles" sid="8816149740713208">
-            <plugin id="Particles" />
-            <texture />
-        </object-type>
+        <object-folder expanded="0" name="Effects">
+            <object-type name="EnemyExplosion" sid="8816149740713208">
+                <plugin id="Particles" />
+                <effects>
+                    <effect-type name="AdjustHSL">
+                        <effect id="hsladjust" />
+                    </effect-type>
+                </effects>
+                <texture />
+            </object-type>
+        </object-folder>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="6804908276319551">
@@ -269,6 +280,17 @@
             <instance-variables>
                 <instance-variable name="Points" sid="8503472715576321" type="number" />
                 <instance-variable name="Speed" sid="1687963466349023" type="number" />
+            </instance-variables>
+        </family>
+        <family name="Explosive" plugin-id="Sprite" sid="7115334887572883">
+            <members>
+                <member>Pinwheel</member>
+                <member>Player</member>
+            </members>
+            <instance-variables>
+                <instance-variable comment="Explosion Hue Channel" name="ExplosionH" sid="7063402831292005" type="number" />
+                <instance-variable comment="Explosion Saturation Channel" name="ExplosionS" sid="8211653913282172" type="number" />
+                <instance-variable comment="Explosion Intensity Channel" name="ExplosionI" sid="1787068866255174" type="number" />
             </instance-variables>
         </family>
     </families>
@@ -308,45 +330,14 @@
     <sounds-folder expanded="0">
         <file name="bullet_hitwall.ogg" />
         <file name="Enemy_explode.ogg" />
-        <file name="Enemy_red_hit.ogg" />
-        <file name="Enemy_red_suck.ogg" />
-        <file name="Enemy_red_warning.ogg" />
-        <file name="Enemy_spawn_blue.ogg" />
-        <file name="Enemy_spawn_green.ogg" />
-        <file name="Enemy_spawn_orange.ogg" />
-        <file name="Enemy_spawn_purple.ogg" />
-        <file name="Enemy_spawn_red.ogg" />
-        <file name="Fire_Hispeed.ogg" />
-        <file name="Fire_homing.ogg" />
         <file name="Fire_normal.ogg" />
-        <file name="Fire_smartbomb.ogg" />
-        <file name="Fire_smartbomb_low.ogg" />
-        <file name="Fire_triway.ogg" />
         <file name="Game_over.ogg" />
-        <file name="Game_start.ogg" />
-        <file name="Gravity_well_die.ogg" />
-        <file name="Gravity_well_explode.ogg" />
         <file name="Hi_Score_achieved.ogg" />
-        <file name="Mayfly.ogg" />
         <file name="Multiplier.ogg" />
-        <file name="pickup_extralife.ogg" />
-        <file name="pickup_smartbomb.ogg" />
-        <file name="pickup_weapon.ogg" />
-        <file name="Player_shielded_hit_enemy.ogg" />
         <file name="Player_Spawn.ogg" />
-        <file name="Projectile_hit_wall.ogg" />
-        <file name="Repulsar_activate.ogg" />
-        <file name="Repulsar_spawn.ogg" />
-        <file name="Shield_off.ogg" />
-        <file name="Shield_on.ogg" />
         <file name="Ship_explode.ogg" />
         <file name="Ship_hitwall.ogg" />
         <file name="Ship_thrust_loop.ogg" />
-        <file name="silence.ogg" />
-        <file name="Snake_spawn.ogg" />
-        <file name="UI_Change.ogg" />
-        <file name="UI_Confirm.ogg" />
-        <file name="UI_Delete.ogg" />
         <file name="Wanderer_spawn.ogg" />
     </sounds-folder>
     <music-folder expanded="0">

@@ -3,7 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Enemies</name>
     <events>
-        <event-group description="Enemies generic events." sid="9210692629209011" title="General">
+        <event-group collapsed="1" description="Enemies generic events." sid="9210692629209011" title="General">
             <sub-events>
                 <comment>If a shot hits an enemy, it dies.</comment>
                 <event-block sid="1324042804530485">
@@ -13,11 +13,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Spawn another object" sid="2303553385002889" type="Enemies">
-                            <param id="0" name="Object">Particles</param>
-                            <param id="1" name="Layer">&quot;Game&quot;</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
                         <action id="-9" name="Destroy" sid="8857017718631074" type="Enemies" />
                         <action id="0" name="Play" sid="4277406857856527" type="Audio">
                             <param id="0" name="Audio file">Enemy_explode</param>
@@ -52,7 +47,7 @@
             </sub-events>
         </event-group>
         <comment>Enemy specific behaviors.&#x0D;&#x0A;Enemy descriptions thanks to IGN: http://www.ign.com/wikis/geometry-wars-retro-evolved/Enemies</comment>
-        <event-group collapsed="1" description="These lowly enemies are slow and have the IQ of cauliflower. Pinwheels are the first enemy that you&apos;ll encounter in the game and will become less and less common as your score goes up. Being hit by one kills you just the same as anything else, but they won&apos;t target you like the rest of the enemies in this game. Each Pinwheel will simply bounce off of the edges and continue along its path until you shoot it out. These fellows shouldn&apos;t be too much of a problem, even for beginners. Once things start getting hectic, you should ignore them unless they&apos;re in your path and just hope to kill them with stray fire." sid="1281524749217722" title="Pinwheel">
+        <event-group collapsed="1" description="These lowly enemies are slow and have the IQ of cauliflower. Pinwheels are the first enemy that you&apos;ll encounter in the game and will become less and less common as your score goes up. Being hit by one kills you just the same as anything else, but they won&apos;t target you like the rest of the enemies in this game. Each Pinwheel will simply bounce off of the edges and continue along its path until you shoot it out. These fellows shouldn&apos;t be too much of a problem, even for beginners. Once things start getting hectic, you should ignore them unless they&apos;re in your path and just hope to kill them with stray fire." sid="1281524749217722" title="Pinwheel / Wanderer">
             <sub-events>
                 <comment>When the enemy is created, it chooses a random direction and moves that way.</comment>
                 <event-block sid="6238479924495257">
@@ -65,6 +60,12 @@
                         </action>
                         <action behavior="Bullet" id="0" name="Set speed" sid="9073098163901563" type="Pinwheel">
                             <param id="0" name="Speed">Pinwheel.Speed</param>
+                        </action>
+                        <action id="0" name="Play" sid="3471291265833642" type="Audio">
+                            <param id="0" name="Audio file">Wanderer_spawn</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                 </event-block>

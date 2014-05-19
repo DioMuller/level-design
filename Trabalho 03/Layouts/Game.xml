@@ -13,10 +13,47 @@
     </margins>
     <unbounded-scrolling>0</unbounded-scrolling>
     <layers>
-        <layer name="Background" sid="9504045899868966">
+        <layer name="Background" sid="7567498408528196">
             <initially-visible>1</initially-visible>
             <background-color>0,0,0</background-color>
             <transparent>0</transparent>
+            <parallax>
+                <x>0.5</x>
+                <y>0.5</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances>
+                <instance type="Background" uid="20">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-360</x>
+                        <y>-236</y>
+                        <z>0</z>
+                        <width>2705</width>
+                        <height>1884</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+            </instances>
+            <effects />
+        </layer>
+        <layer name="Grid" sid="9504045899868966">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
             <parallax>
                 <x>1</x>
                 <y>1</y>
@@ -84,6 +121,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <ExplosionH>0</ExplosionH>
+                        <ExplosionS>100</ExplosionS>
+                        <ExplosionI>100</ExplosionI>
                         <IsPacifist>false</IsPacifist>
                     </instance-variables>
                     <behavior-instances>
@@ -230,6 +270,9 @@
                     <instance-variables>
                         <Points>25</Points>
                         <Speed>250</Speed>
+                        <ExplosionH>0</ExplosionH>
+                        <ExplosionS>100</ExplosionS>
+                        <ExplosionI>100</ExplosionI>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Bullet">
@@ -564,7 +607,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Particles" uid="19">
+                <instance type="EnemyExplosion" uid="19">
                     <properties>
                         <rate>300</rate>
                         <spray-cone>360</spray-cone>
@@ -588,6 +631,15 @@
                         <destroy-mode>Fade to invisible</destroy-mode>
                         <timeout>5</timeout>
                     </properties>
+                    <effect-instances>
+                        <effect-instance type="AdjustHSL">
+                            <parameters>
+                                <hue>0</hue>
+                                <luminosity>1</luminosity>
+                                <saturation>1</saturation>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
