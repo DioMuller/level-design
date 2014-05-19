@@ -505,6 +505,36 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>Hide the aim triangle if player is dead.</comment>
+                <event-block sid="6816807400507154">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="4251955940125492" type="System">
+                            <param id="0" name="Variable">IsPlayerAlive</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">FALSE</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="1829208989621669" type="Aim">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Show the aim triangle if the player is alive.</comment>
+                <event-block sid="4042753356040705">
+                    <conditions>
+                        <condition id="-14" inverted="1" name="Compare variable" sid="8905611548976298" type="System">
+                            <param id="0" name="Variable">IsPlayerAlive</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">FALSE</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="5422043577748084" type="Aim">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group collapsed="1" description="Enemy spawning, player death and other similar events." sid="5994465010774309" title="Level">
@@ -653,7 +683,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="HUD and GUI events." sid="2110095843469122" title="GUI">
+        <event-group collapsed="1" description="HUD and GUI events." sid="2110095843469122" title="GUI">
             <sub-events>
                 <comment>Update the score and high score every frame.</comment>
                 <event-block sid="8890957871182892">
