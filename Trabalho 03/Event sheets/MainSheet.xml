@@ -4,6 +4,9 @@
     <name>MainSheet</name>
     <events>
         <include>Enemies</include>
+        <comment>Constant Values</comment>
+        <variable comment="Constant representing the boolean value TRUE." constant="1" name="TRUE" sid="1027152796079975" static="0" type="number">1</variable>
+        <variable comment="Constant representing the boolean value FALSE." constant="1" name="FALSE" sid="7452216355564565" static="0" type="number">0</variable>
         <comment>Player Variables</comment>
         <variable comment="Number of Bombs the Player has." constant="0" name="Bombs" sid="4912718610940361" static="0" type="number">3</variable>
         <variable comment="Number of Lives the Player has." constant="0" name="Lives" sid="1566409325247134" static="0" type="number">3</variable>
@@ -12,6 +15,8 @@
         <variable comment="Current High Score." constant="0" name="HighScore" sid="9165856195509204" static="0" type="number">0</variable>
         <comment>Level Variables</comment>
         <variable comment="Time interval between spawns." constant="0" name="SpawnTimer" sid="96232069473158" static="0" type="number">5</variable>
+        <comment>Flags</comment>
+        <variable comment="Flag that checks if player is alive." constant="0" name="IsPlayerAlive" sid="4024793600231068" static="0" type="number">0</variable>
         <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
             <sub-events>
                 <comment>Loads High Score from the Local Storage, or initializes the storage if there is no high score saved, yet.</comment>
@@ -269,6 +274,30 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>Sets the Player Alive flag to TRUE when the player is created.</comment>
+                <event-block sid="7060783315290333">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="4813002487581019" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2706516021169155" type="System">
+                            <param id="0" name="Variable">IsPlayerAlive</param>
+                            <param id="1" name="Value">TRUE</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Sets the Player Alive flag to FALSE when the player dies.</comment>
+                <event-block sid="3313779258919682">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="5787330347098935" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3746752011041673" type="System">
+                            <param id="0" name="Variable">IsPlayerAlive</param>
+                            <param id="1" name="Value">FALSE</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group collapsed="1" description="Enemy spawning, player death and other similar events." sid="5994465010774309" title="Level">
@@ -286,6 +315,11 @@
                             <param id="0" name="Variable">Lives</param>
                             <param id="1" name="Comparison">5</param>
                             <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="9870165491577499" type="System">
+                            <param id="0" name="Variable">IsPlayerAlive</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">TRUE</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -345,7 +379,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Level and Enemy effects." sid="6354348894684341" title="Game Effects">
+        <event-group collapsed="1" description="Level and Enemy effects." sid="6354348894684341" title="Game Effects">
             <sub-events>
                 <comment>Changes the grid color, rotating between all colors, at the interval of 0.1 Hue per tick.</comment>
                 <event-block sid="8559464293558853">

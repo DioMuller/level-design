@@ -173,7 +173,7 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-folder expanded="0" name="Level">
+        <object-folder expanded="1" name="Level">
             <object-type name="Borders" sid="5597463576348463">
                 <plugin id="TiledBg" />
                 <behaviors>

@@ -123,7 +123,7 @@
                     <instance-variables>
                         <ExplosionH>0</ExplosionH>
                         <ExplosionS>100</ExplosionS>
-                        <ExplosionI>100</ExplosionI>
+                        <ExplosionI>200</ExplosionI>
                         <IsPacifist>false</IsPacifist>
                     </instance-variables>
                     <behavior-instances>
@@ -485,8 +485,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>347</x>
-                        <y>1144</y>
+                        <x>341</x>
+                        <y>1119</y>
                         <z>0</z>
                         <width>128</width>
                         <height>128</height>
@@ -507,8 +507,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1029</x>
-                        <y>1096</y>
+                        <x>987</x>
+                        <y>1104</y>
                         <z>0</z>
                         <width>128</width>
                         <height>128</height>
@@ -529,8 +529,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1044</x>
-                        <y>250</y>
+                        <x>962</x>
+                        <y>253</y>
                         <z>0</z>
                         <width>128</width>
                         <height>128</height>
