@@ -13,14 +13,19 @@
         <comment>Scoring Variables</comment>
         <variable comment="Current score." constant="0" name="Score" sid="7776303994093549" static="0" type="number">0</variable>
         <variable comment="Current High Score." constant="0" name="HighScore" sid="9165856195509204" static="0" type="number">0</variable>
+        <variable comment="Time the player is being pacifist." constant="0" name="PacifistTime" sid="4542916606348985" static="0" type="number">0</variable>
+        <variable comment="Highest pacifist time the player had." constant="0" name="BestPacifist" sid="2419245576472392" static="0" type="number">0</variable>
+        <variable comment="Time the player survived." constant="0" name="SurvivalTime" sid="5429367854862133" static="0" type="number">0</variable>
+        <variable comment="Best survival time the player got." constant="0" name="BestSurvival" sid="5492233290421688" static="0" type="number">0</variable>
         <comment>Level Variables</comment>
         <variable comment="Time interval between spawns." constant="0" name="SpawnTimer" sid="96232069473158" static="0" type="number">5</variable>
         <comment>Flags</comment>
         <variable comment="Flag that checks if player is alive." constant="0" name="IsPlayerAlive" sid="4024793600231068" static="0" type="number">0</variable>
+        <variable comment="Has the player shot on the last second?" constant="0" name="IsPlayerPacifist" sid="1934420169127409" static="0" type="number">1</variable>
         <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
             <sub-events>
                 <comment>Loads High Score from the Local Storage, or initializes the storage if there is no high score saved, yet.</comment>
-                <event-block collapsed="1" sid="8522581107844852">
+                <event-block sid="8522581107844852">
                     <conditions>
                         <condition id="-2" name="On start of layout" sid="4711130117641328" type="System" />
                     </conditions>
@@ -29,12 +34,12 @@
                         <event-block sid="2161698010031804">
                             <conditions>
                                 <condition id="3" inverted="1" name="Local key exists" sid="6956392931867551" type="HighScore">
-                                    <param id="0" name="Key">&quot;Retro_HighScore&quot;</param>
+                                    <param id="0" name="Key">&quot;HighScore&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
                                 <action id="0" name="Set local value" sid="6412227235545479" type="HighScore">
-                                    <param id="0" name="Key">&quot;Retro_HighScore&quot;</param>
+                                    <param id="0" name="Key">&quot;HighScore&quot;</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="7651252801444569" type="System">
@@ -50,7 +55,81 @@
                             <actions>
                                 <action id="-9" name="Set value" sid="5264166514681317" type="System">
                                     <param id="0" name="Variable">HighScore</param>
-                                    <param id="1" name="Value">HighScore.LocalValue(&quot;Retro_HighScore&quot;)</param>
+                                    <param id="1" name="Value">HighScore.LocalValue(&quot;HighScore&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Loads Best Pacifist Time from the Local Storage, or initializes the storage if there is no pacifist time saved, yet.</comment>
+                <event-block sid="4640436435718123">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="9907199479569645" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3414719786384044">
+                            <conditions>
+                                <condition id="3" inverted="1" name="Local key exists" sid="7766770262059509" type="HighScore">
+                                    <param id="0" name="Key">&quot;BestPacifist&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="2303211488110534" type="HighScore">
+                                    <param id="0" name="Key">&quot;BestPacifist&quot;</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="5966910972885255" type="System">
+                                    <param id="0" name="Variable">BestPacifist</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1305281736430907">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="5122743110674551" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="8814356581882959" type="System">
+                                    <param id="0" name="Variable">BestPacifist</param>
+                                    <param id="1" name="Value">HighScore.LocalValue(&quot;BestPacifist&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Loads Best Pacifist Time from the Local Storage, or initializes the storage if there is no pacifist time saved, yet.</comment>
+                <event-block sid="4220326168128574">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="3556028087327521" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="1503835761473545">
+                            <conditions>
+                                <condition id="3" inverted="1" name="Local key exists" sid="9905216403253025" type="HighScore">
+                                    <param id="0" name="Key">&quot;BestSurvival&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="2508649466888049" type="HighScore">
+                                    <param id="0" name="Key">&quot;BestSurvival&quot;</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="4481721274927328" type="System">
+                                    <param id="0" name="Variable">BestSurvival</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4000784146141198">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="9437375416431336" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="3966830643674472" type="System">
+                                    <param id="0" name="Variable">BestSurvival</param>
+                                    <param id="1" name="Value">HighScore.LocalValue(&quot;BestSurvival&quot;)</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -71,7 +150,7 @@
                             <param id="1" name="Value">Score</param>
                         </action>
                         <action id="0" name="Set local value" sid="3368243722514145" type="HighScore">
-                            <param id="0" name="Key">&quot;Retro_HighScore&quot;</param>
+                            <param id="0" name="Key">&quot;HighScore&quot;</param>
                             <param id="1" name="Value">HighScore</param>
                         </action>
                     </actions>
@@ -86,6 +165,134 @@
                                     <param id="2" name="Loop">0</param>
                                     <param id="3" name="Volume">0</param>
                                     <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>If the player beats the Best Pacifist time, save new Best Pacifist on Local Storage.</comment>
+                <event-block sid="3969965723417668">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="5856440842690312" type="System">
+                            <param id="0" name="Variable">PacifistTime</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">BestPacifist</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1648159464589714" type="System">
+                            <param id="0" name="Variable">BestPacifist</param>
+                            <param id="1" name="Value">PacifistTime</param>
+                        </action>
+                        <action id="0" name="Set local value" sid="5444277027942053" type="HighScore">
+                            <param id="0" name="Key">&quot;BestPacifist&quot;</param>
+                            <param id="1" name="Value">BestPacifist</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="3698246898901984">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="9310200148414878" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="1806177106491597" type="Audio">
+                                    <param id="0" name="Audio file">Hi_Score_achieved</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>If the player beats the Best Survival time, save new Best Survival on Local Storage.</comment>
+                <event-block sid="7209570000836135">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3067786613352106" type="System">
+                            <param id="0" name="Variable">SurvivalTime</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">BestSurvival</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="4614185921487415" type="System">
+                            <param id="0" name="Variable">BestSurvival</param>
+                            <param id="1" name="Value">SurvivalTime</param>
+                        </action>
+                        <action id="0" name="Set local value" sid="9311145173476622" type="HighScore">
+                            <param id="0" name="Key">&quot;BestSurvival&quot;</param>
+                            <param id="1" name="Value">BestSurvival</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="9333230963037792">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="7547719670556098" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="3170607455009137" type="Audio">
+                                    <param id="0" name="Audio file">Hi_Score_achieved</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Updates Survival and Pacifist time, and resets the score if the condition for time counting is broken.</comment>
+                <event-block sid="313046665224395">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="1628259601375937" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="3018529747272529" type="System">
+                            <param id="0" name="Variable">PacifistTime</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="738710525539485" type="System">
+                            <param id="0" name="Variable">SurvivalTime</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="1909000890511865">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="791386369585141" type="System">
+                                    <param id="0" name="Variable">IsPlayerAlive</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">FALSE</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="3946202419601788" type="System">
+                                    <param id="0" name="Variable">SurvivalTime</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="2403389547285891" type="System">
+                                    <param id="0" name="Variable">PacifistTime</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6277356224807031">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="828891639039136" type="System">
+                                    <param id="0" name="Variable">IsPlayerPacifist</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">FALSE</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="1488714457025141" type="System">
+                                    <param id="0" name="Variable">PacifistTime</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="9789985609589692" type="System">
+                                    <param id="0" name="Variable">IsPlayerPacifist</param>
+                                    <param id="1" name="Value">TRUE</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -446,7 +653,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="HUD and GUI events." sid="2110095843469122" title="GUI">
+        <event-group description="HUD and GUI events." sid="2110095843469122" title="GUI">
             <sub-events>
                 <comment>Update the score and high score every frame.</comment>
                 <event-block sid="8890957871182892">
@@ -487,6 +694,10 @@
                             <param id="2" name="Loop">0</param>
                             <param id="3" name="Volume">-5</param>
                             <param id="1" name="Tag (optional)">&quot;Shot&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7399205138858248" type="System">
+                            <param id="0" name="Variable">IsPlayerPacifist</param>
+                            <param id="1" name="Value">FALSE</param>
                         </action>
                     </actions>
                 </event-block>
