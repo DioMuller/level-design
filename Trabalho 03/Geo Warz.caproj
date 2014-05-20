@@ -362,7 +362,7 @@
         <global-instance type="HighScore" uid="38" />
         <global-instance type="Function" uid="39" />
     </global-instances>
-    <sounds-folder expanded="0">
+    <sounds-folder expanded="1">
         <file name="bullet_hitwall.ogg" />
         <file name="Enemy_explode.ogg" />
         <file name="Fire_normal.ogg" />
@@ -374,6 +374,8 @@
         <file name="Ship_hitwall.ogg" />
         <file name="Ship_thrust_loop.ogg" />
         <file name="Wanderer_spawn.ogg" />
+        <file name="Enemy_spawn_blue.ogg" />
+        <file name="Enemy_spawn_green.ogg" />
     </sounds-folder>
     <music-folder expanded="0">
         <file name="Theme.ogg" />

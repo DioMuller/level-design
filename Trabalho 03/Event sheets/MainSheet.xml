@@ -731,6 +731,12 @@
                         <action id="4" name="Preload" sid="1321051896754852" type="Audio">
                             <param id="0" name="Audio file">Wanderer_spawn</param>
                         </action>
+                        <action id="4" name="Preload" sid="4883158948564964" type="Audio">
+                            <param id="0" name="Audio file">Enemy_spawn_blue</param>
+                        </action>
+                        <action id="4" name="Preload" sid="9443440149429136" type="Audio">
+                            <param id="0" name="Audio file">Enemy_spawn_green</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
