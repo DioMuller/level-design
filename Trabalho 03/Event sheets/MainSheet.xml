@@ -676,7 +676,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Music and Sound Effects." sid="7276145793056033" title="Sound">
+        <event-group description="Music and Sound Effects." sid="7276145793056033" title="Sound">
             <sub-events>
                 <comment>Plays the level music when the layout is loaded.</comment>
                 <event-block sid="3102609030466335">
@@ -689,6 +689,47 @@
                             <param id="2" name="Loop">1</param>
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;MainTheme&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Preloads audio.</comment>
+                <event-block sid="5263092016872747">
+                    <conditions>
+                        <condition id="-29" name="On load complete" sid="7475949769814004" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Preload" sid="200125283130781" type="Audio">
+                            <param id="0" name="Audio file">bullet_hitwall</param>
+                        </action>
+                        <action id="4" name="Preload" sid="9021131593036929" type="Audio">
+                            <param id="0" name="Audio file">Enemy_explode</param>
+                        </action>
+                        <action id="4" name="Preload" sid="9632447247954186" type="Audio">
+                            <param id="0" name="Audio file">Fire_normal</param>
+                        </action>
+                        <action id="4" name="Preload" sid="6286864736454305" type="Audio">
+                            <param id="0" name="Audio file">Game_over</param>
+                        </action>
+                        <action id="4" name="Preload" sid="1381888773462433" type="Audio">
+                            <param id="0" name="Audio file">Hi_Score_achieved</param>
+                        </action>
+                        <action id="4" name="Preload" sid="3609996631281362" type="Audio">
+                            <param id="0" name="Audio file">Multiplier</param>
+                        </action>
+                        <action id="4" name="Preload" sid="9217800886159551" type="Audio">
+                            <param id="0" name="Audio file">Player_Spawn</param>
+                        </action>
+                        <action id="4" name="Preload" sid="3989802762689522" type="Audio">
+                            <param id="0" name="Audio file">Ship_explode</param>
+                        </action>
+                        <action id="4" name="Preload" sid="9599875003535981" type="Audio">
+                            <param id="0" name="Audio file">Ship_hitwall</param>
+                        </action>
+                        <action id="4" name="Preload" sid="3243444752602391" type="Audio">
+                            <param id="0" name="Audio file">Ship_thrust_loop</param>
+                        </action>
+                        <action id="4" name="Preload" sid="1321051896754852" type="Audio">
+                            <param id="0" name="Audio file">Wanderer_spawn</param>
                         </action>
                     </actions>
                 </event-block>
