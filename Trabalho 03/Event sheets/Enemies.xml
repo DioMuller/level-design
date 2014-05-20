@@ -47,7 +47,7 @@
             </sub-events>
         </event-group>
         <comment>Enemy specific behaviors.&#x0D;&#x0A;Enemy descriptions thanks to IGN: http://www.ign.com/wikis/geometry-wars-retro-evolved/Enemies</comment>
-        <event-group description="These lowly enemies are slow and have the IQ of cauliflower. Pinwheels are the first enemy that you&apos;ll encounter in the game and will become less and less common as your score goes up. Being hit by one kills you just the same as anything else, but they won&apos;t target you like the rest of the enemies in this game. Each Pinwheel will simply bounce off of the edges and continue along its path until you shoot it out. These fellows shouldn&apos;t be too much of a problem, even for beginners. Once things start getting hectic, you should ignore them unless they&apos;re in your path and just hope to kill them with stray fire." sid="1281524749217722" title="Pinwheel / Wanderer">
+        <event-group collapsed="1" description="These lowly enemies are slow and have the IQ of cauliflower. Pinwheels are the first enemy that you&apos;ll encounter in the game and will become less and less common as your score goes up. Being hit by one kills you just the same as anything else, but they won&apos;t target you like the rest of the enemies in this game. Each Pinwheel will simply bounce off of the edges and continue along its path until you shoot it out. These fellows shouldn&apos;t be too much of a problem, even for beginners. Once things start getting hectic, you should ignore them unless they&apos;re in your path and just hope to kill them with stray fire." sid="1281524749217722" title="Pinwheel / Wanderer">
             <sub-events>
                 <comment>When the enemy is created, it chooses a random direction and moves that way.</comment>
                 <event-block sid="6238479924495257">
@@ -84,19 +84,20 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Diamonds are the second enemy that will appear in the game. They move slowly compared to every other shape sent at you, but they do have slight homing capabilities. For this reason, you should be on the lookout for strays that somehow break away from the main pack. Be sure you take into account that they will move towards you as you decide where to move next. Since they&apos;re so slow, moving in a wide circle around the edges will round them up into a nice clump that can be blasted for lots of points." sid="1766662238130936" title="Diamonds">
+        <event-group collapsed="1" description="Diamonds are the second enemy that will appear in the game. They move slowly compared to every other shape sent at you, but they do have slight homing capabilities. For this reason, you should be on the lookout for strays that somehow break away from the main pack. Be sure you take into account that they will move towards you as you decide where to move next. Since they&apos;re so slow, moving in a wide circle around the edges will round them up into a nice clump that can be blasted for lots of points." sid="1766662238130936" title="Diamonds">
             <sub-events>
+                <comment>When the enemy is created, makes it look at the player.</comment>
                 <event-block sid="6024237894464662">
                     <conditions>
-                        <condition id="-18" name="On created" sid="3588784726326648" type="Square" />
+                        <condition id="-18" name="On created" sid="3588784726326648" type="Diamond" />
                     </conditions>
                     <actions>
-                        <action id="-22" name="Set angle toward position" sid="8780855913602955" type="Square">
+                        <action id="-22" name="Set angle toward position" sid="8780855913602955" type="Diamond">
                             <param id="0" name="X">Player.X</param>
                             <param id="1" name="Y">Player.Y</param>
                         </action>
-                        <action behavior="Bullet" id="0" name="Set speed" sid="4742727145028164" type="Square">
-                            <param id="0" name="Speed">Square.Speed</param>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="4742727145028164" type="Diamond">
+                            <param id="0" name="Speed">Diamond.Speed</param>
                         </action>
                         <action id="0" name="Play" sid="1191730486859707" type="Audio">
                             <param id="0" name="Audio file">Wanderer_spawn</param>
@@ -106,18 +107,21 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>When the enemy hits a wall, forces him to look at the player again.</comment>
                 <event-block sid="3490580963916154">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="2348971176209789" type="Square">
+                        <condition id="0" name="On collision with another object" sid="2348971176209789" type="Diamond">
                             <param id="0" name="Object">Borders</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-8" name="Set angle" sid="3859752206833695" type="Square">
-                            <param id="0" name="Angle">(Square.Angle + 90 + random(90))%360</param>
+                        <action id="-22" name="Set angle toward position" sid="1308031833257891" type="Diamond">
+                            <param id="0" name="X">Player.X</param>
+                            <param id="1" name="Y">Player.Y</param>
                         </action>
                     </actions>
                 </event-block>
+                <comment>Makes the diamond look at the player on regular intervals.</comment>
                 <event-block sid="6908207620675397">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="3253968468799143" type="System">
@@ -125,7 +129,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-22" name="Set angle toward position" sid="7360434429718456" type="Square">
+                        <action id="-22" name="Set angle toward position" sid="7360434429718456" type="Diamond">
                             <param id="0" name="X">Player.X</param>
                             <param id="1" name="Y">Player.Y</param>
                         </action>

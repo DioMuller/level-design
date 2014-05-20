@@ -26,7 +26,6 @@
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
-        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
@@ -92,7 +91,7 @@
                 <texture />
             </object-type>
         </object-folder>
-        <object-folder expanded="0" name="Player">
+        <object-folder expanded="1" name="Player">
             <object-type name="Player" sid="6309762137083568">
                 <plugin id="Sprite" />
                 <instance-variables>
@@ -113,7 +112,6 @@
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7666057237478658" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.487805">
                             <image-point name="Jet" x="0.0277778" y="0.512195" />
-                            <image-point name="Shot" x="0.916667" y="0.536585" />
                             <collision-poly>
                                 <point x="0.225694" y="0.75" />
                                 <point x="0.0902778" y="0.490854" />
@@ -137,9 +135,6 @@
                 <behaviors>
                     <behavior-type name="Bullet" sid="4259900069228798">
                         <behavior id="Bullet" />
-                    </behavior-type>
-                    <behavior-type name="DestroyOutsideLayout" sid="1191868189055548">
-                        <behavior id="destroy" />
                     </behavior-type>
                 </behaviors>
                 <animation-folder expanded="1">
@@ -260,7 +255,7 @@
                     </animation>
                 </animation-folder>
             </object-type>
-            <object-type name="Square" sid="5268875203357716">
+            <object-type name="Diamond" sid="5268875203357716">
                 <plugin id="Sprite" />
                 <behaviors>
                     <behavior-type name="WidthSine" sid="3514921062108204">
@@ -275,6 +270,14 @@
                 </behaviors>
                 <animation-folder expanded="1">
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9793770859370021" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="GreenSquare" sid="3281952163923684">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8998924676392901" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
@@ -295,8 +298,9 @@
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="6804908276319551">
             <members>
+                <member>Diamond</member>
+                <member>GreenSquare</member>
                 <member>Pinwheel</member>
-                <member>Square</member>
             </members>
             <instance-variables>
                 <instance-variable name="Points" sid="8503472715576321" type="number" />
@@ -305,9 +309,10 @@
         </family>
         <family name="Explosive" plugin-id="Sprite" sid="7115334887572883">
             <members>
+                <member>Diamond</member>
+                <member>GreenSquare</member>
                 <member>Pinwheel</member>
                 <member>Player</member>
-                <member>Square</member>
             </members>
             <instance-variables>
                 <instance-variable comment="Explosion Hue Channel" name="ExplosionH" sid="7063402831292005" type="number" />

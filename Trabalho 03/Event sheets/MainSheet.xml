@@ -22,7 +22,9 @@
         <comment>Flags</comment>
         <variable comment="Flag that checks if player is alive." constant="0" name="IsPlayerAlive" sid="4024793600231068" static="0" type="number">0</variable>
         <variable comment="Has the player shot on the last second?" constant="0" name="IsPlayerPacifist" sid="1934420169127409" static="0" type="number">1</variable>
-        <event-group description="System events." sid="229269666203367" title="System">
+        <comment>Bonus and Counters</comment>
+        <variable comment="Number of shots the player fires." constant="0" name="ShotNumber" sid="3608607095451479" static="0" type="number">2</variable>
+        <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
             <sub-events>
                 <comment>Loads High Score from the Local Storage, or initializes the storage if there is no high score saved, yet.</comment>
                 <event-block sid="8522581107844852">
@@ -614,6 +616,15 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <comment>Destroy shot if it goes outside screen.</comment>
+                <event-block sid="3249762159692108">
+                    <conditions>
+                        <condition id="-3" inverted="1" name="Is on-screen" sid="4921368112912638" type="Shot" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="8962626607437361" type="Shot" />
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group collapsed="1" description="Level and Enemy effects." sid="6354348894684341" title="Game Effects">
@@ -701,7 +712,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Functions and Procedures to be called from other events." sid="6066041066856819" title="Functions">
+        <event-group description="Functions and Procedures to be called from other events." sid="6066041066856819" title="Functions">
             <sub-events>
                 <comment>Shoot (No Parameters): Fires the shot equiped on the player and plays the shot sound.</comment>
                 <event-block sid="8992517613130209">
@@ -711,11 +722,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Spawn another object" sid="5604447913778866" type="Aim">
-                            <param id="0" name="Object">Shot</param>
-                            <param id="1" name="Layer">&quot;Game&quot;</param>
-                            <param id="2" name="Image point">&quot;Shot&quot;</param>
-                        </action>
                         <action id="6" name="Stop" sid="8535028045057579" type="Audio">
                             <param id="0" name="Tag">&quot;Shot&quot;</param>
                         </action>
@@ -730,6 +736,33 @@
                             <param id="1" name="Value">FALSE</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <variable comment="Counter for number of shots fired." constant="0" name="Counter" sid="81264843148306" static="0" type="number">1</variable>
+                        <event-block sid="2592068969283203">
+                            <conditions>
+                                <condition id="-23" name="While" sid="476640721504583" type="System" />
+                                <condition id="-14" name="Compare variable" sid="6711800898063269" type="System">
+                                    <param id="0" name="Variable">Counter</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">ShotNumber</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="5604447913778866" type="Aim">
+                                    <param id="0" name="Object">Shot</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="Image point">&quot;Shot&quot;</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="1684641447736456" type="System">
+                                    <param id="0" name="Variable">Counter</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="4956242590191334" type="Shot">
+                                    <param id="0" name="Angle">Shot.angle + 5 * int(Counter/2) * ((Counter % 2 = 0) ? -1 : 1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
