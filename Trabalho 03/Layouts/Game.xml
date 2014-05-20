@@ -731,10 +731,23 @@
                     <instance-variables>
                         <Points>50</Points>
                         <Speed>200</Speed>
-                        <ExplosionH>0</ExplosionH>
+                        <ExplosionH>-50</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
+                        <IsRunning>false</IsRunning>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>

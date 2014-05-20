@@ -712,7 +712,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Functions and Procedures to be called from other events." sid="6066041066856819" title="Functions">
+        <event-group collapsed="1" description="Functions and Procedures to be called from other events." sid="6066041066856819" title="Functions">
             <sub-events>
                 <comment>Shoot (No Parameters): Fires the shot equiped on the player and plays the shot sound.</comment>
                 <event-block sid="8992517613130209">

@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Enemies</name>
     <events>
+        <variable comment="Green Square safe distance." constant="1" name="SafeDistance" sid="655567511147722" static="0" type="number">40</variable>
         <event-group collapsed="1" description="Enemies generic events." sid="9210692629209011" title="General">
             <sub-events>
                 <comment>If a shot hits an enemy, it dies.</comment>
@@ -137,7 +138,123 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Green Squares have better homing than Diamonds, plus they&apos;re faster. To make matters worse, they also will dance away from shots that you fire at them. This means that you&apos;ll have to hit them with a direct shot in order to wipe them out. Anything that is close, but not straight at them, will be dodged." sid="712206038977135" title="Green Squares" />
+        <event-group description="Green Squares have better homing than Diamonds, plus they&apos;re faster. To make matters worse, they also will dance away from shots that you fire at them. This means that you&apos;ll have to hit them with a direct shot in order to wipe them out. Anything that is close, but not straight at them, will be dodged." sid="712206038977135" title="Green Squares">
+            <sub-events>
+                <comment>When the enemy is created, makes it look at the player.</comment>
+                <event-block sid="2233561037581513">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="9031106603897403" type="GreenSquare" />
+                    </conditions>
+                    <actions>
+                        <action id="-22" name="Set angle toward position" sid="1179491015874412" type="GreenSquare">
+                            <param id="0" name="X">Player.X</param>
+                            <param id="1" name="Y">Player.Y</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="5307258103478563" type="GreenSquare">
+                            <param id="0" name="Speed">GreenSquare.Speed</param>
+                        </action>
+                        <action id="0" name="Play" sid="1865271984897255" type="Audio">
+                            <param id="0" name="Audio file">Wanderer_spawn</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>When the enemy hits a wall, forces him to look at the player again.</comment>
+                <event-block sid="7585430137354287">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4560325073054268" type="GreenSquare">
+                            <param id="0" name="Object">Borders</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-22" name="Set angle toward position" sid="8422011583448041" type="GreenSquare">
+                            <param id="0" name="X">Player.X</param>
+                            <param id="1" name="Y">Player.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Makes the green square look at the player on regular intervals.</comment>
+                <event-block sid="8822291035712329">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="8354974664041675" type="System">
+                            <param id="0" name="Interval (seconds)">0.2</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="743581594090508" type="GreenSquare">
+                            <param id="0" name="Instance variable">IsRunning</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-22" name="Set angle toward position" sid="408419565649913" type="GreenSquare">
+                            <param id="0" name="X">Player.X</param>
+                            <param id="1" name="Y">Player.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Runs from bullets/shots.</comment>
+                <event-block any="1" sid="9262386323348985">
+                    <conditions>
+                        <condition id="9" name="Is overlapping at offset" sid="8981066599496411" type="GreenSquare">
+                            <param id="0" name="Object">Shot</param>
+                            <param id="1" name="Offset X">-SAFEDISTANCE</param>
+                            <param id="2" name="Offset Y">-SAFEDISTANCE</param>
+                        </condition>
+                        <condition id="9" name="Is overlapping at offset" sid="2846448231727467" type="GreenSquare">
+                            <param id="0" name="Object">Shot</param>
+                            <param id="1" name="Offset X">SAFEDISTANCE</param>
+                            <param id="2" name="Offset Y">-SAFEDISTANCE</param>
+                        </condition>
+                        <condition id="9" name="Is overlapping at offset" sid="2636009263083354" type="GreenSquare">
+                            <param id="0" name="Object">Shot</param>
+                            <param id="1" name="Offset X">-SAFEDISTANCE</param>
+                            <param id="2" name="Offset Y">SAFEDISTANCE</param>
+                        </condition>
+                        <condition id="9" name="Is overlapping at offset" sid="3126485994484588" type="GreenSquare">
+                            <param id="0" name="Object">Shot</param>
+                            <param id="1" name="Offset X">SAFEDISTANCE</param>
+                            <param id="2" name="Offset Y">SAFEDISTANCE</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3801833177719557">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="5261960784813935" type="GreenSquare">
+                                    <param id="0" name="Instance variable">IsRunning</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-8" name="Set angle" sid="2323364409967293" type="GreenSquare">
+                                    <param id="0" name="Angle">(angle(GreenSquare.X, GreenSquare.Y, Shot.X, Shot.Y) + 90) % 360 &lt; 180 ? GreenSquare.Angle + 90 : GreenSquare.Angle - 90</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="7171340466355044" type="GreenSquare">
+                                    <param id="0" name="Speed">GreenSquare.Bullet.Speed * 2</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="2739456660797833" type="GreenSquare">
+                                    <param id="0" name="Instance variable">IsRunning</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="8379393725661845" type="System">
+                                    <param id="0" name="Seconds">1.5</param>
+                                </action>
+                                <action id="-22" name="Set angle toward position" sid="1970049227121097" type="GreenSquare">
+                                    <param id="0" name="X">Player.X</param>
+                                    <param id="1" name="Y">Player.Y</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="6711351446602388" type="GreenSquare">
+                                    <param id="0" name="Speed">GreenSquare.Bullet.Speed / 2</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="5865704353296408" type="GreenSquare">
+                                    <param id="0" name="Instance variable">IsRunning</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="The Pink Boxes may very well become your first nemesis. They&apos;ll come directly at you quickly and with good targeting. Once you shoot them, they explode into three smaller Pink Boxes. The bonus to this is that you can rack up huge points. The negative part is that the smaller Pink Boxes have an odd spiral movement that can easily get in your way." sid="7087803793196519" title="Pink Boxes" />
         <event-group description="Snakes aren&apos;t the most common enemy, but they do cover the most area. You can only kill one by shooting it in the white head. Anything that hits their body will be absorbed with no effect. Snakes are most dangerous when you allow them to spread out. This is due to the fact that many of them will become intertwined and defend each other." sid="4346546901165992" title="Snakes" />
         <event-group collapsed="1" description="Black Holes begin as benign, red circles. They usually appear in corners, though you&apos;ll occasionally run into them in the center of the battlefield. If you don&apos;t shoot them, they will just sit there and act as a small obstacle that you&apos;ll have to dodge. Once you do hit them with some shots, they will become active. An active Black Hole will have a gravitational pull that will slightly tug your towards it if you fly near. It will also suck enemies into it, which makes active Black Holes a dangerous place to play near.&#x0D;&#x0A;&#x0D;&#x0A;As a Black Hole sucks in enemies, it will grow in size. If it gets big enough, it will explode (read more below). You can prevent it from exploding by shooting it. For each bullet that you hit it with, it will shrink slightly in size. If you make it shrink enough, you will destroy it. Keep in mind that the point value for destroying a Black Hole increases as it sucks more enemies in. A fully engorged Black Hole can net you thousands of points after your multiplier kicks in.&#x0D;&#x0A;&#x0D;&#x0A;If you activate a Black Hole and then don&apos;t destroy it, it will begin exerting its gravitational pull. This will suck in all surrounding enemies, causing it to expand and become unstable. If enough enemies get sucked into the Black Hole, it will detonate sending out a stream of small circles." sid="6882008991856282" title="Black Holes" />
