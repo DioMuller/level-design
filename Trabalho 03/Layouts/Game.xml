@@ -292,11 +292,11 @@
                         <x>800</x>
                         <y>220</y>
                         <z>0</z>
-                        <width>64</width>
-                        <height>64</height>
+                        <width>37</width>
+                        <height>37</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0.513513505</hotspotX>
+                        <hotspotY>0.513513505</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -463,8 +463,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1727</x>
-                        <y>1153</y>
+                        <x>1713</x>
+                        <y>1093</y>
                         <z>0</z>
                         <width>128</width>
                         <height>128</height>
@@ -485,8 +485,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>341</x>
-                        <y>1119</y>
+                        <x>315</x>
+                        <y>1107</y>
                         <z>0</z>
                         <width>128</width>
                         <height>128</height>
@@ -529,7 +529,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>962</x>
+                        <x>991</x>
                         <y>253</y>
                         <z>0</z>
                         <width>128</width>
@@ -551,8 +551,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1695</x>
-                        <y>669</y>
+                        <x>1714</x>
+                        <y>658</y>
                         <z>0</z>
                         <width>128</width>
                         <height>128</height>
@@ -574,7 +574,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>319</x>
-                        <y>650</y>
+                        <y>664</y>
                         <z>0</z>
                         <width>128</width>
                         <height>128</height>
@@ -623,7 +623,7 @@
                         <size-randomiser>0</size-randomiser>
                         <grow-rate-randomiser>0</grow-rate-randomiser>
                         <particle-lifetime-properties></particle-lifetime-properties>
-                        <acceleration>-150</acceleration>
+                        <acceleration>50</acceleration>
                         <gravity>0</gravity>
                         <angle-randomiser>0</angle-randomiser>
                         <speed-randomiser>800</speed-randomiser>
@@ -650,6 +650,73 @@
                         <height>128</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Square" uid="22">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Points>50</Points>
+                        <Speed>250</Speed>
+                        <ExplosionH>-25</ExplosionH>
+                        <ExplosionS>100</ExplosionS>
+                        <ExplosionI>200</ExplosionI>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="WidthSine">
+                            <properties>
+                                <active-on-start>Yes</active-on-start>
+                                <movement>Width</movement>
+                                <wave>Sine</wave>
+                                <period>2</period>
+                                <period-random>2</period-random>
+                                <period-offset>2</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>10</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="HeightSine">
+                            <properties>
+                                <active-on-start>Yes</active-on-start>
+                                <movement>Height</movement>
+                                <wave>Sine</wave>
+                                <period>2</period>
+                                <period-random>0</period-random>
+                                <period-offset>2</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>10</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>726</x>
+                        <y>813</y>
+                        <z>0</z>
+                        <width>64</width>
+                        <height>64</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>

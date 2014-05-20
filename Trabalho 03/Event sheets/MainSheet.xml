@@ -22,7 +22,7 @@
         <comment>Flags</comment>
         <variable comment="Flag that checks if player is alive." constant="0" name="IsPlayerAlive" sid="4024793600231068" static="0" type="number">0</variable>
         <variable comment="Has the player shot on the last second?" constant="0" name="IsPlayerPacifist" sid="1934420169127409" static="0" type="number">1</variable>
-        <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
+        <event-group description="System events." sid="229269666203367" title="System">
             <sub-events>
                 <comment>Loads High Score from the Local Storage, or initializes the storage if there is no high score saved, yet.</comment>
                 <event-block sid="8522581107844852">
