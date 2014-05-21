@@ -26,6 +26,7 @@
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
@@ -228,11 +229,6 @@
         <object-folder expanded="1" name="Enemies">
             <object-type name="Pinwheel" sid="3532969755416103">
                 <plugin id="Sprite" />
-                <behaviors>
-                    <behavior-type name="Bullet" sid="1441849526049755">
-                        <behavior id="Bullet" />
-                    </behavior-type>
-                </behaviors>
                 <animation-folder expanded="1">
                     <animation framecount="6" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3859197523885992" speed="30">
                         <frame duration="1" hotspotX="0.513514" hotspotY="0.513514">
@@ -264,9 +260,6 @@
                     <behavior-type name="HeightSine" sid="268424560130766">
                         <behavior id="Sin" />
                     </behavior-type>
-                    <behavior-type name="Bullet" sid="892557343498221">
-                        <behavior id="Bullet" />
-                    </behavior-type>
                 </behaviors>
                 <animation-folder expanded="1">
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9793770859370021" speed="5">
@@ -279,14 +272,29 @@
                 <instance-variables>
                     <instance-variable comment="Is the green object running from a shot?" name="IsRunning" sid="88363239451289" type="boolean" />
                 </instance-variables>
-                <behaviors>
-                    <behavior-type name="Bullet" sid="3278473363155695">
-                        <behavior id="Bullet" />
-                    </behavior-type>
-                </behaviors>
                 <animation-folder expanded="1">
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8998924676392901" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="PinkBox" sid="8760504728155725">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4062288702788859" speed="5">
+                        <frame duration="1" hotspotX="0.513514" hotspotY="0.513514">
+                            <image-point name="Spawn_1" x="0.837838" y="0.189189" />
+                            <image-point name="Spawn_2" x="0.108108" y="0.513514" />
+                            <image-point name="Spawn_3" x="0.621622" y="0.918919" />
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="SmallPinkBox" sid="2007423554630766">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2291736780070617" speed="5">
+                        <frame duration="1" hotspotX="0.521739" hotspotY="0.521739" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -308,19 +316,30 @@
             <members>
                 <member>Diamond</member>
                 <member>GreenSquare</member>
+                <member>PinkBox</member>
                 <member>Pinwheel</member>
+                <member>SmallPinkBox</member>
             </members>
             <instance-variables>
                 <instance-variable name="Points" sid="8503472715576321" type="number" />
-                <instance-variable name="Speed" sid="1687963466349023" type="number" />
             </instance-variables>
+            <behaviors>
+                <behavior-type name="EnemyMovement" sid="7242635479636316">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="3491100828647485">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
         </family>
         <family name="Explosive" plugin-id="Sprite" sid="7115334887572883">
             <members>
                 <member>Diamond</member>
                 <member>GreenSquare</member>
+                <member>PinkBox</member>
                 <member>Pinwheel</member>
                 <member>Player</member>
+                <member>SmallPinkBox</member>
             </members>
             <instance-variables>
                 <instance-variable comment="Explosion Hue Channel" name="ExplosionH" sid="7063402831292005" type="number" />
@@ -376,6 +395,36 @@
         <file name="Wanderer_spawn.ogg" />
         <file name="Enemy_spawn_blue.ogg" />
         <file name="Enemy_spawn_green.ogg" />
+        <file name="Enemy_spawn_purple.ogg" />
+        <file name="Enemy_spawn_orange.ogg" />
+        <file name="Enemy_red_hit.ogg" />
+        <file name="Enemy_red_suck.ogg" />
+        <file name="Enemy_red_warning.ogg" />
+        <file name="Enemy_spawn_red.ogg" />
+        <file name="Fire_Hispeed.ogg" />
+        <file name="Fire_homing.ogg" />
+        <file name="Fire_smartbomb.ogg" />
+        <file name="Fire_smartbomb_low.ogg" />
+        <file name="Fire_triway.ogg" />
+        <file name="Game_start.ogg" />
+        <file name="Gravity_well_die.ogg" />
+        <file name="Gravity_well_explode.ogg" />
+        <file name="Mayfly.ogg" />
+        <file name="pickup_extralife.ogg" />
+        <file name="pickup_smartbomb.ogg" />
+        <file name="pickup_weapon.ogg" />
+        <file name="Player_shielded_hit_enemy.ogg" />
+        <file name="Projectile_hit_wall.ogg" />
+        <file name="Repulsar_activate.ogg" />
+        <file name="Repulsar_spawn.ogg" />
+        <file name="SFX_ambience.ogg" />
+        <file name="Shield_off.ogg" />
+        <file name="Shield_on.ogg" />
+        <file name="silence.ogg" />
+        <file name="Snake_spawn.ogg" />
+        <file name="UI_Change.ogg" />
+        <file name="UI_Confirm.ogg" />
+        <file name="UI_Delete.ogg" />
     </sounds-folder>
     <music-folder expanded="0">
         <file name="Theme.ogg" />

@@ -56,14 +56,11 @@
                         <condition id="-18" name="On created" sid="6315811995940015" type="Pinwheel" />
                     </conditions>
                     <actions>
-                        <action id="-8" name="Set angle" sid="1196713285175822" type="Pinwheel">
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="1196713285175822" type="Pinwheel">
                             <param id="0" name="Angle">random(360)</param>
                         </action>
-                        <action behavior="Bullet" id="0" name="Set speed" sid="9073098163901563" type="Pinwheel">
-                            <param id="0" name="Speed">Pinwheel.Speed</param>
-                        </action>
                         <action id="0" name="Play" sid="3471291265833642" type="Audio">
-                            <param id="0" name="Audio file">Wanderer_spawn</param>
+                            <param id="0" name="Audio file">Enemy_spawn_orange</param>
                             <param id="2" name="Loop">0</param>
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;&quot;</param>
@@ -78,7 +75,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-8" name="Set angle" sid="2935654389432808" type="Pinwheel">
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="2935654389432808" type="Pinwheel">
                             <param id="0" name="Angle">(Pinwheel.Angle + 90 + random(90))%360</param>
                         </action>
                     </actions>
@@ -93,12 +90,8 @@
                         <condition id="-18" name="On created" sid="3588784726326648" type="Diamond" />
                     </conditions>
                     <actions>
-                        <action id="-22" name="Set angle toward position" sid="8780855913602955" type="Diamond">
-                            <param id="0" name="X">Player.X</param>
-                            <param id="1" name="Y">Player.Y</param>
-                        </action>
-                        <action behavior="Bullet" id="0" name="Set speed" sid="4742727145028164" type="Diamond">
-                            <param id="0" name="Speed">Diamond.Speed</param>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="8780855913602955" type="Diamond">
+                            <param id="0" name="Angle">angle(Diamond.X, Diamond.Y, Player.X, Player.Y)</param>
                         </action>
                         <action id="0" name="Play" sid="1191730486859707" type="Audio">
                             <param id="0" name="Audio file">Enemy_spawn_blue</param>
@@ -116,9 +109,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-22" name="Set angle toward position" sid="1308031833257891" type="Diamond">
-                            <param id="0" name="X">Player.X</param>
-                            <param id="1" name="Y">Player.Y</param>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="1308031833257891" type="Diamond">
+                            <param id="0" name="Angle">angle(Diamond.X, Diamond.Y, Player.X, Player.Y)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -130,9 +122,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-22" name="Set angle toward position" sid="7360434429718456" type="Diamond">
-                            <param id="0" name="X">Player.X</param>
-                            <param id="1" name="Y">Player.Y</param>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="7360434429718456" type="Diamond">
+                            <param id="0" name="Angle">angle(Diamond.X, Diamond.Y, Player.X, Player.Y)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -146,11 +137,8 @@
                         <condition id="-18" name="On created" sid="9031106603897403" type="GreenSquare" />
                     </conditions>
                     <actions>
-                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="1179491015874412" type="GreenSquare">
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="1179491015874412" type="GreenSquare">
                             <param id="0" name="Angle">angle(GreenSquare.X, GreenSquare.Y, Player.X, Player.Y)</param>
-                        </action>
-                        <action behavior="Bullet" id="0" name="Set speed" sid="5307258103478563" type="GreenSquare">
-                            <param id="0" name="Speed">GreenSquare.Speed</param>
                         </action>
                         <action id="0" name="Play" sid="1865271984897255" type="Audio">
                             <param id="0" name="Audio file">Enemy_spawn_green</param>
@@ -168,7 +156,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="8422011583448041" type="GreenSquare">
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="8422011583448041" type="GreenSquare">
                             <param id="0" name="Angle">angle(GreenSquare.X, GreenSquare.Y, Player.X, Player.Y)</param>
                         </action>
                     </actions>
@@ -184,7 +172,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="408419565649913" type="GreenSquare">
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="408419565649913" type="GreenSquare">
                             <param id="0" name="Angle">angle(GreenSquare.X, GreenSquare.Y, Player.X, Player.Y)</param>
                         </action>
                     </actions>
@@ -222,11 +210,11 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="2323364409967293" type="GreenSquare">
+                                <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="2323364409967293" type="GreenSquare">
                                     <param id="0" name="Angle">(angle(GreenSquare.X, GreenSquare.Y, Shot.X, Shot.Y) + 90) % 360 &lt; 180 ? GreenSquare.Angle + 90 : GreenSquare.Angle - 90</param>
                                 </action>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="7171340466355044" type="GreenSquare">
-                                    <param id="0" name="Speed">GreenSquare.Bullet.Speed * 4</param>
+                                <action behavior="EnemyMovement" id="0" name="Set speed" sid="7171340466355044" type="GreenSquare">
+                                    <param id="0" name="Speed">GreenSquare.EnemyMovement.Speed * 4</param>
                                 </action>
                                 <action id="-13" name="Set boolean" sid="2739456660797833" type="GreenSquare">
                                     <param id="0" name="Instance variable">IsRunning</param>
@@ -235,11 +223,11 @@
                                 <action id="-16" name="Wait" sid="8379393725661845" type="System">
                                     <param id="0" name="Seconds">0.3</param>
                                 </action>
-                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="1970049227121097" type="GreenSquare">
+                                <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="1970049227121097" type="GreenSquare">
                                     <param id="0" name="Angle">angle(GreenSquare.X, GreenSquare.Y, Player.X, Player.Y)</param>
                                 </action>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="6711351446602388" type="GreenSquare">
-                                    <param id="0" name="Speed">GreenSquare.Bullet.Speed / 4</param>
+                                <action behavior="EnemyMovement" id="0" name="Set speed" sid="6711351446602388" type="GreenSquare">
+                                    <param id="0" name="Speed">GreenSquare.EnemyMovement.Speed / 4</param>
                                 </action>
                                 <action id="-13" name="Set boolean" sid="5865704353296408" type="GreenSquare">
                                     <param id="0" name="Instance variable">IsRunning</param>
@@ -251,7 +239,128 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="The Pink Boxes may very well become your first nemesis. They&apos;ll come directly at you quickly and with good targeting. Once you shoot them, they explode into three smaller Pink Boxes. The bonus to this is that you can rack up huge points. The negative part is that the smaller Pink Boxes have an odd spiral movement that can easily get in your way." sid="7087803793196519" title="Pink Boxes" />
+        <event-group description="The Pink Boxes may very well become your first nemesis. They&apos;ll come directly at you quickly and with good targeting. Once you shoot them, they explode into three smaller Pink Boxes. The bonus to this is that you can rack up huge points. The negative part is that the smaller Pink Boxes have an odd spiral movement that can easily get in your way." sid="7087803793196519" title="Pink Boxes">
+            <sub-events>
+                <comment>When the enemy is created, makes it look at the player.</comment>
+                <event-block sid="2590182927372069">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="1344989711128289" type="PinkBox" />
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="2875111838022356" type="PinkBox">
+                            <param id="0" name="Angle">angle(PinkBox.X, PinkBox.Y, Player.X, Player.Y)</param>
+                        </action>
+                        <action id="0" name="Play" sid="5439672826985198" type="Audio">
+                            <param id="0" name="Audio file">Enemy_spawn_purple</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>When the enemy hits a wall, forces him to look at the player again.</comment>
+                <event-block sid="9063236932187566">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="7647987577648335" type="PinkBox">
+                            <param id="0" name="Object">Borders</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="6613959706229816" type="PinkBox">
+                            <param id="0" name="Angle">angle(PinkBox.X, PinkBox.Y, Player.X, Player.Y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Makes the box look at the player on regular intervals.</comment>
+                <event-block sid="7919271584068257">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="2815013382749907" type="System">
+                            <param id="0" name="Interval (seconds)">0.1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="2472830798911536" type="PinkBox">
+                            <param id="0" name="Angle">angle(PinkBox.X, PinkBox.Y, Player.X, Player.Y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Spawns small boxes when the big box is destroyed.</comment>
+                <event-block sid="9719620423001214">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="8651337739335091" type="PinkBox" />
+                        <condition id="-14" name="Compare variable" sid="8281319550386652" type="System">
+                            <param id="0" name="Variable">IsPlayerAlive</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">TRUE</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="2075933985232749" type="PinkBox">
+                            <param id="0" name="Object">SmallPinkBox</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">&quot;Spawn_1&quot;</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="8477274708614361" type="PinkBox">
+                            <param id="0" name="Object">SmallPinkBox</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">&quot;Spawn_2&quot;</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="1253444917523415" type="PinkBox">
+                            <param id="0" name="Object">SmallPinkBox</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">&quot;Spawn_3&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group collapsed="1" description="The smaller Pink Boxes have an odd spiral movement that can easily get in your way." sid="7182112761777654" title="Small Pink Boxes">
+            <sub-events>
+                <comment>When the enemy is created, makes it look at the player.</comment>
+                <event-block sid="2311976183303544">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="8063605375944512" type="SmallPinkBox" />
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="1600825948737383" type="SmallPinkBox">
+                            <param id="0" name="Angle">angle(SmallPinkBox.X, SmallPinkBox.Y, Player.X, Player.Y)</param>
+                        </action>
+                        <action id="0" name="Play" sid="930405324059781" type="Audio">
+                            <param id="0" name="Audio file">Enemy_spawn_purple</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>When the enemy hits a wall, forces him to look at the player again.</comment>
+                <event-block sid="2676918039561628">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6305315058623527" type="SmallPinkBox">
+                            <param id="0" name="Object">Borders</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="3354969221800148" type="SmallPinkBox">
+                            <param id="0" name="Angle">angle(SmallPinkBox.X, SmallPinkBox.Y, Player.X, Player.Y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Makes the small box look at the player on regular intervals.</comment>
+                <event-block sid="570001519697183">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="7330053684185671" type="System">
+                            <param id="0" name="Interval (seconds)">0.1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="7933685148880302" type="SmallPinkBox">
+                            <param id="0" name="Angle">angle(SmallPinkBox.X, SmallPinkBox.Y, Player.X, Player.Y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="Snakes aren&apos;t the most common enemy, but they do cover the most area. You can only kill one by shooting it in the white head. Anything that hits their body will be absorbed with no effect. Snakes are most dangerous when you allow them to spread out. This is due to the fact that many of them will become intertwined and defend each other." sid="4346546901165992" title="Snakes" />
         <event-group collapsed="1" description="Black Holes begin as benign, red circles. They usually appear in corners, though you&apos;ll occasionally run into them in the center of the battlefield. If you don&apos;t shoot them, they will just sit there and act as a small obstacle that you&apos;ll have to dodge. Once you do hit them with some shots, they will become active. An active Black Hole will have a gravitational pull that will slightly tug your towards it if you fly near. It will also suck enemies into it, which makes active Black Holes a dangerous place to play near.&#x0D;&#x0A;&#x0D;&#x0A;As a Black Hole sucks in enemies, it will grow in size. If it gets big enough, it will explode (read more below). You can prevent it from exploding by shooting it. For each bullet that you hit it with, it will shrink slightly in size. If you make it shrink enough, you will destroy it. Keep in mind that the point value for destroying a Black Hole increases as it sucks more enemies in. A fully engorged Black Hole can net you thousands of points after your multiplier kicks in.&#x0D;&#x0A;&#x0D;&#x0A;If you activate a Black Hole and then don&apos;t destroy it, it will begin exerting its gravitational pull. This will suck in all surrounding enemies, causing it to expand and become unstable. If enough enemies get sucked into the Black Hole, it will detonate sending out a stream of small circles." sid="6882008991856282" title="Black Holes" />
         <event-group description="These circles are extremely fast and will quickly traverse the entire battlefield in a beeline towards your ship. Despite their great speed, these circles are not agile. That means that when the Black Holes start detonating, you should start moving in an arc away from the circles while shooting at them as they come towards you. They&apos;ll miss to the side and you can easily mop up any that you missed. Remember, playing near Black Holes that are near detonation is extremely dangerous. If they pop, you won&apos;t have time to get out of the way." sid="9245855426707816" title="Small Circles (Black Hole)" />
