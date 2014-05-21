@@ -24,6 +24,7 @@
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
@@ -292,9 +293,14 @@
             </object-type>
             <object-type name="SmallPinkBox" sid="2007423554630766">
                 <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Rotate" sid="8622166137855305">
+                        <behavior id="Rotate" />
+                    </behavior-type>
+                </behaviors>
                 <animation-folder expanded="1">
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2291736780070617" speed="5">
-                        <frame duration="1" hotspotX="0.521739" hotspotY="0.521739" />
+                        <frame duration="1" hotspotX="-1.26087" hotspotY="2.65217" />
                     </animation>
                 </animation-folder>
             </object-type>
