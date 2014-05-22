@@ -24,6 +24,7 @@
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
@@ -228,6 +229,62 @@
             </object-type>
         </object-folder>
         <object-folder expanded="1" name="Enemies">
+            <object-folder expanded="1" name="SnakeTail">
+                <object-type name="SnakeTail" sid="2769851197196964">
+                    <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable comment="Parent object Id." name="ParentId" sid="8963673568161825" type="number" />
+                    </instance-variables>
+                    <behaviors>
+                        <behavior-type name="Pin" sid="7053575294183781">
+                            <behavior id="Pin" />
+                        </behavior-type>
+                        <behavior-type name="DestroyOutsideLayout" sid="6122584200868195">
+                            <behavior id="destroy" />
+                        </behavior-type>
+                    </behaviors>
+                    <animation-folder expanded="1">
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9666513486589124" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0.5">
+                                <image-point name="Tail" x="0.958333" y="0.5" />
+                                <collision-poly>
+                                    <point x="0" y="1" />
+                                    <point x="0" y="0" />
+                                    <point x="1" y="0" />
+                                    <point x="1" y="1" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="SnakeTailAlt" sid="3484247756552787">
+                    <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable comment="Parent object id." name="ParentId" sid="641639492185898" type="number" />
+                    </instance-variables>
+                    <behaviors>
+                        <behavior-type name="Pin" sid="2531998497583547">
+                            <behavior id="Pin" />
+                        </behavior-type>
+                        <behavior-type name="DestroyOutsideLayout" sid="3625885133602519">
+                            <behavior id="destroy" />
+                        </behavior-type>
+                    </behaviors>
+                    <animation-folder expanded="1">
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5369613074254171" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0.5">
+                                <image-point name="Tail" x="1" y="0.541667" />
+                                <collision-poly>
+                                    <point x="0" y="1" />
+                                    <point x="0" y="0" />
+                                    <point x="1" y="0" />
+                                    <point x="1" y="1" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                    </animation-folder>
+                </object-type>
+            </object-folder>
             <object-type name="Pinwheel" sid="3532969755416103">
                 <plugin id="Sprite" />
                 <animation-folder expanded="1">
@@ -309,6 +366,7 @@
                 <animation-folder expanded="1">
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4394799235294002" speed="5">
                         <frame duration="1" hotspotX="0.466667" hotspotY="0.5">
+                            <image-point name="Tail" x="0.0333333" y="0.5" />
                             <collision-poly>
                                 <point x="1" y="0" />
                                 <point x="1" y="1" />
@@ -320,7 +378,7 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-folder expanded="0" name="Effects">
+        <object-folder expanded="1" name="Effects">
             <object-type name="EnemyExplosion" sid="8816149740713208">
                 <plugin id="Particles" />
                 <effects>
@@ -331,6 +389,22 @@
                 <texture />
             </object-type>
         </object-folder>
+        <object-type name="HUDLives" sid="882407067185534">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7817677113352226" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1.91304" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="HUDBombs" sid="7183425806867599">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1964918974622208" speed="5">
+                    <frame duration="1" hotspotX="0.730769" hotspotY="2.25" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="6804908276319551">
@@ -363,6 +437,8 @@
                 <member>Player</member>
                 <member>SmallPinkBox</member>
                 <member>Snakehead</member>
+                <member>SnakeTail</member>
+                <member>SnakeTailAlt</member>
             </members>
             <instance-variables>
                 <instance-variable comment="Explosion Hue Channel" name="ExplosionH" sid="7063402831292005" type="number" />

@@ -539,7 +539,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Enemy spawning, player death and other similar events." sid="5994465010774309" title="Level">
+        <event-group description="Enemy spawning, player death and other similar events." sid="5994465010774309" title="Level">
             <sub-events>
                 <comment>Spawn Enemies each spawn cycle.</comment>
                 <event-block sid="7871617777748265">
@@ -676,7 +676,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Music and Sound Effects." sid="7276145793056033" title="Sound">
+        <event-group collapsed="1" description="Music and Sound Effects." sid="7276145793056033" title="Sound">
             <sub-events>
                 <comment>Plays the level music when the layout is loaded.</comment>
                 <event-block sid="3102609030466335">
