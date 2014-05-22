@@ -18,6 +18,7 @@
         <variable comment="Highest pacifist time the player had." constant="0" name="BestPacifist" sid="2419245576472392" static="0" type="number">0</variable>
         <variable comment="Time the player survived." constant="0" name="SurvivalTime" sid="5429367854862133" static="0" type="number">0</variable>
         <variable comment="Best survival time the player got." constant="0" name="BestSurvival" sid="5492233290421688" static="0" type="number">0</variable>
+        <variable comment="Current score multiplier." constant="0" name="Multiplier" sid="6964287633569893" static="0" type="number">1</variable>
         <comment>Level Variables</comment>
         <variable comment="Time interval between spawns." constant="0" name="SpawnTimer" sid="96232069473158" static="0" type="number">5</variable>
         <comment>Flags</comment>
@@ -458,6 +459,55 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>Adds the &quot;Use Bomb&quot; command to a lot of inputs, so the player has choice on how he prefers to use it.</comment>
+                <event-block any="1" sid="317558731720965">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="7071262572316403" type="Keyboard">
+                            <param id="0" name="Key">32 (Space)</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="3592949284410089" type="Keyboard">
+                            <param id="0" name="Key">13 (Return)</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="9292219597419051" type="Keyboard">
+                            <param id="0" name="Key">17 (Ctrl)</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="4400315433637663" type="Keyboard">
+                            <param id="0" name="Key">16 (Shift)</param>
+                        </condition>
+                        <condition id="3" name="Is button down" sid="1186606034629823" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">4</param>
+                        </condition>
+                        <condition id="3" name="Is button down" sid="6809922313255843" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">7</param>
+                        </condition>
+                        <condition id="3" name="Is button down" sid="3622267606853256" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">1</param>
+                        </condition>
+                        <condition id="3" name="Is button down" sid="7470758854227678" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">6</param>
+                        </condition>
+                        <condition id="3" name="Is button down" sid="5988176667541376" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">7</param>
+                        </condition>
+                        <condition id="2" name="Mouse button is down" sid="1547100229231588" type="Mouse">
+                            <param id="0" name="Mouse button">2</param>
+                        </condition>
+                        <condition id="2" name="Mouse button is down" sid="3422696223308673" type="Mouse">
+                            <param id="0" name="Mouse button">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="6898403769086419" type="Function">
+                            <param id="0" name="Name">&quot;UseBomb&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group collapsed="1" description="Player and player effects/helpers (shot, flame jet) events." sid="7784473911862342" title="Player">
@@ -590,7 +640,7 @@
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="5543190273417278" type="System">
                                     <param id="0" name="Variable">Lives</param>
-                                    <param id="1" name="Comparison">5</param>
+                                    <param id="1" name="Comparison">4</param>
                                     <param id="2" name="Value">0</param>
                                 </condition>
                             </conditions>
@@ -606,7 +656,7 @@
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="6898569335943563" type="System">
                                     <param id="0" name="Variable">Lives</param>
-                                    <param id="1" name="Comparison">2</param>
+                                    <param id="1" name="Comparison">3</param>
                                     <param id="2" name="Value">0</param>
                                 </condition>
                             </conditions>
@@ -677,7 +727,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Music and Sound Effects." sid="7276145793056033" title="Sound">
+        <event-group description="Music and Sound Effects." sid="7276145793056033" title="Sound">
             <sub-events>
                 <comment>Plays the level music when the layout is loaded.</comment>
                 <event-block sid="3102609030466335">
@@ -689,7 +739,7 @@
                             <param id="0" name="Audio file">Theme</param>
                             <param id="2" name="Loop">1</param>
                             <param id="3" name="Volume">0</param>
-                            <param id="1" name="Tag (optional)">&quot;MainTheme&quot;</param>
+                            <param id="1" name="Tag (optional)">&quot;BGM&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -742,9 +792,9 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Heads up display events." sid="2110095843469122" title="HUD">
+        <event-group collapsed="1" description="Heads up display events." sid="2110095843469122" title="HUD">
             <sub-events>
-                <comment>Update the score and high score every frame.</comment>
+                <comment>Update the lives, bombs, score and high score every frame.</comment>
                 <event-block sid="8890957871182892">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="4847067047121477" type="System" />

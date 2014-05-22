@@ -540,7 +540,7 @@
         <file name="Theme.ogg" />
         <file name="Ambience.ogg" />
     </music-folder>
-    <files-folder expanded="0">
+    <files-folder expanded="1">
         <file-folder expanded="0" name="Icons">
             <file name="icon-16.png" />
             <file name="icon-32.png" />
