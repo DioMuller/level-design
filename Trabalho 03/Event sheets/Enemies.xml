@@ -239,7 +239,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="The Pink Boxes may very well become your first nemesis. They&apos;ll come directly at you quickly and with good targeting. Once you shoot them, they explode into three smaller Pink Boxes. The bonus to this is that you can rack up huge points. The negative part is that the smaller Pink Boxes have an odd spiral movement that can easily get in your way." sid="7087803793196519" title="Pink Boxes">
+        <event-group collapsed="1" description="The Pink Boxes may very well become your first nemesis. They&apos;ll come directly at you quickly and with good targeting. Once you shoot them, they explode into three smaller Pink Boxes. The bonus to this is that you can rack up huge points. The negative part is that the smaller Pink Boxes have an odd spiral movement that can easily get in your way." sid="7087803793196519" title="Pink Boxes">
             <sub-events>
                 <comment>When the enemy is created, makes it look at the player.</comment>
                 <event-block sid="2590182927372069">
@@ -316,7 +316,7 @@
         </event-group>
         <event-group collapsed="1" description="The smaller Pink Boxes have an odd spiral movement that can easily get in your way." sid="7182112761777654" title="Small Pink Boxes">
             <sub-events>
-                <comment>When the enemy is created, makes it look at the player.</comment>
+                <comment>When the enemy is created, makes it look at the player. Also sets a random rotation so the three boxes won&apos;t follow always the same pattern.</comment>
                 <event-block sid="2311976183303544">
                     <conditions>
                         <condition id="-18" name="On created" sid="8063605375944512" type="SmallPinkBox" />
@@ -330,6 +330,9 @@
                             <param id="2" name="Loop">0</param>
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="5540204464011745" type="SmallPinkBox">
+                            <param id="0" name="Angle">random(360)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -361,7 +364,53 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Snakes aren&apos;t the most common enemy, but they do cover the most area. You can only kill one by shooting it in the white head. Anything that hits their body will be absorbed with no effect. Snakes are most dangerous when you allow them to spread out. This is due to the fact that many of them will become intertwined and defend each other." sid="4346546901165992" title="Snakes" />
+        <event-group description="Snakes aren&apos;t the most common enemy, but they do cover the most area. You can only kill one by shooting it in the white head. Anything that hits their body will be absorbed with no effect. Snakes are most dangerous when you allow them to spread out. This is due to the fact that many of them will become intertwined and defend each other." sid="4346546901165992" title="Snakes">
+            <sub-events>
+                <comment>When the enemy is created, makes it look at the player.</comment>
+                <event-block sid="3327990311139123">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="3507339640491128" type="Snakehead" />
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="334699183786139" type="Snakehead">
+                            <param id="0" name="Angle">angle(Snakehead.X, Snakehead.Y, Player.X, Player.Y)</param>
+                        </action>
+                        <action id="0" name="Play" sid="8647150044452743" type="Audio">
+                            <param id="0" name="Audio file">Enemy_spawn_blue</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>When the enemy hits a wall, forces him to look at the player again.</comment>
+                <event-block sid="3320181069442251">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2213911200943557" type="Snakehead">
+                            <param id="0" name="Object">Borders</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="7670335177025781" type="Snakehead">
+                            <param id="0" name="Angle">angle(Snakehead.X, Snakehead.Y, Player.X, Player.Y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Makes the snake look at the player on regular intervals.</comment>
+                <event-block sid="3605314903757972">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="6759888741429741" type="System">
+                            <param id="0" name="Interval (seconds)">0.1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="2954886372581847" type="Snakehead">
+                            <param id="0" name="Angle">angle(Snakehead.X, Snakehead.Y, Player.X, Player.Y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group collapsed="1" description="Black Holes begin as benign, red circles. They usually appear in corners, though you&apos;ll occasionally run into them in the center of the battlefield. If you don&apos;t shoot them, they will just sit there and act as a small obstacle that you&apos;ll have to dodge. Once you do hit them with some shots, they will become active. An active Black Hole will have a gravitational pull that will slightly tug your towards it if you fly near. It will also suck enemies into it, which makes active Black Holes a dangerous place to play near.&#x0D;&#x0A;&#x0D;&#x0A;As a Black Hole sucks in enemies, it will grow in size. If it gets big enough, it will explode (read more below). You can prevent it from exploding by shooting it. For each bullet that you hit it with, it will shrink slightly in size. If you make it shrink enough, you will destroy it. Keep in mind that the point value for destroying a Black Hole increases as it sucks more enemies in. A fully engorged Black Hole can net you thousands of points after your multiplier kicks in.&#x0D;&#x0A;&#x0D;&#x0A;If you activate a Black Hole and then don&apos;t destroy it, it will begin exerting its gravitational pull. This will suck in all surrounding enemies, causing it to expand and become unstable. If enough enemies get sucked into the Black Hole, it will detonate sending out a stream of small circles." sid="6882008991856282" title="Black Holes" />
         <event-group description="These circles are extremely fast and will quickly traverse the entire battlefield in a beeline towards your ship. Despite their great speed, these circles are not agile. That means that when the Black Holes start detonating, you should start moving in an arc away from the circles while shooting at them as they come towards you. They&apos;ll miss to the side and you can easily mop up any that you missed. Remember, playing near Black Holes that are near detonation is extremely dangerous. If they pop, you won&apos;t have time to get out of the way." sid="9245855426707816" title="Small Circles (Black Hole)" />
         <event-group description="Jacks are some of the most annoying enemies in the game only because when they do come, they come in numbers. Literally hundreds of Jacks will come pouring out of each of the four corners. You won&apos;t be able to simply aim and take them out. There are too many of them! Instead, move to the bottom of the screen and start shooting at the right group. Just before they close in above you, swoop up firing to clear a path to the top of the screen. Turn to the right along the top edge and keep shooting. Once you see a thin section, blast a hole in it and go down through it." sid="819052756230272" title="Jacks" />
