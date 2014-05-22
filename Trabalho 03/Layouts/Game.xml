@@ -903,7 +903,7 @@
                         <ExplosionH>25</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
-                        <ParentId>0</ParentId>
+                        <ParentUID>0</ParentUID>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Pin" />
@@ -935,7 +935,7 @@
                         <ExplosionH>25</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
-                        <ParentId>0</ParentId>
+                        <ParentUID>0</ParentUID>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Pin" />

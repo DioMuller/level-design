@@ -229,16 +229,10 @@
             </object-type>
         </object-folder>
         <object-folder expanded="1" name="Enemies">
-            <object-folder expanded="1" name="SnakeTail">
+            <object-folder expanded="0" name="SnakeTail">
                 <object-type name="SnakeTail" sid="2769851197196964">
                     <plugin id="Sprite" />
-                    <instance-variables>
-                        <instance-variable comment="Parent object Id." name="ParentId" sid="8963673568161825" type="number" />
-                    </instance-variables>
                     <behaviors>
-                        <behavior-type name="Pin" sid="7053575294183781">
-                            <behavior id="Pin" />
-                        </behavior-type>
                         <behavior-type name="DestroyOutsideLayout" sid="6122584200868195">
                             <behavior id="destroy" />
                         </behavior-type>
@@ -259,13 +253,7 @@
                 </object-type>
                 <object-type name="SnakeTailAlt" sid="3484247756552787">
                     <plugin id="Sprite" />
-                    <instance-variables>
-                        <instance-variable comment="Parent object id." name="ParentId" sid="641639492185898" type="number" />
-                    </instance-variables>
                     <behaviors>
-                        <behavior-type name="Pin" sid="2531998497583547">
-                            <behavior id="Pin" />
-                        </behavior-type>
                         <behavior-type name="DestroyOutsideLayout" sid="3625885133602519">
                             <behavior id="destroy" />
                         </behavior-type>
@@ -446,6 +434,20 @@
                 <instance-variable comment="Explosion Intensity Channel" name="ExplosionI" sid="1787068866255174" type="number" />
             </instance-variables>
         </family>
+        <family name="SnakeTails" plugin-id="Sprite" sid="8031748889897024">
+            <members>
+                <member>SnakeTail</member>
+                <member>SnakeTailAlt</member>
+            </members>
+            <instance-variables>
+                <instance-variable comment="Parent entity ID." name="ParentUID" sid="982894693505889" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Pin" sid="9283656020213862">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+        </family>
     </families>
     <layout-folder expanded="1">
         <layout>Game.xml</layout>
@@ -453,6 +455,7 @@
     <event-folder expanded="1">
         <event-sheet>MainSheet.xml</event-sheet>
         <event-sheet>Enemies.xml</event-sheet>
+        <event-sheet>Functions.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Gamepad" uid="4">

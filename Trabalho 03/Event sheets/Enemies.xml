@@ -3,8 +3,9 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Enemies</name>
     <events>
+        <include>Functions</include>
         <variable comment="Green Square safe distance." constant="1" name="SafeDistance" sid="655567511147722" static="0" type="number">40</variable>
-        <event-group collapsed="1" description="Enemies generic events." sid="9210692629209011" title="General">
+        <event-group description="Enemies generic events." sid="9210692629209011" title="General">
             <sub-events>
                 <comment>If a shot hits an enemy, it dies.</comment>
                 <event-block sid="1324042804530485">
@@ -36,12 +37,9 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="3930960246154772" type="Player" />
-                        <action id="0" name="Play" sid="3543997085166587" type="Audio">
-                            <param id="0" name="Audio file">Ship_explode</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">0</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        <action id="0" name="Call function" sid="6394868120714624" type="Function">
+                            <param id="0" name="Name">&quot;DestroyEnemy&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                     </actions>
                 </event-block>
@@ -384,7 +382,7 @@
                             <param id="2" name="Image point">&quot;Tail&quot;</param>
                         </action>
                         <action id="-10" name="Set value" sid="912341845143771" type="SnakeTail">
-                            <param id="0" name="Instance variable">ParentId</param>
+                            <param id="0" name="Instance variable">ParentUID</param>
                             <param id="1" name="Value">Snakehead.UID</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="4320313004214923" type="SnakeTail">
@@ -397,7 +395,7 @@
                             <param id="2" name="Image point">&quot;Tail&quot;</param>
                         </action>
                         <action id="-10" name="Set value" sid="6464496305454719" type="SnakeTailAlt">
-                            <param id="0" name="Instance variable">ParentId</param>
+                            <param id="0" name="Instance variable">ParentUID</param>
                             <param id="1" name="Value">SnakeTail.UID</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="9285137029525877" type="SnakeTailAlt">
@@ -410,7 +408,7 @@
                             <param id="2" name="Image point">&quot;Tail&quot;</param>
                         </action>
                         <action id="-10" name="Set value" sid="5435776761167186" type="SnakeTail">
-                            <param id="0" name="Instance variable">ParentId</param>
+                            <param id="0" name="Instance variable">ParentUID</param>
                             <param id="1" name="Value">SnakeTailAlt.UID</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="7724882600345196" type="SnakeTail">
@@ -423,7 +421,7 @@
                             <param id="2" name="Image point">&quot;Tail&quot;</param>
                         </action>
                         <action id="-10" name="Set value" sid="9330673088546254" type="SnakeTailAlt">
-                            <param id="0" name="Instance variable">ParentId</param>
+                            <param id="0" name="Instance variable">ParentUID</param>
                             <param id="1" name="Value">SnakeTail.UID</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="9282263520822457" type="SnakeTailAlt">
@@ -436,7 +434,7 @@
                             <param id="2" name="Image point">&quot;Tail&quot;</param>
                         </action>
                         <action id="-10" name="Set value" sid="8506871032848516" type="SnakeTail">
-                            <param id="0" name="Instance variable">ParentId</param>
+                            <param id="0" name="Instance variable">ParentUID</param>
                             <param id="1" name="Value">SnakeTailAlt.UID</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="5082161332391984" type="SnakeTail">
@@ -449,7 +447,7 @@
                             <param id="2" name="Image point">&quot;Tail&quot;</param>
                         </action>
                         <action id="-10" name="Set value" sid="3263833401054672" type="SnakeTailAlt">
-                            <param id="0" name="Instance variable">ParentId</param>
+                            <param id="0" name="Instance variable">ParentUID</param>
                             <param id="1" name="Value">SnakeTail.UID</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="3432099272092809" type="SnakeTailAlt">
@@ -462,7 +460,7 @@
                             <param id="2" name="Image point">&quot;Tail&quot;</param>
                         </action>
                         <action id="-10" name="Set value" sid="3536189292143561" type="SnakeTail">
-                            <param id="0" name="Instance variable">ParentId</param>
+                            <param id="0" name="Instance variable">ParentUID</param>
                             <param id="1" name="Value">SnakeTailAlt.UID</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="8921503090064351" type="SnakeTail">
@@ -475,7 +473,7 @@
                             <param id="2" name="Image point">&quot;Tail&quot;</param>
                         </action>
                         <action id="-10" name="Set value" sid="4514394914273843" type="SnakeTailAlt">
-                            <param id="0" name="Instance variable">ParentId</param>
+                            <param id="0" name="Instance variable">ParentUID</param>
                             <param id="1" name="Value">SnakeTail.UID</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="8998860420578316" type="SnakeTailAlt">
@@ -488,7 +486,7 @@
                             <param id="2" name="Image point">&quot;Tail&quot;</param>
                         </action>
                         <action id="-10" name="Set value" sid="8868115501348696" type="SnakeTail">
-                            <param id="0" name="Instance variable">ParentId</param>
+                            <param id="0" name="Instance variable">ParentUID</param>
                             <param id="1" name="Value">SnakeTailAlt.UID</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="7139277207980477" type="SnakeTail">
@@ -534,34 +532,30 @@
                 <event-block sid="9829830602075875">
                     <conditions>
                         <condition id="-11" name="For Each" sid="6637090508317513" type="System">
-                            <param id="0" name="Object">SnakeTail</param>
+                            <param id="0" name="Object">SnakeTails</param>
                         </condition>
                         <condition id="-31" inverted="1" name="Object UID exists" sid="8705703808241777" type="System">
-                            <param id="0" name="UID">SnakeTail.ParentId</param>
+                            <param id="0" name="UID">SnakeTails.ParentUID</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-16" name="Wait" sid="9275485246927568" type="System">
                             <param id="0" name="Seconds">0.1</param>
                         </action>
-                        <action id="-9" name="Destroy" sid="9022834580195198" type="SnakeTail" />
+                        <action id="-9" name="Destroy" sid="9022834580195198" type="SnakeTails" />
                     </actions>
                 </event-block>
-                <comment>Destroys particles if snakehead was destroyed.</comment>
-                <event-block sid="7379761860632856">
+                <event-block sid="761675496946197">
                     <conditions>
-                        <condition id="-11" name="For Each" sid="6062766544371032" type="System">
-                            <param id="0" name="Object">SnakeTailAlt</param>
-                        </condition>
-                        <condition id="-31" inverted="1" name="Object UID exists" sid="4350735539058954" type="System">
-                            <param id="0" name="UID">SnakeTailAlt.ParentId</param>
+                        <condition id="0" name="On collision with another object" sid="3016684811779077" type="SnakeTails">
+                            <param id="0" name="Object">Player</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-16" name="Wait" sid="9512110811720867" type="System">
-                            <param id="0" name="Seconds">0.1</param>
+                        <action id="0" name="Call function" sid="9487740573320771" type="Function">
+                            <param id="0" name="Name">&quot;DestroyEnemy&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
-                        <action id="-9" name="Destroy" sid="5639712685152319" type="SnakeTailAlt" />
                     </actions>
                 </event-block>
             </sub-events>

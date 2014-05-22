@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Functions</name>
+    <events>
+        <event-group description="Functions and Procedures to be called from other events." sid="2068064875316271" title="Functions">
+            <sub-events>
+                <comment>Shoot (No Parameters): Fires the shot equiped on the player and plays the shot sound.</comment>
+                <event-block sid="8992517613130209">
+                    <conditions>
+                        <condition id="0" name="On function" sid="8610884636300198" type="Function">
+                            <param id="0" name="Name">&quot;Shoot&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="6" name="Stop" sid="8535028045057579" type="Audio">
+                            <param id="0" name="Tag">&quot;Shot&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="8129339100384679" type="Audio">
+                            <param id="0" name="Audio file">Fire_normal</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;Shot&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7399205138858248" type="System">
+                            <param id="0" name="Variable">IsPlayerPacifist</param>
+                            <param id="1" name="Value">FALSE</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <variable comment="Counter for number of shots fired." constant="0" name="Counter" sid="81264843148306" static="0" type="number">1</variable>
+                        <event-block sid="2592068969283203">
+                            <conditions>
+                                <condition id="-23" name="While" sid="476640721504583" type="System" />
+                                <condition id="-14" name="Compare variable" sid="6711800898063269" type="System">
+                                    <param id="0" name="Variable">Counter</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">ShotNumber</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="5604447913778866" type="Aim">
+                                    <param id="0" name="Object">Shot</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="Image point">&quot;Shot&quot;</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="1684641447736456" type="System">
+                                    <param id="0" name="Variable">Counter</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="4956242590191334" type="Shot">
+                                    <param id="0" name="Angle">Shot.angle + 5 * int(Counter/2) * ((Counter % 2 = 0) ? -1 : 1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Destroys the enemy and does everything needed on the event.</comment>
+                <event-block sid="6642358221552721">
+                    <conditions>
+                        <condition id="0" name="On function" sid="7194539586546878" type="Function">
+                            <param id="0" name="Name">&quot;DestroyEnemy&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="7069361670829205" type="Player" />
+                        <action id="0" name="Play" sid="4578684536595671" type="Audio">
+                            <param id="0" name="Audio file">Ship_explode</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
