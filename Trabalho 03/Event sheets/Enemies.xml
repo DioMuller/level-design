@@ -362,7 +362,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Snakes aren&apos;t the most common enemy, but they do cover the most area. You can only kill one by shooting it in the white head. Anything that hits their body will be absorbed with no effect. Snakes are most dangerous when you allow them to spread out. This is due to the fact that many of them will become intertwined and defend each other." sid="4346546901165992" title="Snakes">
+        <event-group collapsed="1" description="Snakes aren&apos;t the most common enemy, but they do cover the most area. You can only kill one by shooting it in the white head. Anything that hits their body will be absorbed with no effect. Snakes are most dangerous when you allow them to spread out. This is due to the fact that many of them will become intertwined and defend each other." sid="4346546901165992" title="Snakes">
             <sub-events>
                 <comment>When the enemy is created, makes it look at the player, and then creates the tail.</comment>
                 <event-block sid="3327990311139123">
@@ -545,6 +545,7 @@
                         <action id="-9" name="Destroy" sid="9022834580195198" type="SnakeTails" />
                     </actions>
                 </event-block>
+                <comment>Snake tail kills player if it collides with him.</comment>
                 <event-block sid="761675496946197">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="3016684811779077" type="SnakeTails">
@@ -556,6 +557,17 @@
                             <param id="0" name="Name">&quot;DestroyEnemy&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
                         </action>
+                    </actions>
+                </event-block>
+                <comment>Snake tail destroys bullet if it collides with them.</comment>
+                <event-block sid="2910496643942989">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6252953339274057" type="SnakeTails">
+                            <param id="0" name="Object">Shot</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="8312258739177404" type="Shot" />
                     </actions>
                 </event-block>
             </sub-events>

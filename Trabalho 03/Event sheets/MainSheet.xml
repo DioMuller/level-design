@@ -540,7 +540,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Enemy spawning, player death and other similar events." sid="5994465010774309" title="Level">
+        <event-group collapsed="1" description="Enemy spawning, player death and other similar events." sid="5994465010774309" title="Level">
             <sub-events>
                 <comment>Spawn Enemies each spawn cycle.</comment>
                 <event-block sid="7871617777748265">
@@ -742,7 +742,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="HUD and GUI events." sid="2110095843469122" title="GUI">
+        <event-group description="Heads up display events." sid="2110095843469122" title="HUD">
             <sub-events>
                 <comment>Update the score and high score every frame.</comment>
                 <event-block sid="8890957871182892">
@@ -755,6 +755,12 @@
                         </action>
                         <action id="0" name="Set text" sid="2685271033859384" type="HUDHighScore">
                             <param id="0" name="Text">HighScore</param>
+                        </action>
+                        <action id="0" name="Set text" sid="7785280396474114" type="HUDBombCount">
+                            <param id="0" name="Text">Bombs</param>
+                        </action>
+                        <action id="0" name="Set text" sid="6839146945084021" type="HUDLivesCount">
+                            <param id="0" name="Text">Lives</param>
                         </action>
                     </actions>
                 </event-block>
