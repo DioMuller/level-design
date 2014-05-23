@@ -468,6 +468,7 @@
         <event-sheet>MainSheet.xml</event-sheet>
         <event-sheet>Enemies.xml</event-sheet>
         <event-sheet>Functions.xml</event-sheet>
+        <event-sheet>Bonuses.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Gamepad" uid="4">

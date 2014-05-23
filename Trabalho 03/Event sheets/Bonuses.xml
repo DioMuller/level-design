@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Bonuses</name>
+    <events>
+        <variable comment="Score where the player will get one extra life." constant="1" name="EXTRA_LIFE_INTERVAL" sid="5341675631317404" static="0" type="number">75000</variable>
+        <variable comment="Score where the player will get one extra bomb." constant="1" name="EXTRA_BOMB_INTERVAL" sid="1168182577586957" static="0" type="number">100000</variable>
+        <comment>Multipliers from 1x to 4x and 10x, plus Bonuses from all the FAQs @ http://www.gamefaqs.com/xbox360/930851-geometry-wars-retro-evolved/faqs . Other multipliers are educated guesses, since there&apos;s no material on the web about them, only supositions. We know it&apos;s not double, since 10x is given at 2000 kills.</comment>
+        <event-group collapsed="1" description="Score multiplier values." sid="4076182216704275" title="Multiplier">
+            <sub-events>
+                <comment>Multiplier 2x @ 25 kills.</comment>
+                <event-block sid="1783747426725238">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3394794028825095" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="9655737137113336" type="System">
+                            <param id="0" name="Variable">Kills</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">25</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="213438363717502" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Multiplier 3x @ 50 kills.</comment>
+                <event-block sid="6858232359340192">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1955577866818525" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="4516645721314755" type="System">
+                            <param id="0" name="Variable">Kills</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">50</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6801121737626772" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Multiplier 4x @ 100 kills.</comment>
+                <event-block sid="2423561807260943">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7782262608927094" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="49330802941133" type="System">
+                            <param id="0" name="Variable">Kills</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="8888918519433567" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Value">4</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Multiplier 5x @ ~200 kills.</comment>
+                <event-block sid="4179546495590922">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2455893982347176" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="406681952963922" type="System">
+                            <param id="0" name="Variable">Kills</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">200</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2219022364883471" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Value">5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Multiplier 6x @ ~350 kills.</comment>
+                <event-block sid="7407069652097374">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3971928697373144" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">6</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="4106990242652589" type="System">
+                            <param id="0" name="Variable">Kills</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">350</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="5006149261301124" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Value">6</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Multiplier 7x @ ~600 kills.</comment>
+                <event-block sid="7532512510647435">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7288219054272967" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">7</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="9296595444283414" type="System">
+                            <param id="0" name="Variable">Kills</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">600</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3963864566377616" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Value">7</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Multiplier 8x @ ~950 kills.</comment>
+                <event-block sid="7196568838631228">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2150759146755031" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">8</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="180514335419821" type="System">
+                            <param id="0" name="Variable">Kills</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">950</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1704872248906547" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Value">8</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Multiplier 9x @ ~1400 kills.</comment>
+                <event-block sid="9692480121723921">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="397785677820073" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">9</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="6071777541643668" type="System">
+                            <param id="0" name="Variable">Kills</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">1400</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3430384074297893" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Value">9</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Multiplier 10x @ 2000 kills.</comment>
+                <event-block sid="4547989740005319">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6427578384618742" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">10</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="7231825020595198" type="System">
+                            <param id="0" name="Variable">Kills</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">2000</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="7695520108199562" type="System">
+                            <param id="0" name="Variable">Multiplier</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Lives, Bombs and Shoot Bonuses." sid="5070743671208185" title="Bonuses">
+            <sub-events>
+                <comment>When the layout is loaded, sets the Extra Bomb and Extra Life scores to the respective intervals.</comment>
+                <event-block sid="3023893324724568">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="8635784547406328" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3812038525258161" type="System">
+                            <param id="0" name="Variable">ExtraBombScore</param>
+                            <param id="1" name="Value">EXTRA_BOMB_INTERVAL</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6371160390699942" type="System">
+                            <param id="0" name="Variable">ExtraLifeScore</param>
+                            <param id="1" name="Value">EXTRA_LIFE_INTERVAL</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>If the score is bigger than the score needed to get one extra bomb, gives the player one extra bomb.</comment>
+                <event-block sid="7178346893745879">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1415565554354522" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">ExtraBombScore</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="2920541873803562" type="System">
+                            <param id="0" name="Variable">Bombs</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="3693123404452283" type="System">
+                            <param id="0" name="Variable">ExtraBombScore</param>
+                            <param id="1" name="Value">EXTRA_BOMB_INTERVAL</param>
+                        </action>
+                        <action id="0" name="Play" sid="2611966061630307" type="Audio">
+                            <param id="0" name="Audio file">pickup_smartbomb</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>If the score is bigger than the score needed to get one extra life, gives the player one extra life.</comment>
+                <event-block sid="8029773566851664">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3871300660055783" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">ExtraLifeScore</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="3918926062269125" type="System">
+                            <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="5542428257369501" type="System">
+                            <param id="0" name="Variable">ExtraLifeScore</param>
+                            <param id="1" name="Value">EXTRA_LIFE_INTERVAL</param>
+                        </action>
+                        <action id="0" name="Play" sid="7532011641282643" type="Audio">
+                            <param id="0" name="Audio file">pickup_extralife</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

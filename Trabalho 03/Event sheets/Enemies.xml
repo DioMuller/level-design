@@ -367,7 +367,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Snakes aren&apos;t the most common enemy, but they do cover the most area. You can only kill one by shooting it in the white head. Anything that hits their body will be absorbed with no effect. Snakes are most dangerous when you allow them to spread out. This is due to the fact that many of them will become intertwined and defend each other." sid="4346546901165992" title="Snakes">
+        <event-group description="Snakes aren&apos;t the most common enemy, but they do cover the most area. You can only kill one by shooting it in the white head. Anything that hits their body will be absorbed with no effect. Snakes are most dangerous when you allow them to spread out. This is due to the fact that many of them will become intertwined and defend each other." sid="4346546901165992" title="Snakes">
             <sub-events>
                 <comment>When the enemy is created, makes it look at the player, and then creates the tail.</comment>
                 <event-block sid="3327990311139123">
@@ -376,9 +376,9 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Play" sid="8647150044452743" type="Audio">
-                            <param id="0" name="Audio file">Enemy_spawn_blue</param>
+                            <param id="0" name="Audio file">Snake_spawn</param>
                             <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">0</param>
+                            <param id="3" name="Volume">-5</param>
                             <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                         <action id="0" name="Spawn another object" sid="9300976504105672" type="Snakehead">
