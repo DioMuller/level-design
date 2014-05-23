@@ -117,6 +117,10 @@
                 <plugin id="Spritefont2" />
                 <texture />
             </object-type>
+            <object-type name="HUDMultiplier" sid="811042285003443">
+                <plugin id="Spritefont2" />
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder expanded="0" name="Player">
             <object-type name="Player" sid="6309762137083568">
