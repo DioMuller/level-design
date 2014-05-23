@@ -78,7 +78,7 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <comment>Shoot (No Parameters): Fires the shot equiped on the player and plays the shot sound.</comment>
+        <comment>UseBomb (No Parameters): Explodes all enemies on screen, if conditions are met.</comment>
         <event-block sid="1803958480336756">
             <conditions>
                 <condition id="0" name="On function" sid="5502805023841995" type="Function">
@@ -94,11 +94,25 @@
                     <param id="1" name="Comparison">0</param>
                     <param id="2" name="Value">FALSE</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="4046039595103135" type="System">
+                    <param id="0" name="Variable">IsPlayerAlive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">TRUE</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="6969198414156716" type="System">
+                    <param id="0" name="Variable">IsPlayerPacifist</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">FALSE</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-9" name="Set value" sid="4719374103176541" type="System">
                     <param id="0" name="Variable">IsUsingBomb</param>
                     <param id="1" name="Value">TRUE</param>
+                </action>
+                <action id="-29" name="Set layout effect enabled" sid="1540673189394158" type="System">
+                    <param id="0" name="Mode">1</param>
+                    <param id="1" name="Effect">&quot;Water&quot;</param>
                 </action>
                 <action id="32" name="Add mute effect" sid="5718060078830199" type="Audio">
                     <param id="0" name="Tag">&quot;BGM&quot;</param>
@@ -126,6 +140,10 @@
                 </action>
                 <action id="12" name="Remove all effects" sid="2160993483517501" type="Audio">
                     <param id="0" name="Tag">&quot;BGM&quot;</param>
+                </action>
+                <action id="-29" name="Set layout effect enabled" sid="6544925610855067" type="System">
+                    <param id="0" name="Mode">0</param>
+                    <param id="1" name="Effect">&quot;Water&quot;</param>
                 </action>
             </actions>
         </event-block>

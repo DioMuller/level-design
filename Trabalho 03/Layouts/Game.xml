@@ -1249,5 +1249,21 @@
                 </parameters>
             </effect-instance>
         </effect-type>
+        <effect-type name="Water">
+            <effect id="water" />
+            <effect-instance type="Water">
+                <parameters>
+                    <angle>15</angle>
+                    <delta>20</delta>
+                    <emboss>0.1</emboss>
+                    <frequency>4</frequency>
+                    <intensity>3</intensity>
+                    <reflectivity>200</reflectivity>
+                    <speed>0.1</speed>
+                    <x-speed>0.3</x-speed>
+                    <y-speed>0.3</y-speed>
+                </parameters>
+            </effect-instance>
+        </effect-type>
     </effects>
 </c2layout>

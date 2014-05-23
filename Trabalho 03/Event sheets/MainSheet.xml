@@ -31,6 +31,7 @@
         <variable comment="Kills the player made in this current life." constant="0" name="Kills" sid="2961973352605008" static="0" type="number">0</variable>
         <variable comment="Score where the player will get the next extra life." constant="0" name="ExtraLifeScore" sid="5964493991935636" static="0" type="number">0</variable>
         <variable comment="Score where the player will get the next extra bomb." constant="0" name="ExtraBombScore" sid="8785519423376288" static="0" type="number">0</variable>
+        <variable comment="Score where the player will get the next shooting change." constant="0" name="ShootChangeScore" sid="9070260645011268" static="0" type="number">0</variable>
         <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
             <sub-events>
                 <comment>Loads High Score from the Local Storage, or initializes the storage if there is no high score saved, yet.</comment>
@@ -309,7 +310,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Control events and alternative control methods." sid="3330454796225328" title="Controls">
+        <event-group description="Control events and alternative control methods." sid="3330454796225328" title="Controls">
             <sub-events>
                 <comment>Shoots if the shooting conditions are met:&#x0D;&#x0A;* Player must not be on Pacifist Mode&#x0D;&#x0A;* Player can only shoot every 0.1 seconds&#x0D;&#x0A;* Player must do one shooting action.&#x0D;&#x0A;&#x0D;&#x0A;The shooting actions are:&#x0D;&#x0A;* Using the Gamepad Right Stick in one direction;&#x0D;&#x0A;* Pressing the Left mouse button.&#x0D;&#x0A;&#x0D;&#x0A;The player angle is decided by:&#x0D;&#x0A;* Right analog stick position, if the player is using the gamepad.&#x0D;&#x0A;* Mouse position, if the mouse button is pressed.</comment>
                 <event-block sid="3648900360033787">
@@ -355,10 +356,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-21" name="Rotate toward position" sid="2429578859204713" type="Aim">
-                                    <param id="0" name="Degrees">90</param>
-                                    <param id="1" name="X">Mouse.X</param>
-                                    <param id="2" name="Y">Mouse.Y</param>
+                                <action id="-22" name="Set angle toward position" sid="2429578859204713" type="Aim">
+                                    <param id="0" name="X">Mouse.X</param>
+                                    <param id="1" name="Y">Mouse.Y</param>
                                 </action>
                                 <action id="0" name="Call function" sid="7058982876277009" type="Function">
                                     <param id="0" name="Name">&quot;Shoot&quot;</param>
@@ -727,6 +727,18 @@
                             <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
                             <param id="1" name="Parameter index">2</param>
                             <param id="2" name="Value">Explosive.ExplosionI</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Deactivates distortion effects on start.</comment>
+                <event-block sid="4837568900808524">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="470158817768962" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-29" name="Set layout effect enabled" sid="8067658733439288" type="System">
+                            <param id="0" name="Mode">0</param>
+                            <param id="1" name="Effect">&quot;Water&quot;</param>
                         </action>
                     </actions>
                 </event-block>
