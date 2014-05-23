@@ -291,6 +291,11 @@
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">TRUE</param>
                         </condition>
+                        <condition id="-14" name="Compare variable" sid="8722180747546808" type="System">
+                            <param id="0" name="Variable">IsUsingBomb</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">FALSE</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Spawn another object" sid="2075933985232749" type="PinkBox">

@@ -24,6 +24,7 @@
         <comment>Flags</comment>
         <variable comment="Flag that checks if player is alive." constant="0" name="IsPlayerAlive" sid="4024793600231068" static="0" type="number">0</variable>
         <variable comment="Has the player shot on the last second?" constant="0" name="IsPlayerPacifist" sid="1934420169127409" static="0" type="number">1</variable>
+        <variable comment="Is the player using the bomb right now?" constant="0" name="IsUsingBomb" sid="9676621812991778" static="0" type="number">0</variable>
         <comment>Bonus and Counters</comment>
         <variable comment="Number of shots the player fires." constant="0" name="ShotNumber" sid="3608607095451479" static="0" type="number">2</variable>
         <event-group collapsed="1" description="System events." sid="229269666203367" title="System">

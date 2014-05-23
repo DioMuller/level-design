@@ -3,7 +3,6 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Functions</name>
     <events>
-        <variable comment="Is the player using the bomb right now?" constant="0" name="IsUsingBomb" sid="3058508465553432" static="0" type="number">0</variable>
         <comment>DestroyPlayer (No Parameters): Destroys the enemy and does everything needed on the event.</comment>
         <event-block sid="6642358221552721">
             <conditions>

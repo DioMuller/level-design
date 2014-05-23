@@ -109,6 +109,14 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="HUDBombCount" sid="7907747016540805">
+                <plugin id="Spritefont2" />
+                <texture />
+            </object-type>
+            <object-type name="HUDLivesCount" sid="8810060593616908">
+                <plugin id="Spritefont2" />
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder expanded="0" name="Player">
             <object-type name="Player" sid="6309762137083568">
@@ -393,14 +401,6 @@
                 <texture />
             </object-type>
         </object-folder>
-        <object-type name="HUDBombCount" sid="7907747016540805">
-            <plugin id="Spritefont2" />
-            <texture />
-        </object-type>
-        <object-type name="HUDLivesCount" sid="8810060593616908">
-            <plugin id="Spritefont2" />
-            <texture />
-        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="6804908276319551">
