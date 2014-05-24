@@ -200,7 +200,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Lives, Bombs and Shoot Bonuses." sid="5070743671208185" title="Bonuses">
+        <event-group collapsed="1" description="Lives, Bombs and Shoot Bonuses." sid="5070743671208185" title="Bonuses">
             <sub-events>
                 <comment>When the layout is loaded, sets the Extra Bomb and Extra Life scores to the respective intervals.</comment>
                 <event-block sid="3023893324724568">
@@ -249,7 +249,6 @@
                     </actions>
                 </event-block>
                 <comment>If the score is bigger than the score needed to get one extra life, gives the player one extra life.</comment>
-                <comment>If the score is bigger than the score needed to get one extra life, gives the player one extra life.</comment>
                 <event-block sid="807629505516359">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="253872050758593" type="System">
@@ -275,6 +274,7 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>Randomly changes shoot at each fixed quantity of points.</comment>
                 <event-block sid="8029773566851664">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="3871300660055783" type="System">

@@ -99,10 +99,8 @@
                     <param id="1" name="Comparison">0</param>
                     <param id="2" name="Value">TRUE</param>
                 </condition>
-                <condition id="-14" name="Compare variable" sid="6969198414156716" type="System">
-                    <param id="0" name="Variable">IsPlayerPacifist</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">FALSE</param>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="503945547216829" type="Player">
+                    <param id="0" name="Instance variable">IsPacifist</param>
                 </condition>
             </conditions>
             <actions>
@@ -182,6 +180,15 @@
                     <param id="1" name="Parameter {n}">Enemies.Points</param>
                 </action>
                 <action id="-9" name="Destroy" sid="5556634468832299" type="Enemies" />
+                <action id="-3" name="Create object" sid="8724009702190029" type="System">
+                    <param id="0" name="Object to create">ScoreFont</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="X">Enemies.X</param>
+                    <param id="3" name="Y">Enemies.Y</param>
+                </action>
+                <action id="0" name="Set text" sid="4291621282805787" type="ScoreFont">
+                    <param id="0" name="Text">Enemies.Points * Multiplier</param>
+                </action>
             </actions>
         </event-block>
     </events>

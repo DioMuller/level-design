@@ -310,7 +310,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Control events and alternative control methods." sid="3330454796225328" title="Controls">
+        <event-group collapsed="1" description="Control events and alternative control methods." sid="3330454796225328" title="Controls">
             <sub-events>
                 <comment>Shoots if the shooting conditions are met:&#x0D;&#x0A;* Player must not be on Pacifist Mode&#x0D;&#x0A;* Player can only shoot every 0.1 seconds&#x0D;&#x0A;* Player must do one shooting action.&#x0D;&#x0A;&#x0D;&#x0A;The shooting actions are:&#x0D;&#x0A;* Using the Gamepad Right Stick in one direction;&#x0D;&#x0A;* Pressing the Left mouse button.&#x0D;&#x0A;&#x0D;&#x0A;The player angle is decided by:&#x0D;&#x0A;* Right analog stick position, if the player is using the gamepad.&#x0D;&#x0A;* Mouse position, if the mouse button is pressed.</comment>
                 <event-block sid="3648900360033787">
@@ -744,7 +744,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Music and Sound Effects." sid="7276145793056033" title="Sound">
+        <event-group description="Music and Sound Effects." sid="7276145793056033" title="Sound">
             <sub-events>
                 <comment>Plays the level music when the layout is loaded.</comment>
                 <event-block sid="3102609030466335">
@@ -772,38 +772,125 @@
                         <action id="4" name="Preload" sid="9021131593036929" type="Audio">
                             <param id="0" name="Audio file">Enemy_explode</param>
                         </action>
-                        <action id="4" name="Preload" sid="9632447247954186" type="Audio">
-                            <param id="0" name="Audio file">Fire_normal</param>
+                        <action id="4" name="Preload" sid="4285034459941737" type="Audio">
+                            <param id="0" name="Audio file">Enemy_red_hit</param>
                         </action>
-                        <action id="4" name="Preload" sid="6286864736454305" type="Audio">
-                            <param id="0" name="Audio file">Game_over</param>
+                        <action id="4" name="Preload" sid="4111141058443507" type="Audio">
+                            <param id="0" name="Audio file">Enemy_red_suck</param>
                         </action>
-                        <action id="4" name="Preload" sid="1381888773462433" type="Audio">
-                            <param id="0" name="Audio file">Hi_Score_achieved</param>
+                        <action id="4" name="Preload" sid="7697094673473031" type="Audio">
+                            <param id="0" name="Audio file">Enemy_red_warning</param>
                         </action>
-                        <action id="4" name="Preload" sid="3609996631281362" type="Audio">
-                            <param id="0" name="Audio file">Multiplier</param>
-                        </action>
-                        <action id="4" name="Preload" sid="9217800886159551" type="Audio">
-                            <param id="0" name="Audio file">Player_Spawn</param>
-                        </action>
-                        <action id="4" name="Preload" sid="3989802762689522" type="Audio">
-                            <param id="0" name="Audio file">Ship_explode</param>
-                        </action>
-                        <action id="4" name="Preload" sid="9599875003535981" type="Audio">
-                            <param id="0" name="Audio file">Ship_hitwall</param>
-                        </action>
-                        <action id="4" name="Preload" sid="3243444752602391" type="Audio">
-                            <param id="0" name="Audio file">Ship_thrust_loop</param>
-                        </action>
-                        <action id="4" name="Preload" sid="1321051896754852" type="Audio">
-                            <param id="0" name="Audio file">Wanderer_spawn</param>
-                        </action>
-                        <action id="4" name="Preload" sid="4883158948564964" type="Audio">
+                        <action id="4" name="Preload" sid="659539028499882" type="Audio">
                             <param id="0" name="Audio file">Enemy_spawn_blue</param>
                         </action>
-                        <action id="4" name="Preload" sid="9443440149429136" type="Audio">
+                        <action id="4" name="Preload" sid="6341435436607378" type="Audio">
                             <param id="0" name="Audio file">Enemy_spawn_green</param>
+                        </action>
+                        <action id="4" name="Preload" sid="7359249436785232" type="Audio">
+                            <param id="0" name="Audio file">Enemy_spawn_orange</param>
+                        </action>
+                        <action id="4" name="Preload" sid="1680696217554217" type="Audio">
+                            <param id="0" name="Audio file">Enemy_spawn_purple</param>
+                        </action>
+                        <action id="4" name="Preload" sid="1473079395403663" type="Audio">
+                            <param id="0" name="Audio file">Enemy_spawn_red</param>
+                        </action>
+                        <action id="4" name="Preload" sid="9120214020591211" type="Audio">
+                            <param id="0" name="Audio file">Fire_Hispeed</param>
+                        </action>
+                        <action id="4" name="Preload" sid="3510743899735402" type="Audio">
+                            <param id="0" name="Audio file">Fire_homing</param>
+                        </action>
+                        <action id="4" name="Preload" sid="8859817469750362" type="Audio">
+                            <param id="0" name="Audio file">Fire_normal</param>
+                        </action>
+                        <action id="4" name="Preload" sid="345856200858823" type="Audio">
+                            <param id="0" name="Audio file">Fire_smartbomb</param>
+                        </action>
+                        <action id="4" name="Preload" sid="5842320309985214" type="Audio">
+                            <param id="0" name="Audio file">Fire_smartbomb_low</param>
+                        </action>
+                        <action id="4" name="Preload" sid="7190389984645686" type="Audio">
+                            <param id="0" name="Audio file">Fire_triway</param>
+                        </action>
+                        <action id="4" name="Preload" sid="4214889190249772" type="Audio">
+                            <param id="0" name="Audio file">Game_over</param>
+                        </action>
+                        <action id="4" name="Preload" sid="1693782932689494" type="Audio">
+                            <param id="0" name="Audio file">Game_start</param>
+                        </action>
+                        <action id="4" name="Preload" sid="6470528764294346" type="Audio">
+                            <param id="0" name="Audio file">Gravity_well_die</param>
+                        </action>
+                        <action id="4" name="Preload" sid="6965831014054578" type="Audio">
+                            <param id="0" name="Audio file">Gravity_well_explode</param>
+                        </action>
+                        <action id="4" name="Preload" sid="9390353587647734" type="Audio">
+                            <param id="0" name="Audio file">Hi_Score_achieved</param>
+                        </action>
+                        <action id="4" name="Preload" sid="873279154259993" type="Audio">
+                            <param id="0" name="Audio file">Mayfly</param>
+                        </action>
+                        <action id="4" name="Preload" sid="1610785197838025" type="Audio">
+                            <param id="0" name="Audio file">Multiplier</param>
+                        </action>
+                        <action id="4" name="Preload" sid="7676658622363372" type="Audio">
+                            <param id="0" name="Audio file">pickup_extralife</param>
+                        </action>
+                        <action id="4" name="Preload" sid="3659277360199703" type="Audio">
+                            <param id="0" name="Audio file">pickup_smartbomb</param>
+                        </action>
+                        <action id="4" name="Preload" sid="2811727647105972" type="Audio">
+                            <param id="0" name="Audio file">pickup_weapon</param>
+                        </action>
+                        <action id="4" name="Preload" sid="80419615198942" type="Audio">
+                            <param id="0" name="Audio file">Player_shielded_hit_enemy</param>
+                        </action>
+                        <action id="4" name="Preload" sid="1737124848056694" type="Audio">
+                            <param id="0" name="Audio file">Player_Spawn</param>
+                        </action>
+                        <action id="4" name="Preload" sid="6296815432986339" type="Audio">
+                            <param id="0" name="Audio file">Projectile_hit_wall</param>
+                        </action>
+                        <action id="4" name="Preload" sid="5922901078569264" type="Audio">
+                            <param id="0" name="Audio file">Repulsar_activate</param>
+                        </action>
+                        <action id="4" name="Preload" sid="4049297767147847" type="Audio">
+                            <param id="0" name="Audio file">Repulsar_spawn</param>
+                        </action>
+                        <action id="4" name="Preload" sid="157889435607006" type="Audio">
+                            <param id="0" name="Audio file">Shield_off</param>
+                        </action>
+                        <action id="4" name="Preload" sid="9143083183619889" type="Audio">
+                            <param id="0" name="Audio file">Shield_on</param>
+                        </action>
+                        <action id="4" name="Preload" sid="2292175707092138" type="Audio">
+                            <param id="0" name="Audio file">Ship_explode</param>
+                        </action>
+                        <action id="4" name="Preload" sid="7316791067545847" type="Audio">
+                            <param id="0" name="Audio file">Ship_hitwall</param>
+                        </action>
+                        <action id="4" name="Preload" sid="3010970671442626" type="Audio">
+                            <param id="0" name="Audio file">Ship_thrust_loop</param>
+                        </action>
+                        <action id="4" name="Preload" sid="9337179944563443" type="Audio">
+                            <param id="0" name="Audio file">silence</param>
+                        </action>
+                        <action id="4" name="Preload" sid="7535794912734978" type="Audio">
+                            <param id="0" name="Audio file">Snake_spawn</param>
+                        </action>
+                        <action id="4" name="Preload" sid="9192998853086431" type="Audio">
+                            <param id="0" name="Audio file">UI_Change</param>
+                        </action>
+                        <action id="4" name="Preload" sid="1546363615447854" type="Audio">
+                            <param id="0" name="Audio file">UI_Confirm</param>
+                        </action>
+                        <action id="4" name="Preload" sid="1251557892912602" type="Audio">
+                            <param id="0" name="Audio file">UI_Delete</param>
+                        </action>
+                        <action id="4" name="Preload" sid="1105033432179359" type="Audio">
+                            <param id="0" name="Audio file">Wanderer_spawn</param>
                         </action>
                     </actions>
                 </event-block>

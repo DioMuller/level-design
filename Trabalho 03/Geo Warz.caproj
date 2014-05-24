@@ -24,6 +24,7 @@
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
@@ -56,7 +57,7 @@
         <prop name="Orientations">Portrait</prop>
         <prop name="Pause on unfocus">No</prop>
         <prop name="Physics engine">Box2D web</prop>
-        <prop name="Preview browser">(default)</prop>
+        <prop name="Preview browser">Node-Webkit</prop>
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
@@ -406,6 +407,20 @@
                 <texture />
             </object-type>
         </object-folder>
+        <object-type name="ScoreFont" sid="8262865060132666">
+            <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Fade" sid="4882545304161361">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <effects>
+                <effect-type name="AdjustHSL">
+                    <effect id="hsladjust" />
+                </effect-type>
+            </effects>
+            <texture />
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="6804908276319551">
@@ -533,7 +548,6 @@
         <file name="Projectile_hit_wall.ogg" />
         <file name="Repulsar_activate.ogg" />
         <file name="Repulsar_spawn.ogg" />
-        <file name="SFX_ambience.ogg" />
         <file name="Shield_off.ogg" />
         <file name="Shield_on.ogg" />
         <file name="silence.ogg" />

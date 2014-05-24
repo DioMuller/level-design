@@ -5,7 +5,7 @@
     <events>
         <include>Functions</include>
         <variable comment="Green Square safe distance." constant="1" name="SafeDistance" sid="655567511147722" static="0" type="number">40</variable>
-        <event-group collapsed="1" description="Enemies generic events." sid="9210692629209011" title="General">
+        <event-group description="Enemies generic events." sid="9210692629209011" title="General">
             <sub-events>
                 <comment>If a shot hits an enemy, it dies.</comment>
                 <event-block sid="1324042804530485">
@@ -26,6 +26,15 @@
                         <action id="0" name="Call function" sid="3289113976859652" type="Function">
                             <param id="0" name="Name">&quot;AddScore&quot;</param>
                             <param id="1" name="Parameter {n}">Enemies.Points</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="92107202373553" type="System">
+                            <param id="0" name="Object to create">ScoreFont</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="X">Enemies.X</param>
+                            <param id="3" name="Y">Enemies.Y</param>
+                        </action>
+                        <action id="0" name="Set text" sid="1445352091037415" type="ScoreFont">
+                            <param id="0" name="Text">Enemies.Points * Multiplier</param>
                         </action>
                     </actions>
                 </event-block>
