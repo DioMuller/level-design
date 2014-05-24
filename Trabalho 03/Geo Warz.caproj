@@ -123,6 +123,20 @@
                 <plugin id="Spritefont2" />
                 <texture />
             </object-type>
+            <object-type name="ScoreFont" sid="8262865060132666">
+                <plugin id="Spritefont2" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="4882545304161361">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <effects>
+                    <effect-type name="AdjustHSL">
+                        <effect id="hsladjust" />
+                    </effect-type>
+                </effects>
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder expanded="0" name="Player">
             <object-type name="Player" sid="6309762137083568">
@@ -259,7 +273,7 @@
             </object-type>
         </object-folder>
         <object-folder expanded="1" name="Enemies">
-            <object-folder expanded="0" name="SnakeTail">
+            <object-folder expanded="1" name="SnakeTail">
                 <object-type name="SnakeTail" sid="2769851197196964">
                     <plugin id="Sprite" />
                     <behaviors>
@@ -395,8 +409,16 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="BlackHole" sid="6491304666326755">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8272294301155149" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
-        <object-folder expanded="1" name="Effects">
+        <object-folder expanded="0" name="Effects">
             <object-type name="EnemyExplosion" sid="8816149740713208">
                 <plugin id="Particles" />
                 <effects>
@@ -407,24 +429,11 @@
                 <texture />
             </object-type>
         </object-folder>
-        <object-type name="ScoreFont" sid="8262865060132666">
-            <plugin id="Spritefont2" />
-            <behaviors>
-                <behavior-type name="Fade" sid="4882545304161361">
-                    <behavior id="Fade" />
-                </behavior-type>
-            </behaviors>
-            <effects>
-                <effect-type name="AdjustHSL">
-                    <effect id="hsladjust" />
-                </effect-type>
-            </effects>
-            <texture />
-        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="6804908276319551">
             <members>
+                <member>BlackHole</member>
                 <member>Diamond</member>
                 <member>GreenSquare</member>
                 <member>PinkBox</member>
@@ -434,6 +443,7 @@
             </members>
             <instance-variables>
                 <instance-variable name="Points" sid="8503472715576321" type="number" />
+                <instance-variable comment="Enemy energy (default 1, rare enemies have more than that.)" name="Energy" sid="526957403808906" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="EnemyMovement" sid="7242635479636316">
@@ -446,6 +456,7 @@
         </family>
         <family name="Explosive" plugin-id="Sprite" sid="7115334887572883">
             <members>
+                <member>BlackHole</member>
                 <member>Diamond</member>
                 <member>GreenSquare</member>
                 <member>PinkBox</member>
@@ -473,6 +484,26 @@
             <behaviors>
                 <behavior-type name="Pin" sid="9283656020213862">
                     <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+        </family>
+        <family name="GravityInfluenced" plugin-id="Sprite" sid="3779489243693704">
+            <members>
+                <member>Diamond</member>
+                <member>PinkBox</member>
+                <member>Pinwheel</member>
+                <member>Player</member>
+                <member>Shot</member>
+                <member>SmallPinkBox</member>
+                <member>Snakehead</member>
+            </members>
+            <instance-variables>
+                <instance-variable comment="Is the object being attracted?" name="IsBeingAttracted" sid="1845613732574622" type="boolean" />
+                <instance-variable comment="Attraction object UID." name="AttractionUID" sid="9794688379548253" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Attraction" sid="214541332270061">
+                    <behavior id="Bullet" />
                 </behavior-type>
             </behaviors>
         </family>
@@ -512,7 +543,7 @@
         <global-instance type="HighScore" uid="38" />
         <global-instance type="Function" uid="39" />
     </global-instances>
-    <sounds-folder expanded="1">
+    <sounds-folder expanded="0">
         <file name="bullet_hitwall.ogg" />
         <file name="Enemy_explode.ogg" />
         <file name="Fire_normal.ogg" />

@@ -32,6 +32,8 @@
         <variable comment="Score where the player will get the next extra life." constant="0" name="ExtraLifeScore" sid="5964493991935636" static="0" type="number">0</variable>
         <variable comment="Score where the player will get the next extra bomb." constant="0" name="ExtraBombScore" sid="8785519423376288" static="0" type="number">0</variable>
         <variable comment="Score where the player will get the next shooting change." constant="0" name="ShootChangeScore" sid="9070260645011268" static="0" type="number">0</variable>
+        <comment>Debugging helper and modes variables</comment>
+        <variable comment="Is enemy spawning enabled?" constant="0" name="SpawningEnabled" sid="1069659072449692" static="0" type="number">1</variable>
         <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
             <sub-events>
                 <comment>Loads High Score from the Local Storage, or initializes the storage if there is no high score saved, yet.</comment>
@@ -616,6 +618,11 @@
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">TRUE</param>
                         </condition>
+                        <condition id="-14" name="Compare variable" sid="4684937956636486" type="System">
+                            <param id="0" name="Variable">SpawningEnabled</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">FALSE</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Spawn another object" sid="3733880722695129" type="SpawnPoint">
@@ -706,6 +713,7 @@
                 <event-block sid="9201752350886456">
                     <conditions>
                         <condition id="-19" name="On destroyed" sid="3635184989725699" type="Explosive" />
+                        <condition id="-4" inverted="1" name="Is outside layout" sid="758688635777821" type="Explosive" />
                     </conditions>
                     <actions>
                         <action id="0" name="Spawn another object" sid="4370693981716775" type="Explosive">
@@ -744,7 +752,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Music and Sound Effects." sid="7276145793056033" title="Sound">
+        <event-group collapsed="1" description="Music and Sound Effects." sid="7276145793056033" title="Sound">
             <sub-events>
                 <comment>Plays the level music when the layout is loaded.</comment>
                 <event-block sid="3102609030466335">

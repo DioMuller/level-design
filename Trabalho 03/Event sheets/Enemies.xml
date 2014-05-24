@@ -7,7 +7,7 @@
         <variable comment="Green Square safe distance." constant="1" name="SafeDistance" sid="655567511147722" static="0" type="number">40</variable>
         <event-group description="Enemies generic events." sid="9210692629209011" title="General">
             <sub-events>
-                <comment>If a shot hits an enemy, it dies.</comment>
+                <comment>If a shot hits an enemy, it loses energy.</comment>
                 <event-block sid="1324042804530485">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="65211085489515" type="Shot">
@@ -15,27 +15,11 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="8857017718631074" type="Enemies" />
-                        <action id="0" name="Play" sid="4277406857856527" type="Audio">
-                            <param id="0" name="Audio file">Enemy_explode</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">0</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        <action id="-12" name="Subtract from" sid="2418308006928955" type="Enemies">
+                            <param id="0" name="Instance variable">Energy</param>
+                            <param id="1" name="Value">1</param>
                         </action>
-                        <action id="-9" name="Destroy" sid="5917800424048954" type="Shot" />
-                        <action id="0" name="Call function" sid="3289113976859652" type="Function">
-                            <param id="0" name="Name">&quot;AddScore&quot;</param>
-                            <param id="1" name="Parameter {n}">Enemies.Points</param>
-                        </action>
-                        <action id="-3" name="Create object" sid="92107202373553" type="System">
-                            <param id="0" name="Object to create">ScoreFont</param>
-                            <param id="1" name="Layer">&quot;Game&quot;</param>
-                            <param id="2" name="X">Enemies.X</param>
-                            <param id="3" name="Y">Enemies.Y</param>
-                        </action>
-                        <action id="0" name="Set text" sid="1445352091037415" type="ScoreFont">
-                            <param id="0" name="Text">Enemies.Points * Multiplier</param>
-                        </action>
+                        <action id="-9" name="Destroy" sid="8763849976530746" type="Shot" />
                     </actions>
                 </event-block>
                 <comment>Destroys the player if he is hit.</comment>
@@ -49,6 +33,38 @@
                         <action id="0" name="Call function" sid="6394868120714624" type="Function">
                             <param id="0" name="Name">&quot;DestroyPlayer&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>If the enemy has no energy, it dies.</comment>
+                <event-block sid="7495648536359131">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="1039285414712818" type="Enemies">
+                            <param id="0" name="Instance variable">Energy</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="8857017718631074" type="Enemies" />
+                        <action id="0" name="Play" sid="4277406857856527" type="Audio">
+                            <param id="0" name="Audio file">Enemy_explode</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Call function" sid="3289113976859652" type="Function">
+                            <param id="0" name="Name">&quot;AddScore&quot;</param>
+                            <param id="1" name="Parameter {n}">Enemies.Points</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="92107202373553" type="System">
+                            <param id="0" name="Object to create">ScoreFont</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="X">Enemies.X</param>
+                            <param id="3" name="Y">Enemies.Y</param>
+                        </action>
+                        <action id="0" name="Set text" sid="1445352091037415" type="ScoreFont">
+                            <param id="0" name="Text">Enemies.Points * Multiplier</param>
                         </action>
                     </actions>
                 </event-block>
@@ -376,7 +392,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Snakes aren&apos;t the most common enemy, but they do cover the most area. You can only kill one by shooting it in the white head. Anything that hits their body will be absorbed with no effect. Snakes are most dangerous when you allow them to spread out. This is due to the fact that many of them will become intertwined and defend each other." sid="4346546901165992" title="Snakes">
+        <event-group collapsed="1" description="Snakes aren&apos;t the most common enemy, but they do cover the most area. You can only kill one by shooting it in the white head. Anything that hits their body will be absorbed with no effect. Snakes are most dangerous when you allow them to spread out. This is due to the fact that many of them will become intertwined and defend each other." sid="4346546901165992" title="Snakes">
             <sub-events>
                 <comment>When the enemy is created, makes it look at the player, and then creates the tail.</comment>
                 <event-block sid="3327990311139123">
@@ -586,7 +602,159 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Black Holes begin as benign, red circles. They usually appear in corners, though you&apos;ll occasionally run into them in the center of the battlefield. If you don&apos;t shoot them, they will just sit there and act as a small obstacle that you&apos;ll have to dodge. Once you do hit them with some shots, they will become active. An active Black Hole will have a gravitational pull that will slightly tug your towards it if you fly near. It will also suck enemies into it, which makes active Black Holes a dangerous place to play near.&#x0D;&#x0A;&#x0D;&#x0A;As a Black Hole sucks in enemies, it will grow in size. If it gets big enough, it will explode (read more below). You can prevent it from exploding by shooting it. For each bullet that you hit it with, it will shrink slightly in size. If you make it shrink enough, you will destroy it. Keep in mind that the point value for destroying a Black Hole increases as it sucks more enemies in. A fully engorged Black Hole can net you thousands of points after your multiplier kicks in.&#x0D;&#x0A;&#x0D;&#x0A;If you activate a Black Hole and then don&apos;t destroy it, it will begin exerting its gravitational pull. This will suck in all surrounding enemies, causing it to expand and become unstable. If enough enemies get sucked into the Black Hole, it will detonate sending out a stream of small circles." sid="6882008991856282" title="Black Holes" />
+        <event-group description="Black Holes begin as benign, red circles. They usually appear in corners, though you&apos;ll occasionally run into them in the center of the battlefield. If you don&apos;t shoot them, they will just sit there and act as a small obstacle that you&apos;ll have to dodge. Once you do hit them with some shots, they will become active. An active Black Hole will have a gravitational pull that will slightly tug your towards it if you fly near. It will also suck enemies into it, which makes active Black Holes a dangerous place to play near.&#x0D;&#x0A;&#x0D;&#x0A;As a Black Hole sucks in enemies, it will grow in size. If it gets big enough, it will explode (read more below). You can prevent it from exploding by shooting it. For each bullet that you hit it with, it will shrink slightly in size. If you make it shrink enough, you will destroy it. Keep in mind that the point value for destroying a Black Hole increases as it sucks more enemies in. A fully engorged Black Hole can net you thousands of points after your multiplier kicks in.&#x0D;&#x0A;&#x0D;&#x0A;If you activate a Black Hole and then don&apos;t destroy it, it will begin exerting its gravitational pull. This will suck in all surrounding enemies, causing it to expand and become unstable. If enough enemies get sucked into the Black Hole, it will detonate sending out a stream of small circles." sid="6882008991856282" title="Black Holes">
+            <sub-events>
+                <comment>Is someone with attraction near the black hole?</comment>
+                <event-block sid="1851315744041026">
+                    <conditions>
+                        <condition id="-4" inverted="1" name="Is outside layout" sid="2230735131304734" type="BlackHole" />
+                        <condition id="-8" name="Compare two values" sid="5025539383359628" type="System">
+                            <param id="0" name="First value">sqrt(((BlackHole.X - GravityInfluenced.X) * (BlackHole.X - GravityInfluenced.X)) - ((BlackHole.Y - GravityInfluenced.Y) * (BlackHole.Y - GravityInfluenced.Y)))</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">(100 - BlackHole.Energy)  * 2 + 200</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="9963081450184063" type="GravityInfluenced">
+                            <param id="0" name="Instance variable">IsBeingAttracted</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Attraction" id="5" name="Set enabled" sid="2933828416323394" type="GravityInfluenced">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="775943613260346" type="GravityInfluenced">
+                            <param id="0" name="Instance variable">IsBeingAttracted</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="3286186710469805" type="GravityInfluenced">
+                            <param id="0" name="Instance variable">AttractionUID</param>
+                            <param id="1" name="Value">BlackHole.UID</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Is someone with attraction far from the black hole?</comment>
+                <event-block sid="5853297111759135">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="8526488762750159" type="GravityInfluenced">
+                            <param id="0" name="Instance variable">IsBeingAttracted</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="6932701003922097" type="BlackHole">
+                            <param id="0" name="Unique ID">GravityInfluenced.AttractionUID</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="8412600315472981" type="System">
+                            <param id="0" name="First value">sqrt(((BlackHole.X - GravityInfluenced.X) * (BlackHole.X - GravityInfluenced.X)) - ((BlackHole.Y - GravityInfluenced.Y) * (BlackHole.Y - GravityInfluenced.Y)))</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">(100 - BlackHole.Energy)  * 2 + 200</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Attraction" id="5" name="Set enabled" sid="7872578841201335" type="GravityInfluenced">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="9577700647580534" type="GravityInfluenced">
+                            <param id="0" name="Instance variable">IsBeingAttracted</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="6220484607125154" type="GravityInfluenced">
+                            <param id="0" name="Instance variable">AttractionUID</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Attracts object to the Black Hole. The more hits the black hole has taken, stronger will be its attraction field and force.</comment>
+                <event-block sid="2842217724255316">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="53257449826084" type="GravityInfluenced">
+                            <param id="0" name="Instance variable">IsBeingAttracted</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="9921706142683711" type="BlackHole">
+                            <param id="0" name="Unique ID">GravityInfluenced.AttractionUID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Attraction" id="3" name="Set angle of motion" sid="6241386709950917" type="GravityInfluenced">
+                            <param id="0" name="Angle">angle(GravityInfluenced.X, GravityInfluenced.Y, BlackHole.X, BlackHole.Y)</param>
+                        </action>
+                        <action behavior="Attraction" id="0" name="Set speed" sid="6690627894233323" type="GravityInfluenced">
+                            <param id="0" name="Speed">(100 - BlackHole.Energy) * 3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Destroys player if it contacts with a black hole.</comment>
+                <event-block sid="931513703333182">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="8465871684741011" type="BlackHole">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="2095842955662338" type="Function">
+                            <param id="0" name="Name">&quot;DestroyPlayer&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Destroys enemy if it contacts with a black hole, and adds the points to it. Points cap @ 1500 (without the multiplier)</comment>
+                <event-block sid="749141497503854">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="8279021090151156" type="BlackHole">
+                            <param id="0" name="Object">Enemies</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="2591822319086223" type="Enemies" />
+                        <action id="-10" name="Set value" sid="8783709745070006" type="BlackHole">
+                            <param id="0" name="Instance variable">Points</param>
+                            <param id="1" name="Value">min(Enemies.Points + BlackHole.Points, 1500)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>When the black hole is destroyed, it will not attract objects anymore.</comment>
+                <event-block sid="8581863360209084">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="7558258181102524" type="BlackHole" />
+                        <condition id="-7" name="Compare instance variable" sid="8193152715872216" type="GravityInfluenced">
+                            <param id="0" name="Instance variable">AttractionUID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">BlackHole.UID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Attraction" id="5" name="Set enabled" sid="6686519070023127" type="GravityInfluenced">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="5554809578694871" type="GravityInfluenced">
+                            <param id="0" name="Instance variable">IsBeingAttracted</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="5111509901742495" type="GravityInfluenced">
+                            <param id="0" name="Instance variable">AttractionUID</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Sometimes the former event fails, so this works as a failsafe.</comment>
+                <event-block sid="2317989430601607">
+                    <conditions>
+                        <condition id="-31" inverted="1" name="Object UID exists" sid="2498807086585214" type="System">
+                            <param id="0" name="UID">GravityInfluenced.AttractionUID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Attraction" id="5" name="Set enabled" sid="2794320544846681" type="GravityInfluenced">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="1279153940255752" type="GravityInfluenced">
+                            <param id="0" name="Instance variable">IsBeingAttracted</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="5374082584272377" type="GravityInfluenced">
+                            <param id="0" name="Instance variable">AttractionUID</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="These circles are extremely fast and will quickly traverse the entire battlefield in a beeline towards your ship. Despite their great speed, these circles are not agile. That means that when the Black Holes start detonating, you should start moving in an arc away from the circles while shooting at them as they come towards you. They&apos;ll miss to the side and you can easily mop up any that you missed. Remember, playing near Black Holes that are near detonation is extremely dangerous. If they pop, you won&apos;t have time to get out of the way." sid="9245855426707816" title="Small Circles (Black Hole)" />
         <event-group description="Jacks are some of the most annoying enemies in the game only because when they do come, they come in numbers. Literally hundreds of Jacks will come pouring out of each of the four corners. You won&apos;t be able to simply aim and take them out. There are too many of them! Instead, move to the bottom of the screen and start shooting at the right group. Just before they close in above you, swoop up firing to clear a path to the top of the screen. Turn to the right along the top edge and keep shooting. Once you see a thin section, blast a hole in it and go down through it." sid="819052756230272" title="Jacks" />
         <event-group collapsed="1" description="We&apos;re not really sure why we call these guys Pac Men. They only vaguely resemble Pac Man, but it&apos;s already ingrained in our minds and it&apos;s too late to turn back now. In reality, they&apos;re just clones of your ship. Instead of being able to shoot like you do, the Pac Men can put up a shield in front of them. This can be extremely frustrating because there is no way to shoot down the shield.&#x0D;&#x0A;&#x0D;&#x0A;There is hope for dealing with the Pac Men. Like the Detonated Black Holes, Pac Men are fast, but not agile. Simply keep moving in an arc away from them and they&apos;ll miss you. Even better, when they miss they become vulnerable to a shot to their unguarded behind." sid="7407275822562194" title="Pac Men" />
