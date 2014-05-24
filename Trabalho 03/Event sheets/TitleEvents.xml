@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>TitleEvents</name>
+    <events>
+        <include>Common</include>
+        <event-group collapsed="1" description="Sound effects, music and special effects." sid="685342052240149" title="Sound and Effects">
+            <sub-events>
+                <comment>Create explosion effects on the background.</comment>
+                <event-block sid="6478604825276688">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="2415241557811722" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="1591790906403306" type="System">
+                            <param id="0" name="Object to create">EnemyExplosion</param>
+                            <param id="1" name="Layer">&quot;Middleground&quot;</param>
+                            <param id="2" name="X">100 + random(600)</param>
+                            <param id="3" name="Y">100 + random(400)</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="9091396742522532" type="EnemyExplosion">
+                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">100 - random(200)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Plays title BGM</comment>
+                <event-block sid="6469049712115928">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="7984708328063832" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="33" name="Stop all" sid="3579856051411935" type="Audio" />
+                        <action id="0" name="Play" sid="5245319607788164" type="Audio">
+                            <param id="0" name="Audio file">Ambience</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;TitleBGM&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Input events, such as mouse cursor, directional presses, button presses and menu clicks/presses." sid="4420425435713957" title="Input">
+            <sub-events>
+                <comment>Changes cursor on options</comment>
+                <event-block sid="568720766857765">
+                    <conditions>
+                        <condition id="7" name="Cursor is over object" sid="4478682095368516" type="Mouse">
+                            <param id="0" name="Object">Option</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set cursor style" sid="4951302109830803" type="Mouse">
+                            <param id="0" name="Cursor style">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Changes cursor outside of options</comment>
+                <event-block sid="8313538089426194">
+                    <conditions>
+                        <condition id="7" inverted="1" name="Cursor is over object" sid="697594543185389" type="Mouse">
+                            <param id="0" name="Object">Option</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set cursor style" sid="6630128360094073" type="Mouse">
+                            <param id="0" name="Cursor style">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>On option click, goes to the selected mode.</comment>
+                <event-block sid="6489771782398642">
+                    <conditions>
+                        <condition id="6" name="On object clicked" sid="2999366339358686" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                            <param id="2" name="Object clicked">Option</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1349293053903951" type="System">
+                            <param id="0" name="Variable">CurrentMode</param>
+                            <param id="1" name="Value">Option.Value</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="1603980768406286" type="System">
+                            <param id="0" name="Layout">Game</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

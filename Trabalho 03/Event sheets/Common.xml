@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Common</name>
+    <events>
+        <event-group collapsed="1" description="High Score loading events." sid="3592090314057842" title="High Score">
+            <sub-events>
+                <comment>Loads High Score from the Local Storage, or initializes the storage if there is no high score saved, yet.</comment>
+                <event-block sid="9958324009469812">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="4336106477629583" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6468609326245415">
+                            <conditions>
+                                <condition id="3" inverted="1" name="Local key exists" sid="2462333430054224" type="HighScore">
+                                    <param id="0" name="Key">&quot;HighScore&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="2243964901593956" type="HighScore">
+                                    <param id="0" name="Key">&quot;HighScore&quot;</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="7463041021126344" type="System">
+                                    <param id="0" name="Variable">HighScore</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5837059529658092">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="729357339405714" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="3332603131894474" type="System">
+                                    <param id="0" name="Variable">HighScore</param>
+                                    <param id="1" name="Value">HighScore.LocalValue(&quot;HighScore&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Loads Best Pacifist Time from the Local Storage, or initializes the storage if there is no pacifist time saved, yet.</comment>
+                <event-block sid="9296568535126339">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="5189802737460617" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="639162986132825">
+                            <conditions>
+                                <condition id="3" inverted="1" name="Local key exists" sid="4415857482084983" type="HighScore">
+                                    <param id="0" name="Key">&quot;BestPacifist&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="7036768097032096" type="HighScore">
+                                    <param id="0" name="Key">&quot;BestPacifist&quot;</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="2030884750255087" type="System">
+                                    <param id="0" name="Variable">BestPacifist</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8848676104677529">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="377633394287668" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="8490317662034542" type="System">
+                                    <param id="0" name="Variable">BestPacifist</param>
+                                    <param id="1" name="Value">HighScore.LocalValue(&quot;BestPacifist&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Loads Best Pacifist Time from the Local Storage, or initializes the storage if there is no pacifist time saved, yet.</comment>
+                <event-block sid="5948840901786633">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="2879946260996163" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8812844866508585">
+                            <conditions>
+                                <condition id="3" inverted="1" name="Local key exists" sid="5892689704849822" type="HighScore">
+                                    <param id="0" name="Key">&quot;BestSurvival&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="4387618132059212" type="HighScore">
+                                    <param id="0" name="Key">&quot;BestSurvival&quot;</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="5355885013151415" type="System">
+                                    <param id="0" name="Variable">BestSurvival</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4113135971788324">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="3085480076366997" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="1784741462310977" type="System">
+                                    <param id="0" name="Variable">BestSurvival</param>
+                                    <param id="1" name="Value">HighScore.LocalValue(&quot;BestSurvival&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

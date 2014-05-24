@@ -43,8 +43,8 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>1280</width>
-        <height>720</height>
+        <width>800</width>
+        <height>600</height>
     </window-size>
     <pixel-rounding>1</pixel-rounding>
     <use-loader-layout>0</use-loader-layout>
@@ -272,7 +272,7 @@
                 <texture />
             </object-type>
         </object-folder>
-        <object-folder expanded="1" name="Enemies">
+        <object-folder expanded="0" name="Enemies">
             <object-folder expanded="1" name="SnakeTail">
                 <object-type name="SnakeTail" sid="2769851197196964">
                     <plugin id="Sprite" />
@@ -429,6 +429,19 @@
                 <texture />
             </object-type>
         </object-folder>
+        <object-folder expanded="0" name="Title">
+            <object-type name="Title" sid="6059756464867703">
+                <plugin id="Spritefont2" />
+                <texture />
+            </object-type>
+            <object-type name="Option" sid="8319782498938334">
+                <plugin id="Spritefont2" />
+                <instance-variables>
+                    <instance-variable comment="Selected option value." name="Value" sid="5532515299108496" type="number" />
+                </instance-variables>
+                <texture />
+            </object-type>
+        </object-folder>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="6804908276319551">
@@ -510,12 +523,19 @@
     </families>
     <layout-folder expanded="1">
         <layout>Game.xml</layout>
+        <layout>Title.xml</layout>
     </layout-folder>
-    <event-folder expanded="1">
-        <event-sheet>MainSheet.xml</event-sheet>
-        <event-sheet>Enemies.xml</event-sheet>
-        <event-sheet>Functions.xml</event-sheet>
-        <event-sheet>Bonuses.xml</event-sheet>
+    <event-folder expanded="0">
+        <event-folder expanded="1" name="Layouts">
+            <event-sheet>GameEvents.xml</event-sheet>
+            <event-sheet>TitleEvents.xml</event-sheet>
+        </event-folder>
+        <event-folder expanded="1" name="Helper">
+            <event-sheet>Bonuses.xml</event-sheet>
+            <event-sheet>Enemies.xml</event-sheet>
+            <event-sheet>Functions.xml</event-sheet>
+            <event-sheet>Common.xml</event-sheet>
+        </event-folder>
     </event-folder>
     <global-instances>
         <global-instance type="Gamepad" uid="4">
