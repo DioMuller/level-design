@@ -696,7 +696,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Enemy spawning, spawning dificulty, spawning mode and type control." sid="5994465010774309" title="Spawning">
+        <event-group collapsed="1" description="Enemy spawning, spawning dificulty, spawning mode and type control." sid="5994465010774309" title="Spawning">
             <sub-events>
                 <comment>Decide the next spawn each spawn cycle.</comment>
                 <event-block sid="2154276340985881">
@@ -1338,7 +1338,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Level and Enemy effects." sid="6354348894684341" title="Game Effects">
+        <event-group description="Level and Enemy effects." sid="6354348894684341" title="Game Effects">
             <sub-events>
                 <comment>Changes the grid color, rotating between all colors, at the interval of 0.1 Hue per tick.</comment>
                 <event-block sid="8559464293558853">
@@ -1384,6 +1384,9 @@
                             <param id="1" name="Parameter index">2</param>
                             <param id="2" name="Value">Explosive.ExplosionI</param>
                         </action>
+                        <action id="1" name="Set rate" sid="6207721883748832" type="EnemyExplosion">
+                            <param id="0" name="Rate">Explosive.ExplosionIntensity</param>
+                        </action>
                     </actions>
                 </event-block>
                 <comment>Deactivates distortion effects on start.</comment>
@@ -1408,6 +1411,7 @@
                         <condition id="-2" name="On start of layout" sid="9728584041528688" type="System" />
                     </conditions>
                     <actions>
+                        <action id="33" name="Stop all" sid="578857807003194" type="Audio" />
                         <action id="0" name="Play" sid="8011499044699643" type="Audio">
                             <param id="0" name="Audio file">Theme</param>
                             <param id="2" name="Loop">1</param>

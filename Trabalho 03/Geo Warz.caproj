@@ -147,7 +147,7 @@
                 <texture />
             </object-type>
         </object-folder>
-        <object-folder expanded="0" name="Player">
+        <object-folder expanded="1" name="Player">
             <object-type name="Player" sid="6309762137083568">
                 <plugin id="Sprite" />
                 <instance-variables>
@@ -225,7 +225,7 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-folder expanded="1" name="Level">
+        <object-folder expanded="0" name="Level">
             <object-type name="Borders" sid="5597463576348463">
                 <plugin id="TiledBg" />
                 <behaviors>
@@ -531,6 +531,7 @@
                 <instance-variable comment="Explosion Hue Channel" name="ExplosionH" sid="7063402831292005" type="number" />
                 <instance-variable comment="Explosion Saturation Channel" name="ExplosionS" sid="8211653913282172" type="number" />
                 <instance-variable comment="Explosion Intensity Channel" name="ExplosionI" sid="1787068866255174" type="number" />
+                <instance-variable comment="Explosion Intensity." name="ExplosionIntensity" sid="1777743994446192" type="number" />
             </instance-variables>
         </family>
         <family name="SnakeTails" plugin-id="Sprite" sid="8031748889897024">
