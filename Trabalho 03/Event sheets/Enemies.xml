@@ -342,7 +342,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="The smaller Pink Boxes have an odd spiral movement that can easily get in your way." sid="7182112761777654" title="Small Pink Boxes">
+        <event-group description="The smaller Pink Boxes have an odd spiral movement that can easily get in your way." sid="7182112761777654" title="Small Pink Boxes">
             <sub-events>
                 <comment>When the enemy is created, makes it look at the player. Also sets a random rotation so the three boxes won&apos;t follow always the same pattern.</comment>
                 <event-block sid="2311976183303544">
@@ -602,7 +602,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Black Holes begin as benign, red circles. They usually appear in corners, though you&apos;ll occasionally run into them in the center of the battlefield. If you don&apos;t shoot them, they will just sit there and act as a small obstacle that you&apos;ll have to dodge. Once you do hit them with some shots, they will become active. An active Black Hole will have a gravitational pull that will slightly tug your towards it if you fly near. It will also suck enemies into it, which makes active Black Holes a dangerous place to play near.&#x0D;&#x0A;&#x0D;&#x0A;As a Black Hole sucks in enemies, it will grow in size. If it gets big enough, it will explode (read more below). You can prevent it from exploding by shooting it. For each bullet that you hit it with, it will shrink slightly in size. If you make it shrink enough, you will destroy it. Keep in mind that the point value for destroying a Black Hole increases as it sucks more enemies in. A fully engorged Black Hole can net you thousands of points after your multiplier kicks in.&#x0D;&#x0A;&#x0D;&#x0A;If you activate a Black Hole and then don&apos;t destroy it, it will begin exerting its gravitational pull. This will suck in all surrounding enemies, causing it to expand and become unstable. If enough enemies get sucked into the Black Hole, it will detonate sending out a stream of small circles." sid="6882008991856282" title="Black Holes">
+        <event-group description="Black Holes begin as benign, red circles. They usually appear in corners, though you&apos;ll occasionally run into them in the center of the battlefield. If you don&apos;t shoot them, they will just sit there and act as a small obstacle that you&apos;ll have to dodge. Once you do hit them with some shots, they will become active. An active Black Hole will have a gravitational pull that will slightly tug your towards it if you fly near. It will also suck enemies into it, which makes active Black Holes a dangerous place to play near.&#x0D;&#x0A;&#x0D;&#x0A;As a Black Hole sucks in enemies, it will grow in size. If it gets big enough, it will explode (read more below). You can prevent it from exploding by shooting it. For each bullet that you hit it with, it will shrink slightly in size. If you make it shrink enough, you will destroy it. Keep in mind that the point value for destroying a Black Hole increases as it sucks more enemies in. A fully engorged Black Hole can net you thousands of points after your multiplier kicks in.&#x0D;&#x0A;&#x0D;&#x0A;If you activate a Black Hole and then don&apos;t destroy it, it will begin exerting its gravitational pull. This will suck in all surrounding enemies, causing it to expand and become unstable. If enough enemies get sucked into the Black Hole, it will detonate sending out a stream of small circles." sid="6882008991856282" title="Black Holes">
             <sub-events>
                 <comment>Is someone with attraction near the black hole?</comment>
                 <event-block sid="1851315744041026">
@@ -753,9 +753,124 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>If the black hole was hit, start thedecay counter.</comment>
+                <event-block sid="4699027879588257">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="6335143999332522" type="BlackHole">
+                            <param id="0" name="Instance variable">Energy</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="5470234483162279" type="Audio">
+                            <param id="0" name="Audio file">Repulsar_activate</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="9444799644220038" type="System">
+                            <param id="0" name="Seconds">60.0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="5093352885967815" type="BlackHole">
+                            <param id="0" name="Instance variable">IsDecayed</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>When the enemy is created, plays a sound</comment>
+                <event-block sid="4917204619199586">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="4863213062559346" type="SmallCircle" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="8679080798038998" type="Audio">
+                            <param id="0" name="Audio file">Repulsar_spawn</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>If Black Hole needs to be destroyed.</comment>
+                <event-block sid="3461431900280663">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="7029351777148832" type="BlackHole">
+                            <param id="0" name="Instance variable">IsDecayed</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="5634136284604832" type="BlackHole" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="694380103320932">
+                            <conditions>
+                                <condition id="-10" name="For" sid="1929824582008735" type="System">
+                                    <param id="0" name="Name">&quot;CreateMinions&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="4770067410185124" type="System">
+                                    <param id="0" name="Object to create">SmallCircle</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">BlackHole.X + 10 - random(20)</param>
+                                    <param id="3" name="Y">BlackHole.Y + 10 - random(20)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
             </sub-events>
         </event-group>
-        <event-group description="These circles are extremely fast and will quickly traverse the entire battlefield in a beeline towards your ship. Despite their great speed, these circles are not agile. That means that when the Black Holes start detonating, you should start moving in an arc away from the circles while shooting at them as they come towards you. They&apos;ll miss to the side and you can easily mop up any that you missed. Remember, playing near Black Holes that are near detonation is extremely dangerous. If they pop, you won&apos;t have time to get out of the way." sid="9245855426707816" title="Small Circles (Black Hole)" />
+        <event-group description="These circles are extremely fast and will quickly traverse the entire battlefield in a beeline towards your ship. Despite their great speed, these circles are not agile. That means that when the Black Holes start detonating, you should start moving in an arc away from the circles while shooting at them as they come towards you. They&apos;ll miss to the side and you can easily mop up any that you missed. Remember, playing near Black Holes that are near detonation is extremely dangerous. If they pop, you won&apos;t have time to get out of the way." sid="9245855426707816" title="Small Circles (Black Hole)">
+            <sub-events>
+                <comment>When the enemy is created, makes it look at the player. Also sets a random rotation so the three boxes won&apos;t follow always the same pattern.</comment>
+                <event-block sid="1374808001007863">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="4413418018561805" type="SmallCircle" />
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="1812443161825974" type="SmallCircle">
+                            <param id="0" name="Angle">angle(SmallCircle.X, SmallCircle.Y, Player.X, Player.Y)</param>
+                        </action>
+                        <action id="0" name="Play" sid="3628954346778074" type="Audio">
+                            <param id="0" name="Audio file">Enemy_spawn_blue</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>When the enemy hits a wall, forces him to look at the player again.</comment>
+                <event-block sid="3562061886117257">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5789663885133218" type="SmallCircle">
+                            <param id="0" name="Object">Borders</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="6828412151919132" type="SmallCircle">
+                            <param id="0" name="Angle">angle(SmallCircle.X, SmallCircle.Y, Player.X, Player.Y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Makes the small box look at the player on regular intervals.</comment>
+                <event-block sid="6479562803344849">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="5486848239310225" type="System">
+                            <param id="0" name="Interval (seconds)">0.9</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="2919755659622053" type="SmallCircle">
+                            <param id="0" name="Angle">angle(SmallCircle.X, SmallCircle.Y, Player.X, Player.Y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="Jacks are some of the most annoying enemies in the game only because when they do come, they come in numbers. Literally hundreds of Jacks will come pouring out of each of the four corners. You won&apos;t be able to simply aim and take them out. There are too many of them! Instead, move to the bottom of the screen and start shooting at the right group. Just before they close in above you, swoop up firing to clear a path to the top of the screen. Turn to the right along the top edge and keep shooting. Once you see a thin section, blast a hole in it and go down through it." sid="819052756230272" title="Jacks" />
         <event-group collapsed="1" description="We&apos;re not really sure why we call these guys Pac Men. They only vaguely resemble Pac Man, but it&apos;s already ingrained in our minds and it&apos;s too late to turn back now. In reality, they&apos;re just clones of your ship. Instead of being able to shoot like you do, the Pac Men can put up a shield in front of them. This can be extremely frustrating because there is no way to shoot down the shield.&#x0D;&#x0A;&#x0D;&#x0A;There is hope for dealing with the Pac Men. Like the Detonated Black Holes, Pac Men are fast, but not agile. Simply keep moving in an arc away from them and they&apos;ll miss you. Even better, when they miss they become vulnerable to a shot to their unguarded behind." sid="7407275822562194" title="Pac Men" />
     </events>

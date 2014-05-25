@@ -108,7 +108,7 @@
                     <param id="0" name="Variable">IsUsingBomb</param>
                     <param id="1" name="Value">TRUE</param>
                 </action>
-                <action id="-29" name="Set layout effect enabled" sid="1540673189394158" type="System">
+                <action id="-27" name="Set effect enabled" sid="1540673189394158" type="Grid">
                     <param id="0" name="Mode">1</param>
                     <param id="1" name="Effect">&quot;Water&quot;</param>
                 </action>

@@ -80,6 +80,19 @@
                                 <saturation>1</saturation>
                             </parameters>
                         </effect-instance>
+                        <effect-instance type="Water">
+                            <parameters>
+                                <angle>7</angle>
+                                <delta>20</delta>
+                                <emboss>0.3</emboss>
+                                <frequency>4</frequency>
+                                <intensity>3</intensity>
+                                <reflectivity>400</reflectivity>
+                                <speed>0.1</speed>
+                                <x-speed>0.3</x-speed>
+                                <y-speed>0.3</y-speed>
+                            </parameters>
+                        </effect-instance>
                     </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -327,8 +340,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1280</x>
-                        <y>736</y>
+                        <x>884</x>
+                        <y>1458</y>
                         <z>0</z>
                         <width>37</width>
                         <height>37</height>
@@ -761,8 +774,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1376</x>
-                        <y>832</y>
+                        <x>980</x>
+                        <y>1554</y>
                         <z>0</z>
                         <width>64</width>
                         <height>64</height>
@@ -804,8 +817,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1280</x>
-                        <y>1024</y>
+                        <x>811</x>
+                        <y>1545</y>
                         <z>0</z>
                         <width>35</width>
                         <height>35</height>
@@ -858,8 +871,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>864</x>
-                        <y>864</y>
+                        <x>439</x>
+                        <y>1468</y>
                         <z>0</z>
                         <width>37</width>
                         <height>37</height>
@@ -972,8 +985,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1088</x>
-                        <y>896</y>
+                        <x>663</x>
+                        <y>1500</y>
                         <z>0</z>
                         <width>30</width>
                         <height>30</height>
@@ -1061,6 +1074,7 @@
                         <ExplosionH>30</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
+                        <IsDecayed>false</IsDecayed>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="EnemyMovement">
@@ -1078,14 +1092,56 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>960</x>
-                        <y>576</y>
+                        <x>1000</x>
+                        <y>529</y>
                         <z>0</z>
                         <width>64</width>
                         <height>64</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="SmallCircle" uid="68">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Points>50</Points>
+                        <Energy>1</Energy>
+                        <ExplosionH>-20</ExplosionH>
+                        <ExplosionS>100</ExplosionS>
+                        <ExplosionI>150</ExplosionI>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="EnemyMovement">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>524</x>
+                        <y>1600</y>
+                        <z>0</z>
+                        <width>27</width>
+                        <height>27</height>
+                        <depth>0</depth>
+                        <hotspotX>0.518518507</hotspotX>
+                        <hotspotY>0.518518507</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
