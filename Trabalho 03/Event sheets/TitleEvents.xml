@@ -54,7 +54,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Sound effects, music and special effects." sid="685342052240149" title="Sound and Effects">
+        <event-group description="Sound effects, music and special effects." sid="685342052240149" title="Sound and Effects">
             <sub-events>
                 <comment>Create explosion effects on the background.</comment>
                 <event-block sid="6478604825276688">
@@ -208,6 +208,42 @@
                     <actions>
                         <action id="-2" name="Go to layout" sid="3466573426962842" type="System">
                             <param id="0" name="Layout">Game</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>If player presses up, goes one option down (if possible). (Analog input, has interval between presses)</comment>
+                <event-block sid="8014133753566034">
+                    <conditions>
+                        <condition id="5" name="Compare axis" sid="1245501882348697" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">2</param>
+                            <param id="3" name="Value">-0.3</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="2611957102606527" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6105251945674411" type="System">
+                            <param id="0" name="Variable">CurrentMode</param>
+                            <param id="1" name="Value">max(CurrentMode - 1, 1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>If player presses down, goes one option down (if possible). (Analog input, has interval between presses)</comment>
+                <event-block sid="8939220851567736">
+                    <conditions>
+                        <condition id="5" name="Compare axis" sid="6876262206258377" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">4</param>
+                            <param id="3" name="Value">0.3</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="4410531526756708" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="9678737384016356" type="System">
+                            <param id="0" name="Variable">CurrentMode</param>
+                            <param id="1" name="Value">min(CurrentMode + 1, 3)</param>
                         </action>
                     </actions>
                 </event-block>
