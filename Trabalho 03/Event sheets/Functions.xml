@@ -136,6 +136,10 @@
                     <param id="0" name="Variable">IsUsingBomb</param>
                     <param id="1" name="Value">FALSE</param>
                 </action>
+                <action id="-27" name="Set effect enabled" sid="8898982326489827" type="Grid">
+                    <param id="0" name="Mode">0</param>
+                    <param id="1" name="Effect">&quot;Water&quot;</param>
+                </action>
                 <action id="12" name="Remove all effects" sid="2160993483517501" type="Audio">
                     <param id="0" name="Tag">&quot;BGM&quot;</param>
                 </action>

@@ -47,6 +47,7 @@
         <height>600</height>
     </window-size>
     <pixel-rounding>1</pixel-rounding>
+    <first-layout>Title</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -224,7 +225,7 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-folder expanded="0" name="Level">
+        <object-folder expanded="1" name="Level">
             <object-type name="Borders" sid="5597463576348463">
                 <plugin id="TiledBg" />
                 <behaviors>
@@ -283,7 +284,7 @@
                 <texture />
             </object-type>
         </object-folder>
-        <object-folder expanded="1" name="Enemies">
+        <object-folder expanded="0" name="Enemies">
             <object-folder expanded="0" name="SnakeTail">
                 <object-type name="SnakeTail" sid="2769851197196964">
                     <plugin id="Sprite" />
@@ -439,6 +440,21 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="Jack" sid="3908657403111554">
+                <plugin id="Sprite" />
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="841266947854763" speed="5">
+                        <frame duration="1" hotspotX="0.461538" hotspotY="0.52">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder expanded="0" name="Effects">
             <object-type name="EnemyExplosion" sid="8816149740713208">
@@ -476,6 +492,7 @@
                 <member>BlackHole</member>
                 <member>Diamond</member>
                 <member>GreenSquare</member>
+                <member>Jack</member>
                 <member>PinkBox</member>
                 <member>Pinwheel</member>
                 <member>SmallCircle</member>
@@ -500,6 +517,7 @@
                 <member>BlackHole</member>
                 <member>Diamond</member>
                 <member>GreenSquare</member>
+                <member>Jack</member>
                 <member>PinkBox</member>
                 <member>Pinwheel</member>
                 <member>Player</member>

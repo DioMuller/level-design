@@ -40,7 +40,7 @@
         <variable comment="Pacifist Mode." constant="1" name="PACIFIST" sid="2999703985081152" static="0" type="number">2</variable>
         <variable comment="Survival Mode." constant="1" name="SURVIVAL" sid="4673225052760258" static="0" type="number">3</variable>
         <comment>Debugging helper and modes variables</comment>
-        <variable comment="Is enemy spawning enabled?" constant="0" name="SpawningEnabled" sid="1069659072449692" static="0" type="number">0</variable>
+        <variable comment="Is enemy spawning enabled?" constant="0" name="SpawningEnabled" sid="1069659072449692" static="0" type="number">1</variable>
         <event-group description="System events." sid="229269666203367" title="System">
             <sub-events>
                 <comment>If the player is not on any defined game mode, goes to title screen.</comment>
@@ -782,7 +782,7 @@
                         <condition id="-2" name="On start of layout" sid="470158817768962" type="System" />
                     </conditions>
                     <actions>
-                        <action id="-29" name="Set layout effect enabled" sid="8067658733439288" type="System">
+                        <action id="-27" name="Set effect enabled" sid="8067658733439288" type="Grid">
                             <param id="0" name="Mode">0</param>
                             <param id="1" name="Effect">&quot;Water&quot;</param>
                         </action>

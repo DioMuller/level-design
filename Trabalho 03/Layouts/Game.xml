@@ -83,11 +83,11 @@
                         <effect-instance type="Water">
                             <parameters>
                                 <angle>7</angle>
-                                <delta>20</delta>
-                                <emboss>0.3</emboss>
+                                <delta>30</delta>
+                                <emboss>0.2</emboss>
                                 <frequency>4</frequency>
                                 <intensity>3</intensity>
-                                <reflectivity>400</reflectivity>
+                                <reflectivity>200</reflectivity>
                                 <speed>0.1</speed>
                                 <x-speed>0.3</x-speed>
                                 <y-speed>0.3</y-speed>
@@ -1092,8 +1092,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1000</x>
-                        <y>529</y>
+                        <x>299</x>
+                        <y>1556</y>
                         <z>0</z>
                         <width>64</width>
                         <height>64</height>
@@ -1142,6 +1142,48 @@
                         <depth>0</depth>
                         <hotspotX>0.518518507</hotspotX>
                         <hotspotY>0.518518507</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Jack" uid="84">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Points>10</Points>
+                        <Energy>1</Energy>
+                        <ExplosionH>-15</ExplosionH>
+                        <ExplosionS>100</ExplosionS>
+                        <ExplosionI>200</ExplosionI>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="EnemyMovement">
+                            <properties>
+                                <speed>200</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>564</x>
+                        <y>1522</y>
+                        <z>0</z>
+                        <width>26</width>
+                        <height>25</height>
+                        <depth>0</depth>
+                        <hotspotX>0.461538464</hotspotX>
+                        <hotspotY>0.519999981</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1962,22 +2004,6 @@
             <effect-instance type="GlowVertical">
                 <parameters>
                     <intensity>1</intensity>
-                </parameters>
-            </effect-instance>
-        </effect-type>
-        <effect-type name="Water">
-            <effect id="water" />
-            <effect-instance type="Water">
-                <parameters>
-                    <angle>15</angle>
-                    <delta>20</delta>
-                    <emboss>0.1</emboss>
-                    <frequency>4</frequency>
-                    <intensity>3</intensity>
-                    <reflectivity>200</reflectivity>
-                    <speed>0.1</speed>
-                    <x-speed>0.3</x-speed>
-                    <y-speed>0.3</y-speed>
                 </parameters>
             </effect-instance>
         </effect-type>
