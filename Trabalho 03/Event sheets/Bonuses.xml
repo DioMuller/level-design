@@ -200,7 +200,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Lives, Bombs and Shoot Bonuses." sid="5070743671208185" title="Bonuses">
+        <event-group description="Lives, Bombs and Shoot Bonuses." sid="5070743671208185" title="Bonuses">
             <sub-events>
                 <comment>When the layout is loaded, sets the Extra Bomb and Extra Life scores to the respective intervals.</comment>
                 <event-block sid="3023893324724568">
@@ -230,6 +230,11 @@
                             <param id="1" name="Comparison">5</param>
                             <param id="2" name="Value">ExtraBombScore</param>
                         </condition>
+                        <condition id="-14" name="Compare variable" sid="6047363209430951" type="System">
+                            <param id="0" name="Variable">CurrentMode</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">PACIFIST</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-10" name="Add to" sid="2920541873803562" type="System">
@@ -255,6 +260,11 @@
                             <param id="0" name="Variable">Score</param>
                             <param id="1" name="Comparison">5</param>
                             <param id="2" name="Value">ExtraLifeScore</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="4487674100443732" type="System">
+                            <param id="0" name="Variable">CurrentMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">CLASSIC</param>
                         </condition>
                     </conditions>
                     <actions>

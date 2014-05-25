@@ -41,7 +41,7 @@
         <variable comment="Survival Mode." constant="1" name="SURVIVAL" sid="4673225052760258" static="0" type="number">3</variable>
         <comment>Debugging helper and modes variables</comment>
         <variable comment="Is enemy spawning enabled?" constant="0" name="SpawningEnabled" sid="1069659072449692" static="0" type="number">1</variable>
-        <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
+        <event-group description="System events." sid="229269666203367" title="System">
             <sub-events>
                 <comment>If the player is not on any defined game mode, goes to title screen.</comment>
                 <event-block sid="847585074331592">
@@ -50,12 +50,99 @@
                         <condition id="-14" name="Compare variable" sid="5240763152541947" type="System">
                             <param id="0" name="Variable">CurrentMode</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">0</param>
+                            <param id="2" name="Value">TITLE</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-2" name="Go to layout" sid="7643512323678071" type="System">
                             <param id="0" name="Layout">Title</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Initializes the game - Classic Mode.</comment>
+                <event-block sid="9214413453847166">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="9906760274191549" type="System" />
+                        <condition id="-14" name="Compare variable" sid="5196132323861438" type="System">
+                            <param id="0" name="Variable">CurrentMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">CLASSIC</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="9813792116356491" type="System">
+                            <param id="0" name="Layer">&quot;PacificstHUD&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="6848018205376162" type="System">
+                            <param id="0" name="Layer">&quot;ClassicHUD&quot;</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="6881040871609575" type="System">
+                            <param id="0" name="Layer">&quot;SurvivalHUD&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Initializes the game - Pacifist Mode.</comment>
+                <event-block sid="6318218152890173">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="8200565614702931" type="System" />
+                        <condition id="-14" name="Compare variable" sid="6015453306483822" type="System">
+                            <param id="0" name="Variable">CurrentMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">PACIFIST</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="509124066788469" type="System">
+                            <param id="0" name="Layer">&quot;ClassicHUD&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="8487347117566802" type="System">
+                            <param id="0" name="Layer">&quot;PacificstHUD&quot;</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="9168840585244532" type="System">
+                            <param id="0" name="Layer">&quot;SurvivalHUD&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7710735439376625" type="System">
+                            <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6416295110583172" type="System">
+                            <param id="0" name="Variable">Bombs</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Initializes the game - Survival Mode.</comment>
+                <event-block sid="2598731994869412">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="7937912326803656" type="System" />
+                        <condition id="-14" name="Compare variable" sid="9215149103970835" type="System">
+                            <param id="0" name="Variable">CurrentMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">SURVIVAL</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="8547188602919585" type="System">
+                            <param id="0" name="Layer">&quot;ClassicHUD&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="4912576645779463" type="System">
+                            <param id="0" name="Layer">&quot;PacificstHUD&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="3684727747586802" type="System">
+                            <param id="0" name="Layer">&quot;SurvivalHUD&quot;</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9133976949062987" type="System">
+                            <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Value">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -78,11 +165,6 @@
                             <param id="0" name="Variable">Score</param>
                             <param id="1" name="Comparison">5</param>
                             <param id="2" name="Value">HighScore</param>
-                        </condition>
-                        <condition id="-14" name="Compare variable" sid="4920697729696021" type="System">
-                            <param id="0" name="Variable">CurrentMode</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">CLASSIC</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -492,6 +574,23 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>Sets the Pacifist flag if the player is pacifist.</comment>
+                <event-block sid="6386494445794264">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="5710968370572303" type="Player" />
+                        <condition id="-14" name="Compare variable" sid="1700736107527263" type="System">
+                            <param id="0" name="Variable">CurrentMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">PACIFIST</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="7150748881303341" type="Player">
+                            <param id="0" name="Instance variable">IsPacifist</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <comment>Sets the Player Alive flag to FALSE when the player dies.</comment>
                 <event-block sid="3313779258919682">
                     <conditions>
@@ -572,7 +671,7 @@
                     </actions>
                 </event-block>
                 <comment>Respawns player after death, if it still has lives.</comment>
-                <event-block sid="3058728122704352">
+                <event-block collapsed="1" sid="3058728122704352">
                     <conditions>
                         <condition id="-19" name="On destroyed" sid="9273997221098837" type="Player" />
                     </conditions>
@@ -707,148 +806,19 @@
                         </action>
                     </actions>
                 </event-block>
-                <comment>Preloads audio.</comment>
-                <event-block sid="5263092016872747">
-                    <conditions>
-                        <condition id="-29" name="On load complete" sid="7475949769814004" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="4" name="Preload" sid="200125283130781" type="Audio">
-                            <param id="0" name="Audio file">bullet_hitwall</param>
-                        </action>
-                        <action id="4" name="Preload" sid="9021131593036929" type="Audio">
-                            <param id="0" name="Audio file">Enemy_explode</param>
-                        </action>
-                        <action id="4" name="Preload" sid="4285034459941737" type="Audio">
-                            <param id="0" name="Audio file">Enemy_red_hit</param>
-                        </action>
-                        <action id="4" name="Preload" sid="4111141058443507" type="Audio">
-                            <param id="0" name="Audio file">Enemy_red_suck</param>
-                        </action>
-                        <action id="4" name="Preload" sid="7697094673473031" type="Audio">
-                            <param id="0" name="Audio file">Enemy_red_warning</param>
-                        </action>
-                        <action id="4" name="Preload" sid="659539028499882" type="Audio">
-                            <param id="0" name="Audio file">Enemy_spawn_blue</param>
-                        </action>
-                        <action id="4" name="Preload" sid="6341435436607378" type="Audio">
-                            <param id="0" name="Audio file">Enemy_spawn_green</param>
-                        </action>
-                        <action id="4" name="Preload" sid="7359249436785232" type="Audio">
-                            <param id="0" name="Audio file">Enemy_spawn_orange</param>
-                        </action>
-                        <action id="4" name="Preload" sid="1680696217554217" type="Audio">
-                            <param id="0" name="Audio file">Enemy_spawn_purple</param>
-                        </action>
-                        <action id="4" name="Preload" sid="1473079395403663" type="Audio">
-                            <param id="0" name="Audio file">Enemy_spawn_red</param>
-                        </action>
-                        <action id="4" name="Preload" sid="9120214020591211" type="Audio">
-                            <param id="0" name="Audio file">Fire_Hispeed</param>
-                        </action>
-                        <action id="4" name="Preload" sid="3510743899735402" type="Audio">
-                            <param id="0" name="Audio file">Fire_homing</param>
-                        </action>
-                        <action id="4" name="Preload" sid="8859817469750362" type="Audio">
-                            <param id="0" name="Audio file">Fire_normal</param>
-                        </action>
-                        <action id="4" name="Preload" sid="345856200858823" type="Audio">
-                            <param id="0" name="Audio file">Fire_smartbomb</param>
-                        </action>
-                        <action id="4" name="Preload" sid="5842320309985214" type="Audio">
-                            <param id="0" name="Audio file">Fire_smartbomb_low</param>
-                        </action>
-                        <action id="4" name="Preload" sid="7190389984645686" type="Audio">
-                            <param id="0" name="Audio file">Fire_triway</param>
-                        </action>
-                        <action id="4" name="Preload" sid="4214889190249772" type="Audio">
-                            <param id="0" name="Audio file">Game_over</param>
-                        </action>
-                        <action id="4" name="Preload" sid="1693782932689494" type="Audio">
-                            <param id="0" name="Audio file">Game_start</param>
-                        </action>
-                        <action id="4" name="Preload" sid="6470528764294346" type="Audio">
-                            <param id="0" name="Audio file">Gravity_well_die</param>
-                        </action>
-                        <action id="4" name="Preload" sid="6965831014054578" type="Audio">
-                            <param id="0" name="Audio file">Gravity_well_explode</param>
-                        </action>
-                        <action id="4" name="Preload" sid="9390353587647734" type="Audio">
-                            <param id="0" name="Audio file">Hi_Score_achieved</param>
-                        </action>
-                        <action id="4" name="Preload" sid="873279154259993" type="Audio">
-                            <param id="0" name="Audio file">Mayfly</param>
-                        </action>
-                        <action id="4" name="Preload" sid="1610785197838025" type="Audio">
-                            <param id="0" name="Audio file">Multiplier</param>
-                        </action>
-                        <action id="4" name="Preload" sid="7676658622363372" type="Audio">
-                            <param id="0" name="Audio file">pickup_extralife</param>
-                        </action>
-                        <action id="4" name="Preload" sid="3659277360199703" type="Audio">
-                            <param id="0" name="Audio file">pickup_smartbomb</param>
-                        </action>
-                        <action id="4" name="Preload" sid="2811727647105972" type="Audio">
-                            <param id="0" name="Audio file">pickup_weapon</param>
-                        </action>
-                        <action id="4" name="Preload" sid="80419615198942" type="Audio">
-                            <param id="0" name="Audio file">Player_shielded_hit_enemy</param>
-                        </action>
-                        <action id="4" name="Preload" sid="1737124848056694" type="Audio">
-                            <param id="0" name="Audio file">Player_Spawn</param>
-                        </action>
-                        <action id="4" name="Preload" sid="6296815432986339" type="Audio">
-                            <param id="0" name="Audio file">Projectile_hit_wall</param>
-                        </action>
-                        <action id="4" name="Preload" sid="5922901078569264" type="Audio">
-                            <param id="0" name="Audio file">Repulsar_activate</param>
-                        </action>
-                        <action id="4" name="Preload" sid="4049297767147847" type="Audio">
-                            <param id="0" name="Audio file">Repulsar_spawn</param>
-                        </action>
-                        <action id="4" name="Preload" sid="157889435607006" type="Audio">
-                            <param id="0" name="Audio file">Shield_off</param>
-                        </action>
-                        <action id="4" name="Preload" sid="9143083183619889" type="Audio">
-                            <param id="0" name="Audio file">Shield_on</param>
-                        </action>
-                        <action id="4" name="Preload" sid="2292175707092138" type="Audio">
-                            <param id="0" name="Audio file">Ship_explode</param>
-                        </action>
-                        <action id="4" name="Preload" sid="7316791067545847" type="Audio">
-                            <param id="0" name="Audio file">Ship_hitwall</param>
-                        </action>
-                        <action id="4" name="Preload" sid="3010970671442626" type="Audio">
-                            <param id="0" name="Audio file">Ship_thrust_loop</param>
-                        </action>
-                        <action id="4" name="Preload" sid="9337179944563443" type="Audio">
-                            <param id="0" name="Audio file">silence</param>
-                        </action>
-                        <action id="4" name="Preload" sid="7535794912734978" type="Audio">
-                            <param id="0" name="Audio file">Snake_spawn</param>
-                        </action>
-                        <action id="4" name="Preload" sid="9192998853086431" type="Audio">
-                            <param id="0" name="Audio file">UI_Change</param>
-                        </action>
-                        <action id="4" name="Preload" sid="1546363615447854" type="Audio">
-                            <param id="0" name="Audio file">UI_Confirm</param>
-                        </action>
-                        <action id="4" name="Preload" sid="1251557892912602" type="Audio">
-                            <param id="0" name="Audio file">UI_Delete</param>
-                        </action>
-                        <action id="4" name="Preload" sid="1105033432179359" type="Audio">
-                            <param id="0" name="Audio file">Wanderer_spawn</param>
-                        </action>
-                    </actions>
-                </event-block>
             </sub-events>
         </event-group>
         <event-group collapsed="1" description="Heads up display events." sid="2110095843469122" title="HUD">
             <sub-events>
-                <comment>Update the lives, bombs, score and high score every frame.</comment>
+                <comment>Update the lives, bombs, score and high score every frame - Classic Mode.</comment>
                 <event-block sid="8890957871182892">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="4847067047121477" type="System" />
+                        <condition id="-14" name="Compare variable" sid="1071410596223037" type="System">
+                            <param id="0" name="Variable">CurrentMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">CLASSIC</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="9850297362375251" type="HUDScore">
@@ -864,6 +834,56 @@
                             <param id="0" name="Text">Lives</param>
                         </action>
                         <action id="0" name="Set text" sid="4089427949437408" type="HUDMultiplier">
+                            <param id="0" name="Text">Multiplier&amp;&quot;x&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Update the lives, bombs, score and high score every frame - Pacifist Mode.</comment>
+                <event-block sid="3610662623189907">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="5968526407983325" type="System" />
+                        <condition id="-14" name="Compare variable" sid="6859462522360628" type="System">
+                            <param id="0" name="Variable">CurrentMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">PACIFIST</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="8935638035617113" type="HUDTime">
+                            <param id="0" name="Text">PacifistTime</param>
+                        </action>
+                        <action id="0" name="Set text" sid="5823440701644891" type="HUDBestTime">
+                            <param id="0" name="Text">BestPacifist</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Update the lives, bombs, score and high score every frame - Survival Mode.</comment>
+                <event-block sid="9586286507710057">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="3894143359574613" type="System" />
+                        <condition id="-14" name="Compare variable" sid="9493019581250018" type="System">
+                            <param id="0" name="Variable">CurrentMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">SURVIVAL</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="2294636941954363" type="HUDTime">
+                            <param id="0" name="Text">SurvivalTime</param>
+                        </action>
+                        <action id="0" name="Set text" sid="2094940943074887" type="HUDBestTime">
+                            <param id="0" name="Text">BestSurvival</param>
+                        </action>
+                        <action id="0" name="Set text" sid="498240261398122" type="HUDScore">
+                            <param id="0" name="Text">Score</param>
+                        </action>
+                        <action id="0" name="Set text" sid="2031484299589201" type="HUDHighScore">
+                            <param id="0" name="Text">HighScore</param>
+                        </action>
+                        <action id="0" name="Set text" sid="1801564539479133" type="HUDBombCount">
+                            <param id="0" name="Text">Bombs</param>
+                        </action>
+                        <action id="0" name="Set text" sid="8386189409461043" type="HUDMultiplier">
                             <param id="0" name="Text">Multiplier&amp;&quot;x&quot;</param>
                         </action>
                     </actions>

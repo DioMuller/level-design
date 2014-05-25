@@ -82,7 +82,7 @@
                 <plugin id="Function" />
             </object-type>
         </object-folder>
-        <object-folder expanded="0" name="HUD">
+        <object-folder expanded="1" name="HUD">
             <object-type name="HUDHighScore" sid="1474048371402857">
                 <plugin id="Spritefont2" />
                 <texture />
@@ -135,6 +135,14 @@
                         <effect id="hsladjust" />
                     </effect-type>
                 </effects>
+                <texture />
+            </object-type>
+            <object-type name="HUDTime" sid="1250920789543896">
+                <plugin id="Spritefont2" />
+                <texture />
+            </object-type>
+            <object-type name="HUDBestTime" sid="6873170852999359">
+                <plugin id="Spritefont2" />
                 <texture />
             </object-type>
         </object-folder>
@@ -439,6 +447,11 @@
                 <instance-variables>
                     <instance-variable comment="Selected option value." name="Value" sid="5532515299108496" type="number" />
                 </instance-variables>
+                <effects>
+                    <effect-type name="AdjustHSL">
+                        <effect id="hsladjust" />
+                    </effect-type>
+                </effects>
                 <texture />
             </object-type>
         </object-folder>
@@ -525,12 +538,12 @@
         <layout>Game.xml</layout>
         <layout>Title.xml</layout>
     </layout-folder>
-    <event-folder expanded="0">
-        <event-folder expanded="1" name="Layouts">
+    <event-folder expanded="1">
+        <event-folder expanded="0" name="Layouts">
             <event-sheet>GameEvents.xml</event-sheet>
             <event-sheet>TitleEvents.xml</event-sheet>
         </event-folder>
-        <event-folder expanded="1" name="Helper">
+        <event-folder expanded="0" name="Helper">
             <event-sheet>Bonuses.xml</event-sheet>
             <event-sheet>Enemies.xml</event-sheet>
             <event-sheet>Functions.xml</event-sheet>
