@@ -147,7 +147,7 @@
                 <texture />
             </object-type>
         </object-folder>
-        <object-folder expanded="1" name="Player">
+        <object-folder expanded="0" name="Player">
             <object-type name="Player" sid="6309762137083568">
                 <plugin id="Sprite" />
                 <instance-variables>
@@ -284,7 +284,7 @@
                 <texture />
             </object-type>
         </object-folder>
-        <object-folder expanded="0" name="Enemies">
+        <object-folder expanded="1" name="Enemies">
             <object-folder expanded="0" name="SnakeTail">
                 <object-type name="SnakeTail" sid="2769851197196964">
                     <plugin id="Sprite" />

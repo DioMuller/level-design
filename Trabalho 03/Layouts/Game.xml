@@ -137,7 +137,7 @@
                         <ExplosionH>-25</ExplosionH>
                         <ExplosionS>200</ExplosionS>
                         <ExplosionI>200</ExplosionI>
-                        <ExplosionIntensity>300</ExplosionIntensity>
+                        <ExplosionIntensity>50</ExplosionIntensity>
                         <IsBeingAttracted>false</IsBeingAttracted>
                         <AttractionUID>0</AttractionUID>
                         <IsPacifist>false</IsPacifist>
@@ -312,7 +312,7 @@
                         <ExplosionH>0</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>100</ExplosionI>
-                        <ExplosionIntensity>300</ExplosionIntensity>
+                        <ExplosionIntensity>50</ExplosionIntensity>
                         <IsBeingAttracted>false</IsBeingAttracted>
                         <AttractionUID>0</AttractionUID>
                     </instance-variables>
@@ -721,7 +721,7 @@
                         <ExplosionH>-25</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
-                        <ExplosionIntensity>300</ExplosionIntensity>
+                        <ExplosionIntensity>50</ExplosionIntensity>
                         <IsBeingAttracted>false</IsBeingAttracted>
                         <AttractionUID>0</AttractionUID>
                     </instance-variables>
@@ -802,7 +802,7 @@
                         <ExplosionH>-50</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
-                        <ExplosionIntensity>300</ExplosionIntensity>
+                        <ExplosionIntensity>50</ExplosionIntensity>
                         <IsRunning>false</IsRunning>
                     </instance-variables>
                     <behavior-instances>
@@ -846,7 +846,7 @@
                         <ExplosionH>-5</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
-                        <ExplosionIntensity>300</ExplosionIntensity>
+                        <ExplosionIntensity>50</ExplosionIntensity>
                         <IsBeingAttracted>false</IsBeingAttracted>
                         <AttractionUID>0</AttractionUID>
                     </instance-variables>
@@ -901,7 +901,7 @@
                         <ExplosionH>-5</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
-                        <ExplosionIntensity>300</ExplosionIntensity>
+                        <ExplosionIntensity>50</ExplosionIntensity>
                         <IsBeingAttracted>false</IsBeingAttracted>
                         <AttractionUID>0</AttractionUID>
                     </instance-variables>
@@ -962,7 +962,7 @@
                         <ExplosionH>-20</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
-                        <ExplosionIntensity>300</ExplosionIntensity>
+                        <ExplosionIntensity>50</ExplosionIntensity>
                         <IsBeingAttracted>false</IsBeingAttracted>
                         <AttractionUID>0</AttractionUID>
                     </instance-variables>
@@ -1015,7 +1015,7 @@
                         <ExplosionH>25</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
-                        <ExplosionIntensity>300</ExplosionIntensity>
+                        <ExplosionIntensity>50</ExplosionIntensity>
                         <ParentUID>0</ParentUID>
                     </instance-variables>
                     <behavior-instances>
@@ -1048,7 +1048,7 @@
                         <ExplosionH>25</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
-                        <ExplosionIntensity>300</ExplosionIntensity>
+                        <ExplosionIntensity>50</ExplosionIntensity>
                         <ParentUID>0</ParentUID>
                     </instance-variables>
                     <behavior-instances>
@@ -1083,7 +1083,7 @@
                         <ExplosionH>30</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
-                        <ExplosionIntensity>300</ExplosionIntensity>
+                        <ExplosionIntensity>50</ExplosionIntensity>
                         <IsDecayed>false</IsDecayed>
                     </instance-variables>
                     <behavior-instances>
@@ -1127,7 +1127,7 @@
                         <ExplosionH>-20</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>150</ExplosionI>
-                        <ExplosionIntensity>300</ExplosionIntensity>
+                        <ExplosionIntensity>50</ExplosionIntensity>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="EnemyMovement">
@@ -1170,7 +1170,7 @@
                         <ExplosionH>-15</ExplosionH>
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
-                        <ExplosionIntensity>20</ExplosionIntensity>
+                        <ExplosionIntensity>10</ExplosionIntensity>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="EnemyMovement">
