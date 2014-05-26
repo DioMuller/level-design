@@ -906,7 +906,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <comment>Makes the small box look at the player on regular intervals.</comment>
+                <comment>Makes the jack look at the player on regular intervals.</comment>
                 <event-block sid="8149210319144234">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="8134503769747271" type="System">
@@ -921,6 +921,228 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="We&apos;re not really sure why we call these guys Pac Men. They only vaguely resemble Pac Man, but it&apos;s already ingrained in our minds and it&apos;s too late to turn back now. In reality, they&apos;re just clones of your ship. Instead of being able to shoot like you do, the Pac Men can put up a shield in front of them. This can be extremely frustrating because there is no way to shoot down the shield.&#x0D;&#x0A;&#x0D;&#x0A;There is hope for dealing with the Pac Men. Like the Detonated Black Holes, Pac Men are fast, but not agile. Simply keep moving in an arc away from them and they&apos;ll miss you. Even better, when they miss they become vulnerable to a shot to their unguarded behind." sid="7407275822562194" title="Pac Men / Magnet Ships" />
+        <event-group description="We&apos;re not really sure why we call these guys Pac Men. They only vaguely resemble Pac Man, but it&apos;s already ingrained in our minds and it&apos;s too late to turn back now. In reality, they&apos;re just clones of your ship. Instead of being able to shoot like you do, the Pac Men can put up a shield in front of them. This can be extremely frustrating because there is no way to shoot down the shield.&#x0D;&#x0A;&#x0D;&#x0A;There is hope for dealing with the Pac Men. Like the Detonated Black Holes, Pac Men are fast, but not agile. Simply keep moving in an arc away from them and they&apos;ll miss you. Even better, when they miss they become vulnerable to a shot to their unguarded behind." sid="7407275822562194" title="Pac Men / Magnet Ships">
+            <sub-events>
+                <comment>When the enemy is created, makes it look at the player. Also sets a random rotation so the three boxes won&apos;t follow always the same pattern.</comment>
+                <event-block sid="3676234404149838">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="1112250644124725" type="Pacman" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="3521631156036864" type="Audio">
+                            <param id="0" name="Audio file">Enemy_spawn_red</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="5805527548227607" type="Pacman">
+                            <param id="0" name="Object">PacmanShield</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="7066330457935935" type="PacmanShield">
+                            <param id="0" name="Instance variable">ParentId</param>
+                            <param id="1" name="Value">Pacman.UID</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="777013653858335" type="Pacman">
+                            <param id="0" name="Instance variable">ShieldID</param>
+                            <param id="1" name="Value">PacmanShield.UID</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="6817384596518666" type="Pacman">
+                            <param id="0" name="Instance variable">Searching</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action behavior="EnemyMovement" id="0" name="Set speed" sid="9885838807419787" type="Pacman">
+                            <param id="0" name="Speed">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>When the enemy hits a wall, forces him to look at the player again.</comment>
+                <event-block sid="6785216448780736">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5792478690099133" type="Pacman">
+                            <param id="0" name="Object">Borders</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="6367572677551538" type="Pacman">
+                            <param id="0" name="Instance variable">Searching</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Makes the small box look at the player on regular intervals.</comment>
+                <event-block sid="6524138945926906">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="3429997546950763" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2277403203248932" type="Pacman">
+                            <param id="0" name="Instance variable">Searching</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="3" name="Set angle of motion" sid="947985409128996" type="Pacman">
+                            <param id="0" name="Angle">angle(Pacman.X, Pacman.Y, Player.X, Player.Y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Makes the small box look at the player on regular intervals.</comment>
+                <event-block sid="807224715561486">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="698414203763888" type="System">
+                            <param id="0" name="Interval (seconds)">0.1</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="4044634605363241" type="Pacman">
+                            <param id="0" name="Instance variable">Searching</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-20" name="Rotate toward angle" sid="3185804909527086" type="Pacman">
+                            <param id="0" name="Degrees">10</param>
+                            <param id="1" name="Angle">angle(Pacman.X, Pacman.Y, Player.X, Player.Y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>You found it, stop searching!</comment>
+                <event-block sid="8199138038896121">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="6420802384482502" type="System">
+                            <param id="0" name="Object">Pacman</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="8324178390025644" type="System">
+                            <param id="0" name="First value">abs(Pacman.Angle - angle(Pacman.X, Pacman.Y, Player.X, Player.Y))</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">30</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="3083487156335567" type="Pacman">
+                            <param id="0" name="Instance variable">Searching</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="8054590597936151" type="Pacman">
+                            <param id="0" name="Instance variable">Searching</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Sets the shield position and rotation to the Pacman position and rotation.</comment>
+                <event-block sid="8223544188057106">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="5745704691087353" type="System" />
+                        <condition id="-11" name="For Each" sid="6250897108375627" type="System">
+                            <param id="0" name="Object">PacmanShield</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="7594142063453997" type="Pacman">
+                            <param id="0" name="Unique ID">PacmanShield.ParentId</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="8195328859614223" type="PacmanShield">
+                            <param id="0" name="X">Pacman.X</param>
+                            <param id="1" name="Y">Pacman.Y</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="7861224595580813" type="PacmanShield">
+                            <param id="0" name="Angle">Pacman.Angle</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Destroys shield if parent is destroyed.</comment>
+                <event-block sid="4848253642428199">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="5733949804540288" type="System" />
+                        <condition id="-11" name="For Each" sid="3579348014786465" type="System">
+                            <param id="0" name="Object">PacmanShield</param>
+                        </condition>
+                        <condition id="-31" inverted="1" name="Object UID exists" sid="7519833435646284" type="System">
+                            <param id="0" name="UID">PacmanShield.ParentId</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="4834373517967899" type="PacmanShield" />
+                    </actions>
+                </event-block>
+                <comment>Destroys bullet if it hits shield.</comment>
+                <event-block sid="5138607272702613">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4243439657513761" type="Shot">
+                            <param id="0" name="Object">PacmanShield</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="1909506478606973" type="PacmanShield">
+                            <param id="0" name="Instance variable">IsActive</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="2957833299965636" type="Shot" />
+                    </actions>
+                </event-block>
+                <comment>Shows shield if it is active.</comment>
+                <event-block sid="6436885733343137">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="4288652559898717" type="PacmanShield">
+                            <param id="0" name="Instance variable">IsActive</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="1054731814729553" type="PacmanShield">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Hides shield if it is inactive.</comment>
+                <event-block sid="5044102644267243">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4064514494779777" type="PacmanShield">
+                            <param id="0" name="Instance variable">IsActive</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="7060295618925658" type="PacmanShield">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>If its searching, don&apos;t move.</comment>
+                <event-block sid="7714539313585628">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="9248913452662073" type="Pacman">
+                            <param id="0" name="Instance variable">Searching</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="2592756984556653" type="PacmanShield">
+                            <param id="0" name="Unique ID">Pacman.ShieldID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="0" name="Set speed" sid="9513141052272726" type="Pacman">
+                            <param id="0" name="Speed">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="289072422812728" type="PacmanShield">
+                            <param id="0" name="Instance variable">IsActive</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>If its not searching, move.</comment>
+                <event-block sid="8825302334233168">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="6361536450853512" type="Pacman">
+                            <param id="0" name="Instance variable">Searching</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="2185394111773108" type="PacmanShield">
+                            <param id="0" name="Unique ID">Pacman.ShieldID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="EnemyMovement" id="0" name="Set speed" sid="6193465305493828" type="Pacman">
+                            <param id="0" name="Speed">300</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="988436981239702" type="PacmanShield">
+                            <param id="0" name="Instance variable">IsActive</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>

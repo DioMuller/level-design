@@ -285,7 +285,7 @@
             </object-type>
         </object-folder>
         <object-folder expanded="1" name="Enemies">
-            <object-folder expanded="0" name="SnakeTail">
+            <object-folder expanded="1" name="Parts">
                 <object-type name="SnakeTail" sid="2769851197196964">
                     <plugin id="Sprite" />
                     <behaviors>
@@ -322,6 +322,25 @@
                                     <point x="0" y="1" />
                                     <point x="0" y="0" />
                                     <point x="1" y="0" />
+                                    <point x="1" y="1" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="PacmanShield" sid="654703506465539">
+                    <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable comment="Parent Pacmen ID." name="ParentId" sid="8276247176613083" type="number" />
+                        <instance-variable comment="Is the shield active?" name="IsActive" sid="5861122502647535" type="boolean" />
+                    </instance-variables>
+                    <animation-folder expanded="1">
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="124570369471471" speed="5">
+                            <frame duration="1" hotspotX="0.383333" hotspotY="0.488889">
+                                <collision-poly>
+                                    <point x="0.779166" y="0.994444" />
+                                    <point x="0.770833" y="0" />
+                                    <point x="1" y="0.00555556" />
                                     <point x="1" y="1" />
                                 </collision-poly>
                             </frame>
@@ -455,6 +474,25 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="Pacman" sid="292288375524605">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable comment="Shield ID." name="ShieldID" sid="2772353675522088" type="number" />
+                    <instance-variable comment="Is the enemy searching for the player?" name="Searching" sid="9070801451120993" type="boolean" />
+                </instance-variables>
+                <animation-folder expanded="1">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6468373809075712" speed="5">
+                        <frame duration="1" hotspotX="0.522727" hotspotY="0.488889">
+                            <collision-poly>
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="0.568182" y="0" />
+                                <point x="0.545455" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder expanded="0" name="Effects">
             <object-type name="EnemyExplosion" sid="8816149740713208">
@@ -493,6 +531,7 @@
                 <member>Diamond</member>
                 <member>GreenSquare</member>
                 <member>Jack</member>
+                <member>Pacman</member>
                 <member>PinkBox</member>
                 <member>Pinwheel</member>
                 <member>SmallCircle</member>
@@ -518,6 +557,7 @@
                 <member>Diamond</member>
                 <member>GreenSquare</member>
                 <member>Jack</member>
+                <member>Pacman</member>
                 <member>PinkBox</member>
                 <member>Pinwheel</member>
                 <member>Player</member>
@@ -551,10 +591,13 @@
         <family name="GravityInfluenced" plugin-id="Sprite" sid="3779489243693704">
             <members>
                 <member>Diamond</member>
+                <member>Jack</member>
+                <member>Pacman</member>
                 <member>PinkBox</member>
                 <member>Pinwheel</member>
                 <member>Player</member>
                 <member>Shot</member>
+                <member>SmallCircle</member>
                 <member>SmallPinkBox</member>
                 <member>Snakehead</member>
             </members>
@@ -574,11 +617,11 @@
         <layout>Title.xml</layout>
     </layout-folder>
     <event-folder expanded="1">
-        <event-folder expanded="0" name="Layouts">
+        <event-folder expanded="1" name="Layouts">
             <event-sheet>GameEvents.xml</event-sheet>
             <event-sheet>TitleEvents.xml</event-sheet>
         </event-folder>
-        <event-folder expanded="0" name="Helper">
+        <event-folder expanded="1" name="Helper">
             <event-sheet>Bonuses.xml</event-sheet>
             <event-sheet>Enemies.xml</event-sheet>
             <event-sheet>Functions.xml</event-sheet>

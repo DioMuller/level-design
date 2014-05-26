@@ -1128,6 +1128,8 @@
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>150</ExplosionI>
                         <ExplosionIntensity>50</ExplosionIntensity>
+                        <IsBeingAttracted>false</IsBeingAttracted>
+                        <AttractionUID>0</AttractionUID>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="EnemyMovement">
@@ -1141,6 +1143,16 @@
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Attraction">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1171,6 +1183,8 @@
                         <ExplosionS>100</ExplosionS>
                         <ExplosionI>200</ExplosionI>
                         <ExplosionIntensity>10</ExplosionIntensity>
+                        <IsBeingAttracted>false</IsBeingAttracted>
+                        <AttractionUID>0</AttractionUID>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="EnemyMovement">
@@ -1184,6 +1198,16 @@
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Attraction">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1196,6 +1220,317 @@
                         <depth>0</depth>
                         <hotspotX>0.461538464</hotspotX>
                         <hotspotY>0.519999981</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Pacman" uid="53">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Points>100</Points>
+                        <Energy>1</Energy>
+                        <ExplosionH>-5</ExplosionH>
+                        <ExplosionS>100</ExplosionS>
+                        <ExplosionI>200</ExplosionI>
+                        <ExplosionIntensity>50</ExplosionIntensity>
+                        <IsBeingAttracted>false</IsBeingAttracted>
+                        <AttractionUID>0</AttractionUID>
+                        <ShieldID>0</ShieldID>
+                        <Searching>true</Searching>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="EnemyMovement">
+                            <properties>
+                                <speed>200</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Attraction">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>526</x>
+                        <y>946</y>
+                        <z>0</z>
+                        <width>44</width>
+                        <height>45</height>
+                        <depth>0</depth>
+                        <hotspotX>0.522727251</hotspotX>
+                        <hotspotY>0.48888889</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="PacmanShield" uid="64">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <ParentId>0</ParentId>
+                        <IsActive>false</IsActive>
+                    </instance-variables>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>333</x>
+                        <y>1443</y>
+                        <z>0</z>
+                        <width>60</width>
+                        <height>45</height>
+                        <depth>0</depth>
+                        <hotspotX>0.383333325</hotspotX>
+                        <hotspotY>0.48888889</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Pacman" uid="67">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Points>100</Points>
+                        <Energy>1</Energy>
+                        <ExplosionH>-5</ExplosionH>
+                        <ExplosionS>100</ExplosionS>
+                        <ExplosionI>200</ExplosionI>
+                        <ExplosionIntensity>50</ExplosionIntensity>
+                        <IsBeingAttracted>false</IsBeingAttracted>
+                        <AttractionUID>0</AttractionUID>
+                        <ShieldID>0</ShieldID>
+                        <Searching>true</Searching>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="EnemyMovement">
+                            <properties>
+                                <speed>200</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Attraction">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>809</x>
+                        <y>908</y>
+                        <z>0</z>
+                        <width>44</width>
+                        <height>45</height>
+                        <depth>0</depth>
+                        <hotspotX>0.522727251</hotspotX>
+                        <hotspotY>0.48888889</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Pacman" uid="69">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Points>100</Points>
+                        <Energy>1</Energy>
+                        <ExplosionH>-5</ExplosionH>
+                        <ExplosionS>100</ExplosionS>
+                        <ExplosionI>200</ExplosionI>
+                        <ExplosionIntensity>50</ExplosionIntensity>
+                        <IsBeingAttracted>false</IsBeingAttracted>
+                        <AttractionUID>0</AttractionUID>
+                        <ShieldID>0</ShieldID>
+                        <Searching>true</Searching>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="EnemyMovement">
+                            <properties>
+                                <speed>200</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Attraction">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>436</x>
+                        <y>433</y>
+                        <z>0</z>
+                        <width>44</width>
+                        <height>45</height>
+                        <depth>0</depth>
+                        <hotspotX>0.522727251</hotspotX>
+                        <hotspotY>0.48888889</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Pacman" uid="70">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Points>100</Points>
+                        <Energy>1</Energy>
+                        <ExplosionH>-5</ExplosionH>
+                        <ExplosionS>100</ExplosionS>
+                        <ExplosionI>200</ExplosionI>
+                        <ExplosionIntensity>50</ExplosionIntensity>
+                        <IsBeingAttracted>false</IsBeingAttracted>
+                        <AttractionUID>0</AttractionUID>
+                        <ShieldID>0</ShieldID>
+                        <Searching>true</Searching>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="EnemyMovement">
+                            <properties>
+                                <speed>200</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Attraction">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>880</x>
+                        <y>706</y>
+                        <z>0</z>
+                        <width>44</width>
+                        <height>45</height>
+                        <depth>0</depth>
+                        <hotspotX>0.522727251</hotspotX>
+                        <hotspotY>0.48888889</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Pacman" uid="71">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Points>100</Points>
+                        <Energy>1</Energy>
+                        <ExplosionH>-5</ExplosionH>
+                        <ExplosionS>100</ExplosionS>
+                        <ExplosionI>200</ExplosionI>
+                        <ExplosionIntensity>50</ExplosionIntensity>
+                        <IsBeingAttracted>false</IsBeingAttracted>
+                        <AttractionUID>0</AttractionUID>
+                        <ShieldID>0</ShieldID>
+                        <Searching>true</Searching>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="EnemyMovement">
+                            <properties>
+                                <speed>200</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Attraction">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>581</x>
+                        <y>708</y>
+                        <z>0</z>
+                        <width>44</width>
+                        <height>45</height>
+                        <depth>0</depth>
+                        <hotspotX>0.522727251</hotspotX>
+                        <hotspotY>0.48888889</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
