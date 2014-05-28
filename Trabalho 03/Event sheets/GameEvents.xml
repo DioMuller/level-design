@@ -46,7 +46,7 @@
         <variable comment="Number of enemies to be spawned" constant="0" name="SpawnCount" sid="9436681922428642" static="0" type="number">1</variable>
         <variable comment="Spawn difficulty value, will decide what will spawn." constant="0" name="SpawnValue" sid="5591733944541629" static="0" type="number">0</variable>
         <variable comment="Time interval between spawns." constant="0" name="SpawnTimer" sid="96232069473158" static="0" type="number">5</variable>
-        <event-group collapsed="1" description="System events." sid="229269666203367" title="System">
+        <event-group description="System events." sid="229269666203367" title="System">
             <sub-events>
                 <comment>If the player is not on any defined game mode, goes to title screen.</comment>
                 <event-block sid="847585074331592">
@@ -543,7 +543,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="Player and player effects/helpers (shot, flame jet) events." sid="7784473911862342" title="Player">
+        <event-group description="Player and player effects/helpers (shot, flame jet) events." sid="7784473911862342" title="Player">
             <sub-events>
                 <comment>Respawns player after death, if it still has lives.</comment>
                 <event-block sid="1453842132405709">
@@ -672,6 +672,9 @@
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">FALSE</param>
                         </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="3113697107370784" type="Player">
+                            <param id="0" name="Instance variable">IsPacifist</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-15" name="Set visible" sid="1829208989621669" type="Aim">
@@ -687,6 +690,9 @@
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">FALSE</param>
                         </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="9465690424072432" type="Player">
+                            <param id="0" name="Instance variable">IsPacifist</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-15" name="Set visible" sid="5422043577748084" type="Aim">
@@ -694,9 +700,22 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>If the player is pacifist, hide aim.</comment>
+                <event-block sid="1035090915960847">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="1246037590158552" type="Player">
+                            <param id="0" name="Instance variable">IsPacifist</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="5670294080678194" type="Aim">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
-        <event-group description="Enemy spawning, spawning dificulty, spawning mode and type control." sid="5994465010774309" title="Spawning">
+        <event-group collapsed="1" description="Enemy spawning, spawning dificulty, spawning mode and type control." sid="5994465010774309" title="Spawning">
             <sub-events>
                 <comment>Decide the next spawn each spawn cycle.</comment>
                 <event-block sid="2154276340985881">
