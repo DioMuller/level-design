@@ -41,7 +41,7 @@
         <variable comment="Score where the player will get the next extra bomb." constant="0" name="ExtraBombScore" sid="8785519423376288" static="0" type="number">0</variable>
         <variable comment="Score where the player will get the next shooting change." constant="0" name="ShootChangeScore" sid="9070260645011268" static="0" type="number">0</variable>
         <comment>Spawning variables</comment>
-        <variable comment="Is enemy spawning enabled?" constant="0" name="SpawningEnabled" sid="1069659072449692" static="0" type="number">0</variable>
+        <variable comment="Is enemy spawning enabled?" constant="0" name="SpawningEnabled" sid="1069659072449692" static="0" type="number">1</variable>
         <variable comment="Current spawning level." constant="0" name="SpawningLevel" sid="7193781022498176" static="0" type="number">2</variable>
         <variable comment="Number of enemies to be spawned" constant="0" name="SpawnCount" sid="9436681922428642" static="0" type="number">1</variable>
         <variable comment="Spawn difficulty value, will decide what will spawn." constant="0" name="SpawnValue" sid="5591733944541629" static="0" type="number">0</variable>
